@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niyamadharshini</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    :root {
+      --bg: #ffffff;        /* Light background */
+      --text: #000000;      /* Light text */
+      --card: #f9f9f9;
+      --border: #ccc;
+    }
+
+    .dark-mode {
+      --bg: #000000;        /* Dark background */
+      --text: #ffffff;      /* Dark text */
+      --card: #111111;
+      --border: #333333;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: flex;
+      position: relative;
+      background: var(--bg);
+    }
+
+    /* 🖼️ Background Image */
+    .background-image {
+      background: url("https://images.pexels.com/photos/6077123/pexels-photo-6077123.jpeg?_gl=1*llaea1*_ga*MTkyOTg1NjU3NS4xNzY2ODQ2NjI3*_ga_8JE65Q40S6*czE3NjY4NDY2MjYkbzEkZzEkdDE3NjY4NDY2MzQkajUyJGwwJGgw")
+        center/cover no-repeat;
+      opacity: 0.25;
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      filter: brightness(1.2);
+      transition: opacity 0.3s ease;
+    }
+
+    /* 🌑 Dark mode background visibility */
+    .dark-mode .background-image {
+      opacity: 0.45;
+      filter: brightness(1.2) contrast(1.1) saturate(1.2);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: var(--card);
+      border-right: 1px solid var(--border);
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      height: 100%;
+      transition: left 0.3s;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar h3 {
+      font-size: 0.8rem;
+      color: var(--text);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .new-chat {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: var(--border);
+      color: var(--text);
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .chat-item {
+      background: var(--card);
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: 0.2s;
+      color: var(--text);
+    }
+
+    .chat-item:hover {
+      background: var(--border);
+    }
+
+    /* Main Section */
+    .main {
+      flex: 1;
+      padding: 4rem 1rem 2rem 1rem;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    .main h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .input-box {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      color: var(--text);
+      font-size: 1rem;
+      resize: none;
+      outline: none;
+    }
+
+    #sendBtn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #sendBtn:hover {
+      opacity: 0.8;
+    }
+
+    /* Top Buttons */
+    .menu-btn,
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 20;
+      color: var(--text);
+    }
+
+    .menu-btn {
+      left: 1rem;
+    }
+
+    .theme-toggle {
+      right: 1rem;
+    }
+
+    .menu-btn:hover,
+    .theme-toggle:hover {
+      background: var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <div class="background-image"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <button class="new-chat" id="newChatBtn">➕ New Chat</button>
+      <h3>Recent Chats</h3>
+      <div id="chatList">
+        <div class="chat-item">Indian Penal Code Section 420</div>
+        <div class="chat-item">Right to Information Act 2005</div>
+        <div class="chat-item">Constitutional Amendment Process</div>
+      </div>
+    </div>
+
+    <!-- Top Buttons -->
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+
+    <!-- Main Section -->
+    <div class="main">
+      <h1>നിയമദർശിനി</h1>
+
+      <div class="input-box">
+        <textarea id="queryInput" placeholder="Ask about any Indian law, bill, or act..."></textarea>
+        <button id="sendBtn">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const app = document.getElementById("app");
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+    const themeToggle = document.getElementById("themeToggle");
+    const newChatBtn = document.getElementById("newChatBtn");
+    const sendBtn = document.getElementById("sendBtn");
+    const queryInput = document.getElementById("queryInput");
+
+    // Sidebar toggle
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+
+    // Theme toggle (black <-> white)
+    themeToggle.addEventListener("click", () => {
+      app.classList.toggle("dark-mode");
+      themeToggle.textContent = app.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+
+    // New Chat clears text area
+    newChatBtn.addEventListener("click", () => {
+      queryInput.value = "";
+    });
+
+    // Send button placeholder
+    sendBtn.addEventListener("click", () => {
+      alert("Frontend only — backend integration coming soon!");
+    });
+  </script>
+</body>
+</html>

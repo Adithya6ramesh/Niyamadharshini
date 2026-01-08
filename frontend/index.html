@@ -111,58 +111,256 @@
       background: var(--border);
     }
 
-    /* Main Section */
+    /* Main Section - Chat Layout */
     .main {
       flex: 1;
-      padding: 4rem 1rem 2rem 1rem;
-      max-width: 700px;
-      margin: auto;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100%;
       z-index: 1;
       position: relative;
+      margin-left: 0;
+      transition: margin-left 0.3s ease;
     }
 
-    .main h1 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
+    .main.sidebar-open {
+      margin-left: 250px;
+    }
+
+    /* Header */
+    .chat-header {
+      padding: 1rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .chat-header h1 {
+      font-size: 1.8rem;
       color: var(--text);
     }
 
+    /* Chat Messages Area */
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Welcome Message */
+    .welcome-message {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text);
+      opacity: 0.7;
+    }
+
+    .welcome-message h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Message Bubbles */
+    .message {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 80%;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .message.bot {
+      align-self: flex-start;
+    }
+
+    .message-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 1rem 1.2rem;
+      line-height: 1.8;
+      word-wrap: break-word;
+      color: var(--text);
+    }
+
+    /* Markdown styling in bot messages */
+    .message-content h2 {
+      font-size: 1.3rem;
+      margin: 0.5rem 0 0.8rem 0;
+      color: var(--text);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.3rem;
+    }
+
+    .message-content h3 {
+      font-size: 1.1rem;
+      margin: 0.8rem 0 0.5rem 0;
+      color: var(--text);
+    }
+
+    .message-content p {
+      margin: 0.6rem 0;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .message-content ul, .message-content ol {
+      margin: 0.5rem 0 0.5rem 1.5rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .message-content li {
+      margin: 0.4rem 0;
+      color: var(--text);
+    }
+
+    .message-content strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .message-content code {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 0.9em;
+      color: var(--text);
+    }
+
+    .dark-mode .message-content code {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .message.user .message-content {
+      background: #007bff;
+      color: white;
+      border: none;
+    }
+
+    .message.user .message-content h2,
+    .message.user .message-content h3,
+    .message.user .message-content strong {
+      color: white;
+    }
+
+    .message-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      background: var(--border);
+    }
+
+    .message.user .message-avatar {
+      background: #007bff;
+    }
+
+    /* Sources in Bot Message */
+    .message-sources {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .message.user .message-sources {
+      border-top-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .message-sources h4 {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .source-link {
+      display: block;
+      margin: 0.3rem 0;
+      padding: 0.4rem;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.2s;
+    }
+
+    .message.user .source-link {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .source-link:hover {
+      opacity: 0.8;
+      transform: translateX(3px);
+    }
+
+    /* Loading Message */
+    .message.loading .message-content {
+      background: var(--card);
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    /* Input Box - Fixed at Bottom */
     .input-box {
-      position: relative;
-      margin-bottom: 1rem;
+      padding: 1rem;
+      border-top: 1px solid var(--border);
+      background: var(--card);
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
     }
 
     textarea {
-      width: 100%;
-      height: 120px;
-      padding: 1rem;
+      flex: 1;
+      max-height: 150px;
+      min-height: 50px;
+      padding: 0.8rem 1rem;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--card);
+      border-radius: 25px;
+      background: var(--bg);
       color: var(--text);
       font-size: 1rem;
       resize: none;
       outline: none;
+      font-family: inherit;
     }
 
     #sendBtn {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
       background: var(--text);
       color: var(--bg);
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.1rem;
+      width: 45px;
+      height: 45px;
+      font-size: 1.2rem;
       cursor: pointer;
       transition: 0.2s;
+      flex-shrink: 0;
     }
 
     #sendBtn:hover {
       opacity: 0.8;
+      transform: scale(1.05);
     }
 
     #sendBtn:disabled {
@@ -170,65 +368,17 @@
       cursor: not-allowed;
     }
 
-    /* Response Section */
-    .response-section {
-      margin-top: 2rem;
-      text-align: left;
-      display: none;
-    }
-
-    .response-section.active {
-      display: block;
-    }
-
-    .answer-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.8;
-      white-space: pre-wrap;
-      color: var(--text);
-    }
-
-    .sources-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-    }
-
-    .sources-box h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    .source-item {
-      padding: 0.5rem;
-      margin: 0.3rem 0;
-      background: var(--bg);
-      border-radius: 6px;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    .loading {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text);
-    }
-
-    .error {
+    /* Error Message */
+    .error-message {
       background: #ffebee;
       color: #c62828;
       padding: 1rem;
       border-radius: 10px;
-      margin-top: 1rem;
+      margin: 0.5rem;
+      text-align: center;
     }
 
-    .dark-mode .error {
+    .dark-mode .error-message {
       background: #4a0000;
       color: #ff6b6b;
     }
@@ -263,6 +413,9 @@
       background: var(--border);
     }
   </style>
+  
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <div class="app" id="app">
@@ -283,26 +436,25 @@
     <button class="menu-btn" id="menuBtn">☰</button>
     <button class="theme-toggle" id="themeToggle">🌙</button>
 
-    <!-- Main Section -->
-    <div class="main">
-      <h1>നിയമദർശിനി</h1>
-
-      <div class="input-box">
-        <textarea id="queryInput" placeholder="Ask about any Indian law, bill, or act..."></textarea>
-        <button id="sendBtn">➤</button>
+    <!-- Main Section - Chat Layout -->
+    <div class="main" id="mainSection">
+      <!-- Header -->
+      <div class="chat-header">
+        <h1>നിയമദർശിനി</h1>
       </div>
 
-      <!-- Response Section -->
-      <div class="response-section" id="responseSection">
-        <div id="loadingDiv" class="loading" style="display: none;">
-          ⏳ Searching documents and generating answer...
+      <!-- Chat Messages -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="welcome-message">
+          <h2>👋 Welcome!</h2>
+          <p>Ask me about any Indian law, bill, or act in Malayalam or English</p>
         </div>
-        <div id="errorDiv" class="error" style="display: none;"></div>
-        <div id="answerDiv" class="answer-box" style="display: none;"></div>
-        <div id="sourcesDiv" class="sources-box" style="display: none;">
-          <h3>📚 Sources</h3>
-          <div id="sourcesList"></div>
-        </div>
+      </div>
+
+      <!-- Input Box at Bottom -->
+      <div class="input-box">
+        <textarea id="queryInput" placeholder="Type your question..."></textarea>
+        <button id="sendBtn">➤</button>
       </div>
     </div>
   </div>
@@ -311,22 +463,19 @@
     const app = document.getElementById("app");
     const menuBtn = document.getElementById("menuBtn");
     const sidebar = document.getElementById("sidebar");
+    const mainSection = document.getElementById("mainSection");
     const themeToggle = document.getElementById("themeToggle");
     const newChatBtn = document.getElementById("newChatBtn");
     const sendBtn = document.getElementById("sendBtn");
     const queryInput = document.getElementById("queryInput");
-    const responseSection = document.getElementById("responseSection");
-    const loadingDiv = document.getElementById("loadingDiv");
-    const errorDiv = document.getElementById("errorDiv");
-    const answerDiv = document.getElementById("answerDiv");
-    const sourcesDiv = document.getElementById("sourcesDiv");
-    const sourcesList = document.getElementById("sourcesList");
+    const chatMessages = document.getElementById("chatMessages");
 
     const API_URL = "http://localhost:5000/api/ask";
 
     // Sidebar toggle
     menuBtn.addEventListener("click", () => {
       sidebar.classList.toggle("active");
+      mainSection.classList.toggle("sidebar-open");
     });
 
     // Theme toggle (black <-> white)
@@ -338,16 +487,99 @@
     // New Chat clears everything
     newChatBtn.addEventListener("click", () => {
       queryInput.value = "";
-      responseSection.classList.remove("active");
-      hideAll();
+      chatMessages.innerHTML = `
+        <div class="welcome-message">
+          <h2>👋 Welcome!</h2>
+          <p>Ask me about any Indian law, bill, or act in Malayalam or English</p>
+        </div>
+      `;
     });
 
-    // Hide all response elements
-    function hideAll() {
-      loadingDiv.style.display = "none";
-      errorDiv.style.display = "none";
-      answerDiv.style.display = "none";
-      sourcesDiv.style.display = "none";
+    // Auto-resize textarea
+    queryInput.addEventListener("input", () => {
+      queryInput.style.height = "auto";
+      queryInput.style.height = queryInput.scrollHeight + "px";
+    });
+
+    // Add user message to chat
+    function addUserMessage(text) {
+      const welcomeMsg = chatMessages.querySelector(".welcome-message");
+      if (welcomeMsg) welcomeMsg.remove();
+
+      const messageDiv = document.createElement("div");
+      messageDiv.className = "message user";
+      messageDiv.innerHTML = `
+        <div class="message-avatar">👤</div>
+        <div class="message-content">${text}</div>
+      `;
+      chatMessages.appendChild(messageDiv);
+      scrollToBottom();
+    }
+
+    // Add bot message to chat
+    function addBotMessage(answer, sources = []) {
+      const messageDiv = document.createElement("div");
+      messageDiv.className = "message bot";
+      
+      // Convert markdown to HTML using marked.js
+      const htmlAnswer = marked.parse(answer);
+      
+      let sourcesHtml = "";
+      if (sources && sources.length > 0) {
+        sourcesHtml = `
+          <div class="message-sources">
+            <h4>📚 Sources:</h4>
+            ${sources.map(source => `
+              <a href="../data/${source.pdf}" target="_blank" class="source-link">
+                📄 ${source.pdf} | Page ${source.page} | Relevance: ${(1 - source.distance).toFixed(3)}
+              </a>
+            `).join("")}
+          </div>
+        `;
+      }
+
+      messageDiv.innerHTML = `
+        <div class="message-avatar">🤖</div>
+        <div class="message-content">
+          ${htmlAnswer}
+          ${sourcesHtml}
+        </div>
+      `;
+      chatMessages.appendChild(messageDiv);
+      scrollToBottom();
+    }
+
+    // Add loading message
+    function addLoadingMessage() {
+      const messageDiv = document.createElement("div");
+      messageDiv.className = "message bot loading";
+      messageDiv.id = "loadingMessage";
+      messageDiv.innerHTML = `
+        <div class="message-avatar">🤖</div>
+        <div class="message-content">⏳ Searching documents and generating answer...</div>
+      `;
+      chatMessages.appendChild(messageDiv);
+      scrollToBottom();
+    }
+
+    // Remove loading message
+    function removeLoadingMessage() {
+      const loadingMsg = document.getElementById("loadingMessage");
+      if (loadingMsg) loadingMsg.remove();
+    }
+
+    // Show error message
+    function showError(errorText) {
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "error-message";
+      errorDiv.textContent = `❌ ${errorText}`;
+      chatMessages.appendChild(errorDiv);
+      scrollToBottom();
+    }
+
+    // Scroll to bottom
+    function scrollToBottom() {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     // Send question to backend
@@ -355,14 +587,18 @@
       const question = queryInput.value.trim();
       
       if (!question) {
-        alert("Please enter a question");
         return;
       }
 
-      // Show response section and loading
-      responseSection.classList.add("active");
-      hideAll();
-      loadingDiv.style.display = "block";
+      // Add user message
+      addUserMessage(question);
+      
+      // Clear input and reset height
+      queryInput.value = "";
+      queryInput.style.height = "auto";
+
+      // Show loading
+      addLoadingMessage();
       sendBtn.disabled = true;
 
       try {
@@ -374,49 +610,35 @@
           body: JSON.stringify({ question: question }),
         });
 
+        removeLoadingMessage();
+
+        if (response.status === 503) {
+          // Handle rate limit / service unavailable
+          const data = await response.json();
+          showError(`⏳ AI service is currently overloaded. ${data.error || 'Please try again in a few minutes or wait for the quota to reset.'}`);
+          return;
+        }
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
 
-        // Hide loading
-        loadingDiv.style.display = "none";
-
-        // Show answer
+        // Add bot response
         if (data.answer) {
-          answerDiv.textContent = data.answer;
-          answerDiv.style.display = "block";
-        }
-
-        // Show sources
-        if (data.sources && data.sources.length > 0) {
-          sourcesList.innerHTML = "";
-          data.sources.forEach((source) => {
-            const sourceItem = document.createElement("div");
-            sourceItem.className = "source-item";
-            
-            // Create clickable PDF link
-            const pdfLink = document.createElement("a");
-            pdfLink.href = `../data/${source.pdf}`;
-            pdfLink.textContent = `📄 ${source.pdf}`;
-            pdfLink.target = "_blank";
-            pdfLink.style.color = "var(--text)";
-            pdfLink.style.textDecoration = "underline";
-            pdfLink.style.fontWeight = "500";
-            
-            sourceItem.appendChild(pdfLink);
-            sourceItem.appendChild(document.createTextNode(` | Page ${source.page} | Relevance: ${(1 - source.distance).toFixed(3)}`));
-            sourcesList.appendChild(sourceItem);
-          });
-          sourcesDiv.style.display = "block";
+          addBotMessage(data.answer, data.sources || []);
         }
 
       } catch (error) {
         console.error("Error:", error);
-        loadingDiv.style.display = "none";
-        errorDiv.textContent = `❌ Error: ${error.message}. Make sure the API server is running on http://localhost:5000`;
-        errorDiv.style.display = "block";
+        removeLoadingMessage();
+        
+        if (error.message.includes("Failed to fetch")) {
+          showError("❌ Cannot connect to API server. Make sure the server is running on http://localhost:5000");
+        } else {
+          showError(`❌ ${error.message}`);
+        }
       } finally {
         sendBtn.disabled = false;
       }

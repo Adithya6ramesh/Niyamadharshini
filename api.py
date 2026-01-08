@@ -6,10 +6,12 @@ Wraps the chat.py functionality for frontend integration
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
+import time
 from dotenv import load_dotenv
 from chromadb import PersistentClient
 from sentence_transformers import SentenceTransformer
 from google import genai
+from google.api_core.exceptions import ServiceUnavailable, ResourceExhausted
 
 # Load environment
 load_dotenv()
@@ -90,15 +92,65 @@ Language rules:
 - If the question is in English → answer in English
 - If mixed → prefer Malayalam
 
+IMPORTANT - Output Format:
+- Use proper Markdown formatting
+- Start with a clear heading (## for main topics)
+- Use subheadings (###) for different sections
+- Use bullet points (-) or numbered lists (1., 2., 3.) for multiple items
+- Add blank lines between paragraphs
+- Use **bold** for key terms and act names
+- Keep paragraphs short (2-3 sentences max)
+- Structure the answer logically with clear sections
+
+Example structure:
+## Main Topic/Act Name
+
+Brief overview paragraph.
+
+### Key Provisions
+- Provision 1 explanation
+- Provision 2 explanation
+
+### Important Details
+Short explanatory paragraph.
+
 Context (extracted from official documents):
 {context_text}
 
 Question:
 {question}
 
-Answer:
+Answer (in well-structured Markdown):
 """
     return prompt.strip()
+
+
+def call_gemini_with_retry(prompt: str, retries=5, initial_delay=2):
+    """
+    Call Gemini API with exponential backoff retry logic.
+    Handles 503 UNAVAILABLE and 429 RESOURCE_EXHAUSTED errors.
+    """
+    for attempt in range(retries):
+        try:
+            response = gemini_client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt
+            )
+            return response.text.strip()
+        
+        except (ServiceUnavailable, ResourceExhausted) as e:
+            if attempt == retries - 1:
+                # Last attempt failed
+                raise Exception(f"Gemini API unavailable after {retries} retries. Please try again later.")
+            
+            # Exponential backoff: 2, 4, 8, 16, 32 seconds
+            wait_time = initial_delay * (2 ** attempt)
+            print(f"[RETRY] Attempt {attempt + 1}/{retries} failed. Waiting {wait_time}s before retry...")
+            time.sleep(wait_time)
+        
+        except Exception as e:
+            # For other errors, don't retry
+            raise e
 
 
 @app.route('/api/ask', methods=['POST'])
@@ -120,14 +172,18 @@ def ask():
                 "sources": []
             })
 
-        # Build prompt and get answer from Gemini
+        # Build prompt and get answer from Gemini with retry logic
         prompt = build_prompt(question, contexts)
-        response = gemini_client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt
-        )
+        
+        try:
+            answer = call_gemini_with_retry(prompt)
+        except Exception as gemini_error:
+            return jsonify({
+                "error": f"AI service temporarily unavailable: {str(gemini_error)}",
+                "sources": sources
+            }), 503
 
-        answer = response.text.strip() or "ലഭ്യമായ രേഖകളിൽ നിന്ന് വ്യക്തമായ നിയമപരമായ വിശദീകരണം ലഭ്യമല്ല."
+        answer = answer or "ലഭ്യമായ രേഖകളിൽ നിന്ന് വ്യക്തമായ നിയമപരമായ വിശദീകരണം ലഭ്യമല്ല."
 
         return jsonify({
             "answer": answer,

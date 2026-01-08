@@ -165,6 +165,74 @@
       opacity: 0.8;
     }
 
+    #sendBtn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Response Section */
+    .response-section {
+      margin-top: 2rem;
+      text-align: left;
+      display: none;
+    }
+
+    .response-section.active {
+      display: block;
+    }
+
+    .answer-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      color: var(--text);
+    }
+
+    .sources-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .sources-box h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .source-item {
+      padding: 0.5rem;
+      margin: 0.3rem 0;
+      background: var(--bg);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text);
+    }
+
+    .error {
+      background: #ffebee;
+      color: #c62828;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .dark-mode .error {
+      background: #4a0000;
+      color: #ff6b6b;
+    }
+
     /* Top Buttons */
     .menu-btn,
     .theme-toggle {
@@ -223,6 +291,19 @@
         <textarea id="queryInput" placeholder="Ask about any Indian law, bill, or act..."></textarea>
         <button id="sendBtn">➤</button>
       </div>
+
+      <!-- Response Section -->
+      <div class="response-section" id="responseSection">
+        <div id="loadingDiv" class="loading" style="display: none;">
+          ⏳ Searching documents and generating answer...
+        </div>
+        <div id="errorDiv" class="error" style="display: none;"></div>
+        <div id="answerDiv" class="answer-box" style="display: none;"></div>
+        <div id="sourcesDiv" class="sources-box" style="display: none;">
+          <h3>📚 Sources</h3>
+          <div id="sourcesList"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -234,6 +315,14 @@
     const newChatBtn = document.getElementById("newChatBtn");
     const sendBtn = document.getElementById("sendBtn");
     const queryInput = document.getElementById("queryInput");
+    const responseSection = document.getElementById("responseSection");
+    const loadingDiv = document.getElementById("loadingDiv");
+    const errorDiv = document.getElementById("errorDiv");
+    const answerDiv = document.getElementById("answerDiv");
+    const sourcesDiv = document.getElementById("sourcesDiv");
+    const sourcesList = document.getElementById("sourcesList");
+
+    const API_URL = "http://localhost:5000/api/ask";
 
     // Sidebar toggle
     menuBtn.addEventListener("click", () => {
@@ -246,14 +335,102 @@
       themeToggle.textContent = app.classList.contains("dark-mode") ? "☀️" : "🌙";
     });
 
-    // New Chat clears text area
+    // New Chat clears everything
     newChatBtn.addEventListener("click", () => {
       queryInput.value = "";
+      responseSection.classList.remove("active");
+      hideAll();
     });
 
-    // Send button placeholder
-    sendBtn.addEventListener("click", () => {
-      alert("Frontend only — backend integration coming soon!");
+    // Hide all response elements
+    function hideAll() {
+      loadingDiv.style.display = "none";
+      errorDiv.style.display = "none";
+      answerDiv.style.display = "none";
+      sourcesDiv.style.display = "none";
+    }
+
+    // Send question to backend
+    async function askQuestion() {
+      const question = queryInput.value.trim();
+      
+      if (!question) {
+        alert("Please enter a question");
+        return;
+      }
+
+      // Show response section and loading
+      responseSection.classList.add("active");
+      hideAll();
+      loadingDiv.style.display = "block";
+      sendBtn.disabled = true;
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question: question }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Hide loading
+        loadingDiv.style.display = "none";
+
+        // Show answer
+        if (data.answer) {
+          answerDiv.textContent = data.answer;
+          answerDiv.style.display = "block";
+        }
+
+        // Show sources
+        if (data.sources && data.sources.length > 0) {
+          sourcesList.innerHTML = "";
+          data.sources.forEach((source) => {
+            const sourceItem = document.createElement("div");
+            sourceItem.className = "source-item";
+            
+            // Create clickable PDF link
+            const pdfLink = document.createElement("a");
+            pdfLink.href = `../data/${source.pdf}`;
+            pdfLink.textContent = `📄 ${source.pdf}`;
+            pdfLink.target = "_blank";
+            pdfLink.style.color = "var(--text)";
+            pdfLink.style.textDecoration = "underline";
+            pdfLink.style.fontWeight = "500";
+            
+            sourceItem.appendChild(pdfLink);
+            sourceItem.appendChild(document.createTextNode(` | Page ${source.page} | Relevance: ${(1 - source.distance).toFixed(3)}`));
+            sourcesList.appendChild(sourceItem);
+          });
+          sourcesDiv.style.display = "block";
+        }
+
+      } catch (error) {
+        console.error("Error:", error);
+        loadingDiv.style.display = "none";
+        errorDiv.textContent = `❌ Error: ${error.message}. Make sure the API server is running on http://localhost:5000`;
+        errorDiv.style.display = "block";
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    // Send button click
+    sendBtn.addEventListener("click", askQuestion);
+
+    // Enter key to send (Shift+Enter for new line)
+    queryInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        askQuestion();
+      }
     });
   </script>
 </body>

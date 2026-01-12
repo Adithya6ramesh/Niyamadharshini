@@ -111,6 +111,16 @@
       background: var(--border);
     }
 
+    .chat-item.active {
+      background: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
+    .chat-item.active .delete-chat-btn {
+      color: white !important;
+    }
+
     /* Main Section - Chat Layout */
     .main {
       flex: 1;
@@ -412,6 +422,40 @@
     .theme-toggle:hover {
       background: var(--border);
     }
+
+    /* Copy Button */
+    .copy-button {
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+      opacity: 0.7;
+    }
+
+    .copy-button:hover {
+      opacity: 1;
+      background: var(--border);
+      transform: translateY(-1px);
+    }
+
+    .copy-button.copied {
+      background: #4caf50;
+      color: white;
+      border-color: #4caf50;
+      opacity: 1;
+    }
+
+    .copy-button .icon {
+      font-size: 1rem;
+    }
   </style>
   
   <!-- Marked.js for Markdown parsing -->
@@ -446,7 +490,7 @@
       <!-- Chat Messages -->
       <div class="chat-messages" id="chatMessages">
         <div class="welcome-message">
-          <h2>👋 Welcome!</h2>
+          <h2>Welcome!</h2>
           <p>Ask me about any Indian law, bill, or act in Malayalam or English</p>
         </div>
       </div>
@@ -469,8 +513,82 @@
     const sendBtn = document.getElementById("sendBtn");
     const queryInput = document.getElementById("queryInput");
     const chatMessages = document.getElementById("chatMessages");
+    const chatList = document.getElementById("chatList");
 
     const API_URL = "http://localhost:5000/api/ask";
+    const STORAGE_KEY = "niyamadharshini_chats";
+    
+    // Current conversation state
+    let currentChatId = null;
+    let currentMessages = [];
+
+    // Chat History Manager
+    class ChatHistoryManager {
+      constructor() {
+        this.chats = this.loadChats();
+      }
+
+      loadChats() {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          return stored ? JSON.parse(stored) : [];
+        } catch (error) {
+          console.error("Error loading chats:", error);
+          return [];
+        }
+      }
+
+      saveChats() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.chats));
+        } catch (error) {
+          console.error("Error saving chats:", error);
+        }
+      }
+
+      createChat(firstMessage = "") {
+        const chat = {
+          id: Date.now().toString(),
+          timestamp: new Date().toISOString(),
+          title: firstMessage.substring(0, 50) || "New Chat",
+          messages: []
+        };
+        this.chats.unshift(chat);
+        this.saveChats();
+        return chat;
+      }
+
+      updateChat(chatId, messages) {
+        const chat = this.chats.find(c => c.id === chatId);
+        if (chat) {
+          chat.messages = messages;
+          chat.timestamp = new Date().toISOString();
+          
+          // Update title from first user message
+          const firstUserMsg = messages.find(m => m.type === 'user');
+          if (firstUserMsg) {
+            chat.title = firstUserMsg.content.substring(0, 50);
+          }
+          
+          this.saveChats();
+        }
+      }
+
+      getChat(chatId) {
+        return this.chats.find(c => c.id === chatId);
+      }
+
+      deleteChat(chatId) {
+        this.chats = this.chats.filter(c => c.id !== chatId);
+        this.saveChats();
+      }
+
+      getAllChats() {
+        return this.chats;
+      }
+    }
+
+    const chatHistory = new ChatHistoryManager();
 
     // Sidebar toggle
     menuBtn.addEventListener("click", () => {
@@ -484,16 +602,120 @@
       themeToggle.textContent = app.classList.contains("dark-mode") ? "☀️" : "🌙";
     });
 
-    // New Chat clears everything
+    // New Chat
     newChatBtn.addEventListener("click", () => {
+      startNewChat();
+    });
+
+    function startNewChat() {
+      // Save current chat if it has messages
+      if (currentChatId && currentMessages.length > 0) {
+        chatHistory.updateChat(currentChatId, currentMessages);
+      }
+
+      // Reset state
+      currentChatId = null;
+      currentMessages = [];
       queryInput.value = "";
+      
+      // Clear UI
       chatMessages.innerHTML = `
         <div class="welcome-message">
           <h2>👋 Welcome!</h2>
           <p>Ask me about any Indian law, bill, or act in Malayalam or English</p>
         </div>
       `;
-    });
+
+      // Refresh sidebar
+      renderChatList();
+    }
+
+    function loadChat(chatId) {
+      const chat = chatHistory.getChat(chatId);
+      if (!chat) return;
+
+      // Save current chat before switching
+      if (currentChatId && currentMessages.length > 0) {
+        chatHistory.updateChat(currentChatId, currentMessages);
+      }
+
+      // Load selected chat
+      currentChatId = chatId;
+      currentMessages = [...chat.messages];
+
+      // Clear and render messages
+      chatMessages.innerHTML = "";
+      chat.messages.forEach(msg => {
+        if (msg.type === 'user') {
+          addUserMessage(msg.content, false);
+        } else if (msg.type === 'bot') {
+          addBotMessage(msg.content, msg.sources || [], false);
+        }
+      });
+
+      // Close sidebar on mobile
+      if (window.innerWidth < 768) {
+        sidebar.classList.remove("active");
+        mainSection.classList.remove("sidebar-open");
+      }
+    }
+
+    function renderChatList() {
+      const chats = chatHistory.getAllChats();
+      
+      if (chats.length === 0) {
+        chatList.innerHTML = '<div class="chat-item" style="opacity: 0.5; cursor: default;">No saved chats yet</div>';
+        return;
+      }
+
+      chatList.innerHTML = chats.map(chat => {
+        const date = new Date(chat.timestamp);
+        const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const isActive = chat.id === currentChatId;
+        
+        return `
+          <div class="chat-item ${isActive ? 'active' : ''}" data-chat-id="${chat.id}">
+            <div style="display: flex; justify-content: space-between; align-items: start;">
+              <div style="flex: 1; overflow: hidden;">
+                <div style="font-size: 0.9rem; font-weight: 500; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  ${chat.title}
+                </div>
+                <div style="font-size: 0.75rem; opacity: 0.6;">
+                  ${dateStr} • ${chat.messages.length} msgs
+                </div>
+              </div>
+              <button class="delete-chat-btn" data-chat-id="${chat.id}" style="background: none; border: none; color: var(--text); opacity: 0.5; cursor: pointer; padding: 2px 6px; font-size: 1rem;" title="Delete chat">×</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Add click listeners
+      document.querySelectorAll('.chat-item').forEach(item => {
+        const chatId = item.dataset.chatId;
+        item.addEventListener('click', (e) => {
+          if (!e.target.classList.contains('delete-chat-btn')) {
+            loadChat(chatId);
+          }
+        });
+      });
+
+      // Add delete listeners
+      document.querySelectorAll('.delete-chat-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const chatId = btn.dataset.chatId;
+          if (confirm('Delete this chat?')) {
+            chatHistory.deleteChat(chatId);
+            if (currentChatId === chatId) {
+              startNewChat();
+            } else {
+              renderChatList();
+            }
+          }
+        });
+      });
+    }
 
     // Auto-resize textarea
     queryInput.addEventListener("input", () => {
@@ -502,7 +724,7 @@
     });
 
     // Add user message to chat
-    function addUserMessage(text) {
+    function addUserMessage(text, saveToHistory = true) {
       const welcomeMsg = chatMessages.querySelector(".welcome-message");
       if (welcomeMsg) welcomeMsg.remove();
 
@@ -514,10 +736,19 @@
       `;
       chatMessages.appendChild(messageDiv);
       scrollToBottom();
+
+      // Save to current conversation
+      if (saveToHistory) {
+        currentMessages.push({
+          type: 'user',
+          content: text,
+          timestamp: new Date().toISOString()
+        });
+      }
     }
 
     // Add bot message to chat
-    function addBotMessage(answer, sources = []) {
+    function addBotMessage(answer, sources = [], saveToHistory = true) {
       const messageDiv = document.createElement("div");
       messageDiv.className = "message bot";
       
@@ -539,14 +770,69 @@
       }
 
       messageDiv.innerHTML = `
-        <div class="message-avatar">🤖</div>
+        <div class="message-avatar">👩🏻‍✈️</div>
         <div class="message-content">
           ${htmlAnswer}
           ${sourcesHtml}
+          <button class="copy-button" title="Copy answer">
+            <span class="icon">▪️</span>
+            <span class="text">Copy</span>
+          </button>
         </div>
       `;
       chatMessages.appendChild(messageDiv);
+      
+      // Add copy functionality
+      const copyBtn = messageDiv.querySelector('.copy-button');
+      copyBtn.addEventListener('click', () => {
+        // Copy the plain text answer (without sources)
+        navigator.clipboard.writeText(answer).then(() => {
+          // Show success feedback
+          const icon = copyBtn.querySelector('.icon');
+          const text = copyBtn.querySelector('.text');
+          const originalIcon = icon.textContent;
+          const originalText = text.textContent;
+          
+          icon.textContent = '✓';
+          text.textContent = 'Copied!';
+          copyBtn.classList.add('copied');
+          
+          // Reset after 2 seconds
+          setTimeout(() => {
+            icon.textContent = originalIcon;
+            text.textContent = originalText;
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy:', err);
+          alert('Failed to copy to clipboard');
+        });
+      });
+      
       scrollToBottom();
+
+      // Save to current conversation
+      if (saveToHistory) {
+        currentMessages.push({
+          type: 'bot',
+          content: answer,
+          sources: sources,
+          timestamp: new Date().toISOString()
+        });
+
+        // Auto-save conversation
+        if (currentChatId) {
+          chatHistory.updateChat(currentChatId, currentMessages);
+        } else {
+          // Create new chat on first bot response
+          const firstUserMsg = currentMessages.find(m => m.type === 'user');
+          const chat = chatHistory.createChat(firstUserMsg?.content || 'New Chat');
+          currentChatId = chat.id;
+          chatHistory.updateChat(currentChatId, currentMessages);
+        }
+        
+        renderChatList();
+      }
     }
 
     // Add loading message
@@ -555,7 +841,7 @@
       messageDiv.className = "message bot loading";
       messageDiv.id = "loadingMessage";
       messageDiv.innerHTML = `
-        <div class="message-avatar">🤖</div>
+        <div class="message-avatar"></div>
         <div class="message-content">⏳ Searching documents and generating answer...</div>
       `;
       chatMessages.appendChild(messageDiv);
@@ -582,6 +868,34 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
+    // Check if message is a casual greeting/chat
+    function isCasualMessage(text) {
+      const casual = /^(hi|hello|hey|hii|helo|hai|helo|namaste|വണക്കം|ഹലോ|ഹായ്|thanks|thank you|നന്ദി|ok|okay|yes|no|ഉം|ശരി)[\s!.?]*$/i;
+      return casual.test(text.trim());
+    }
+
+    // Generate casual response
+    function getCasualResponse(question) {
+      const greetings = ['hi', 'hello', 'hey', 'namaste', 'hai', 'വണക്കം', 'ഹലോ', 'ഹായ്'];
+      const thanks = ['thanks', 'thank you', 'നന്ദി'];
+      
+      const lowerQ = question.toLowerCase();
+      
+      if (greetings.some(g => lowerQ.includes(g))) {
+        return "Hello! 👋\n\nI'm നിയമദർശിനി, your Malayalam legal assistant. I can help you with questions about Kerala Government Gazettes, Orders, Notifications, and legal documents.\n\nPlease ask me any specific legal question, and I'll search through the documents to provide you with accurate information!";
+      }
+      
+      if (thanks.some(t => lowerQ.includes(t))) {
+        return "You're welcome! 😊\n\nFeel free to ask if you have any more legal questions. I'm here to help!";
+      }
+      
+      if (lowerQ.includes('ok') || lowerQ.includes('okay') || lowerQ.includes('ശരി')) {
+        return "Great! If you have any legal questions, just ask. I'm here to help! 📚";
+      }
+      
+      return null;
+    }
+
     // Send question to backend
     async function askQuestion() {
       const question = queryInput.value.trim();
@@ -596,6 +910,18 @@
       // Clear input and reset height
       queryInput.value = "";
       queryInput.style.height = "auto";
+
+      // Check if it's a casual message (no need to hit API)
+      if (isCasualMessage(question)) {
+        const casualResponse = getCasualResponse(question);
+        if (casualResponse) {
+          // Add bot response without sources
+          setTimeout(() => {
+            addBotMessage(casualResponse, []);
+          }, 500); // Small delay for better UX
+          return;
+        }
+      }
 
       // Show loading
       addLoadingMessage();
@@ -654,6 +980,9 @@
         askQuestion();
       }
     });
+
+    // Initialize app
+    renderChatList();
   </script>
 </body>
 </html>

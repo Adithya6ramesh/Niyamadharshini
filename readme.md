@@ -8,10 +8,13 @@ By combining **Retrieval-Augmented Generation (RAG)**, **multilingual embeddings
 
 ## 💡 Solution Overview
 
-Niyamadarshini converts legislative documents into structured, searchable knowledge units and enables users to ask questions in **Malayalam or English** to receive **clear, cited answers**.  
+Niyamadarshini converts legislative documents into structured, searchable knowledge units and enables users to ask questions in **Malayalam and English** to receive **clear, cited answers**.  
 The system uses AI not as a knowledge source, but as a **reasoning engine grounded in official documents**.
 
 ---
+<img width="1918" height="997" alt="Screenshot 2026-01-20 132046" src="https://github.com/user-attachments/assets/2d09f301-b5b5-463a-a7c7-99716f77eb22" />
+<img width="1914" height="813" alt="Screenshot 2026-01-20 132112" src="https://github.com/user-attachments/assets/6b11025c-f26f-4b8d-91ee-b018aa526066" />
+
 
 ## 🚀 Key Features
 
@@ -74,4 +77,5 @@ Chat Interface with Citations
 ```bash
 git clone https://github.com/your-username/niyamadarshini.git
 cd niyamadarshini
+
 

@@ -3,7 +3,7 @@ Flask API for Niyamadharshini RAG Chat
 Wraps the chat.py functionality for frontend integration
 """
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 import time
@@ -201,7 +201,27 @@ def health():
     return jsonify({"status": "ok", "message": "Niyamadharshini API is running"})
 
 
+# Serve frontend
+@app.route('/')
+def serve_frontend():
+    """Serve the main frontend page"""
+    return send_from_directory('frontend', 'index.html')
+
+
+@app.route('/frontend/<path:filename>')
+def serve_frontend_files(filename):
+    """Serve frontend static files"""
+    return send_from_directory('frontend', filename)
+
+
+# Serve PDF files from data folder
+@app.route('/data/<path:filename>')
+def serve_data_files(filename):
+    """Serve PDF files from data folder"""
+    return send_from_directory('data', filename)
+
+
 if __name__ == '__main__':
-    print("\n🟢 Niyamadharshini API Server Starting...")
-    print("💡 Frontend can now connect to http://localhost:5000")
+    print("\n🟢 Niyamadharshini Server Starting...")
+    print("💡 Open http://localhost:5000 in your browser")
     app.run(debug=True, host='0.0.0.0', port=5000)

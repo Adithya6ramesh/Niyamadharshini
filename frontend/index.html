@@ -515,7 +515,7 @@
     const chatMessages = document.getElementById("chatMessages");
     const chatList = document.getElementById("chatList");
 
-    const API_URL = "http://localhost:5000/api/ask";
+    const API_URL = "/api/ask";
     const STORAGE_KEY = "niyamadharshini_chats";
     
     // Current conversation state
@@ -761,7 +761,7 @@
           <div class="message-sources">
             <h4>📚 Sources:</h4>
             ${sources.map(source => `
-              <a href="../data/${encodeURIComponent(source.pdf)}" target="_blank" class="source-link">
+              <a href="/data/${encodeURIComponent(source.pdf)}" target="_blank" class="source-link">
                 📄 ${source.pdf} | Page ${source.page} | Relevance: ${(1 - source.distance).toFixed(3)}
               </a>
             `).join("")}

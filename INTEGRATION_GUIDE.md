@@ -11,25 +11,17 @@ Your Malayalam RAG application is now fully integrated:
 
 ## 🚀 How to Run
 
-### Step 1: Start the Backend API
+### Single Command Start
 ```powershell
 D:\niyam\rag_env\Scripts\python.exe api.py
 ```
-This will start the API server at `http://localhost:5000`
 
-### Step 2: Start the Frontend Server
-```powershell
-D:\niyam\rag_env\Scripts\python.exe -m http.server 3000 --directory D:\niyam
+Then open your browser and navigate to:
 ```
-This will start the frontend server at `http://127.0.0.1:3000`
-
-### Step 3: Open the Frontend
-Open your browser and navigate to:
-```
-http://127.0.0.1:3000/frontend/index.html
+http://localhost:5000
 ```
 
-> **Note:** Both servers must be running simultaneously - the API on port 5000 and the frontend on port 3000.
+That's it! The server handles both the API and frontend.
 
 ---
 

@@ -1,0 +1,14 @@
+flask
+flask-cors
+python-dotenv
+chromadb
+sentence-transformers
+google-genai
+langchain
+langchain-text-splitters
+pymupdf
+# Optional (for OCR):
+paddlepaddle
+paddleocr
+pillow
+pytesseract

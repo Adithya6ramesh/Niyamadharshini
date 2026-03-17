@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 from chromadb import PersistentClient
 from sentence_transformers import SentenceTransformer
 from google import genai
-from google.api_core.exceptions import ServiceUnavailable, ResourceExhausted
 
 # Load environment
 load_dotenv()
@@ -125,32 +124,53 @@ Answer (in well-structured Markdown):
     return prompt.strip()
 
 
-def call_gemini_with_retry(prompt: str, retries=5, initial_delay=2):
+def call_gemini_with_retry(prompt: str, retries: int = 5, initial_delay: int = 2) -> str:
     """
-    Call Gemini API with exponential backoff retry logic.
-    Handles 503 UNAVAILABLE and 429 RESOURCE_EXHAUSTED errors.
+    Call Gemini API with simple exponential-backoff retry logic.
+    We avoid importing google.api_core here; instead we treat
+    typical transient errors (503/429/unavailable/rate limit) as retryable
+    based on the exception message.
     """
+
+    def is_retryable(e: Exception) -> bool:
+        msg = str(e).lower()
+        return (
+            "503" in msg
+            or "429" in msg
+            or "unavailable" in msg
+            or "resource exhausted" in msg
+            or "rate" in msg
+        )
+
+    last_error: Exception | None = None
+
     for attempt in range(retries):
         try:
             response = gemini_client.models.generate_content(
                 model="gemini-2.5-flash",
-                contents=prompt
+                contents=prompt,
             )
-            return response.text.strip()
-        
-        except (ServiceUnavailable, ResourceExhausted) as e:
-            if attempt == retries - 1:
-                # Last attempt failed
-                raise Exception(f"Gemini API unavailable after {retries} retries. Please try again later.")
-            
-            # Exponential backoff: 2, 4, 8, 16, 32 seconds
-            wait_time = initial_delay * (2 ** attempt)
-            print(f"[RETRY] Attempt {attempt + 1}/{retries} failed. Waiting {wait_time}s before retry...")
-            time.sleep(wait_time)
-        
+            return (response.text or "").strip()
         except Exception as e:
-            # For other errors, don't retry
-            raise e
+            last_error = e
+
+            # Retry only for transient errors and if we still have attempts left
+            if is_retryable(e) and attempt < retries - 1:
+                wait_time = initial_delay * (2**attempt)  # 2,4,8,...
+                print(
+                    f"[RETRY] Attempt {attempt + 1}/{retries} failed ({e}). "
+                    f"Waiting {wait_time}s before retry..."
+                )
+                time.sleep(wait_time)
+                continue
+
+            # Non‑retryable or last attempt: re-raise
+            raise
+
+    # Should not normally reach here, but keep a clear error message
+    raise Exception(
+        f"Gemini API unavailable after {retries} retries. Please try again later."
+    ) from last_error
 
 
 @app.route('/api/ask', methods=['POST'])
@@ -224,4 +244,4 @@ def serve_data_files(filename):
 if __name__ == '__main__':
     print("\n🟢 Niyamadharshini Server Starting...")
     print("💡 Open http://localhost:5000 in your browser")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=8000)

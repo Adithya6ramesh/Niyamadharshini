@@ -4,7 +4,7 @@ python-dotenv
 chromadb
 sentence-transformers
 google-genai
-langchain
+langchain<0.1.0
 langchain-text-splitters
 pymupdf
 # Optional (for OCR):

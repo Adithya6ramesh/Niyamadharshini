@@ -5,7 +5,7 @@ Preserves Malayalam characters and attaches comprehensive metadata.
 """
 
 from typing import List, Dict
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
 class TextChunker:

@@ -33,7 +33,8 @@ The prompt instructs Gemini to use only the retrieved context, explain the legal
 
 ## Architecture
 
-The diagram below shows the original pipeline (dense retrieval only). Retrieval is now hybrid with reranking, as described in [How It Works](#how-it-works) and [Retrieval](#retrieval).
+![Uploading image.png…]()
+
 
 <img width="1596" height="2130" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/08046493-9953-4fef-a466-32c4b129d0f3" />
 

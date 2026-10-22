@@ -28,3 +28,9 @@ data/
 # OS
 .DS_Store
 Thumbs.db
+
+# BM25 lexical index (rebuildable from ChromaDB: python scripts/build_bm25_index.py)
+bm25_index/
+
+# Logs
+*.log

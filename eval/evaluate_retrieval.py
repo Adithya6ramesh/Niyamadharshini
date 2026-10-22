@@ -106,25 +106,26 @@ def table(rows, title):
 
 # ---------------------------------------------------------------- production prompt / model
 
-API_GENERATION_NAMES = ("build_prompt", "DEFAULT_LLM_MODEL", "LLM_MAX_TOKENS", "LLM_FALLBACK_BETA",
+API_GENERATION_NAMES = ("build_prompt", "DEFAULT_LLM_MODEL", "RETRYABLE_STATUS_CODES", "BLOCKED_FINISH_REASONS",
                         "RefusalError", "get_llm_model", "make_llm_client", "generate_answer")
 
 
 def load_from_api(names=API_GENERATION_NAMES):
     """
-    Load the prompt and Claude generation code from api.py without running the
+    Load the prompt and Gemini generation code from api.py without running the
     module (importing api.py would load the embedding and reranker models), so
     the eval uses exactly the production prompt, model and request settings.
     """
-    import anthropic
     from types import SimpleNamespace
+    from google import genai
+    from google.genai import types as genai_types
     path = os.path.join(ROOT, "api.py")
     with open(path, encoding="utf-8") as f:
         tree = ast.parse(f.read())
     nodes = [n for n in tree.body
              if (isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name in names)
              or (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in names for t in n.targets))]
-    ns = {"os": os, "anthropic": anthropic}
+    ns = {"os": os, "genai": genai, "genai_types": genai_types}
     exec(compile(ast.Module(body=nodes, type_ignores=[]), path, "exec"), ns)
     missing = [n for n in names if n not in ns]
     if missing:
@@ -133,17 +134,17 @@ def load_from_api(names=API_GENERATION_NAMES):
 
 
 def generate(api, client, prompt):
-    """Same call as the app (api.generate_answer); the SDK retries 429/5xx/overloaded."""
-    import anthropic
+    """Same call as the app (api.generate_answer); the SDK retries 429/5xx."""
+    from google.genai import errors as genai_errors
     start = time.perf_counter()
     try:
         answer = api.generate_answer(client, prompt)
         return answer, (time.perf_counter() - start) * 1000, None
     except api.RefusalError as e:
         return None, None, f"refusal ({e.category})"
-    except anthropic.APIStatusError as e:
-        return None, None, f"{e.status_code} {type(e).__name__}"
-    except anthropic.APIError as e:  # connection errors / timeouts
+    except genai_errors.APIError as e:
+        return None, None, f"{e.code} {e.status}"
+    except Exception as e:  # connection errors / timeouts
         return None, None, type(e).__name__
 
 

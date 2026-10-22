@@ -1,9 +1,8 @@
+import importlib.util
 import os
 import unittest
 from types import SimpleNamespace
 from unittest import mock
-
-import importlib.util
 
 # api.py loads the embedding/reranker models at import, so load only its
 # generation code, the same way the eval does.
@@ -14,50 +13,60 @@ _spec.loader.exec_module(_eval)
 llm = _eval.load_from_api()
 
 
-class FakeMessages:
+class FakeModels:
     def __init__(self, response):
         self.response = response
         self.kwargs = None
 
-    def create(self, **kwargs):
+    def generate_content(self, **kwargs):
         self.kwargs = kwargs
         return self.response
 
 
 def fake_client(response):
-    messages = FakeMessages(response)
-    return SimpleNamespace(beta=SimpleNamespace(messages=messages)), messages
+    models = FakeModels(response)
+    return SimpleNamespace(models=models), models
+
+
+def gemini_response(text="", block_reason=None, finish_reason="STOP"):
+    return SimpleNamespace(
+        text=text,
+        prompt_feedback=SimpleNamespace(block_reason=SimpleNamespace(name=block_reason)) if block_reason else None,
+        candidates=[SimpleNamespace(finish_reason=SimpleNamespace(name=finish_reason))] if finish_reason else [],
+    )
 
 
 class GenerateAnswerTests(unittest.TestCase):
-    def test_joins_text_blocks_and_skips_thinking(self):
-        response = SimpleNamespace(stop_reason="end_turn", stop_details=None, content=[
-            SimpleNamespace(type="thinking", thinking=""),
-            SimpleNamespace(type="text", text="## Answer\n"),
-            SimpleNamespace(type="text", text="Thirty days."),
-        ])
-        client, messages = fake_client(response)
+    def test_returns_stripped_text_and_sends_prompt(self):
+        client, models = fake_client(gemini_response("  ## Answer\nThirty days.\n"))
         self.assertEqual(llm.generate_answer(client, "prompt"), "## Answer\nThirty days.")
-        self.assertEqual(messages.kwargs["messages"], [{"role": "user", "content": "prompt"}])
-        self.assertEqual(messages.kwargs["fallbacks"], "default")
-        self.assertEqual(messages.kwargs["betas"], [llm.LLM_FALLBACK_BETA])
+        self.assertEqual(models.kwargs["contents"], "prompt")
+        self.assertEqual(models.kwargs["model"], llm.get_llm_model())
 
-    def test_refusal_raises_with_category(self):
-        response = SimpleNamespace(stop_reason="refusal", content=[],
-                                   stop_details=SimpleNamespace(category="general_harms"))
-        client, _ = fake_client(response)
+    def test_empty_text_returns_empty_string(self):
+        client, _ = fake_client(gemini_response(text=None))
+        self.assertEqual(llm.generate_answer(client, "prompt"), "")
+
+    def test_blocked_prompt_raises_refusal(self):
+        client, _ = fake_client(gemini_response(block_reason="SAFETY", finish_reason=None))
         with self.assertRaises(llm.RefusalError) as ctx:
             llm.generate_answer(client, "prompt")
-        self.assertEqual(ctx.exception.category, "general_harms")
+        self.assertEqual(ctx.exception.category, "SAFETY")
+
+    def test_blocked_answer_raises_refusal(self):
+        client, _ = fake_client(gemini_response(finish_reason="RECITATION"))
+        with self.assertRaises(llm.RefusalError) as ctx:
+            llm.generate_answer(client, "prompt")
+        self.assertEqual(ctx.exception.category, "RECITATION")
 
     def test_model_from_env_with_default(self):
         with mock.patch.dict(os.environ, {"LLM_MODEL": ""}):
-            self.assertEqual(llm.get_llm_model(), "claude-sonnet-5-5")
-        with mock.patch.dict(os.environ, {"LLM_MODEL": "claude-opus-5-5"}):
-            self.assertEqual(llm.get_llm_model(), "claude-opus-5-5")
+            self.assertEqual(llm.get_llm_model(), "gemini-2.5-flash")
+        with mock.patch.dict(os.environ, {"LLM_MODEL": "gemini-2.5-pro"}):
+            self.assertEqual(llm.get_llm_model(), "gemini-2.5-pro")
 
     def test_missing_key_is_a_clear_error(self):
-        with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": ""}):
+        with mock.patch.dict(os.environ, {"GEMINI_API_KEY": ""}):
             with self.assertRaises(RuntimeError):
                 llm.make_llm_client()
 

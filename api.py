@@ -1,7 +1,7 @@
 """
 Flask API and web server for Niyamadharshini.
 
-Question -> hybrid retrieval (retrieval/) -> Claude answer with page citations.
+Question -> hybrid retrieval (retrieval/) -> Gemini answer with page citations.
 Also serves the chat UI (/), the source PDFs (/data/...) and the retrieval
 evaluation viewer (/evals).
 """
@@ -15,7 +15,9 @@ import os
 from dotenv import load_dotenv
 from chromadb import PersistentClient
 from sentence_transformers import SentenceTransformer
-import anthropic
+from google import genai
+from google.genai import errors as genai_errors
+from google.genai import types as genai_types
 
 from retrieval import RetrievalConfig, build_retriever
 
@@ -50,21 +52,21 @@ def require_password():
     return Response("Authentication required", 401, {"WWW-Authenticate": 'Basic realm="Niyamadharshini"'})
 
 
-# ---------- Answer generation: Claude (Anthropic API) ----------
-# .env: ANTHROPIC_API_KEY (required), LLM_MODEL (optional, default claude-sonnet-5-5)
+# ---------- Answer generation: Google Gemini ----------
+# .env: GEMINI_API_KEY (required), LLM_MODEL (optional, default gemini-2.5-flash)
 
-DEFAULT_LLM_MODEL = "claude-sonnet-5-5"
-LLM_MAX_TOKENS = 16000
-# Server-side refusal fallback: if a safety classifier declines, the API retries
-# on Anthropic's recommended fallback model inside the same call.
-LLM_FALLBACK_BETA = "server-side-fallback-2026-07-01"
+DEFAULT_LLM_MODEL = "gemini-2.5-flash"
+# Rate-limit / overload / server errors, retried by the SDK with exponential backoff
+RETRYABLE_STATUS_CODES = (429, 500, 502, 503, 504)
+# Finish reasons meaning Gemini declined to answer rather than finishing normally
+BLOCKED_FINISH_REASONS = {"SAFETY", "PROHIBITED_CONTENT", "BLOCKLIST", "SPII", "RECITATION"}
 
 
 class RefusalError(RuntimeError):
-    """The model (and its fallback) declined the request."""
+    """The model declined the request (safety or policy block)."""
 
     def __init__(self, category):
-        super().__init__(f"Request declined by the model (category: {category or 'unspecified'})")
+        super().__init__(f"Request declined by the model (reason: {category or 'unspecified'})")
         self.category = category
 
 
@@ -72,25 +74,32 @@ def get_llm_model() -> str:
     return os.getenv("LLM_MODEL", "").strip() or DEFAULT_LLM_MODEL
 
 
-def make_llm_client() -> anthropic.Anthropic:
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        raise RuntimeError("ANTHROPIC_API_KEY not found. Add it to the .env file in the project root.")
-    # The SDK retries 408/409/429/5xx (including 529 overloaded) and connection
-    # errors with exponential backoff; timeout is per attempt, in seconds.
-    return anthropic.Anthropic(timeout=120.0, max_retries=3)
-
-
-def generate_answer(client: anthropic.Anthropic, prompt: str) -> str:
-    response = client.beta.messages.create(
-        model=get_llm_model(),
-        max_tokens=LLM_MAX_TOKENS,
-        betas=[LLM_FALLBACK_BETA],
-        fallbacks="default",
-        messages=[{"role": "user", "content": prompt}],
+def make_llm_client() -> genai.Client:
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY not found. Add it to the .env file in the project root.")
+    return genai.Client(
+        api_key=api_key,
+        http_options=genai_types.HttpOptions(
+            timeout=120_000,  # milliseconds per attempt
+            retry_options=genai_types.HttpRetryOptions(
+                attempts=5, initial_delay=2.0, max_delay=30.0,
+                http_status_codes=list(RETRYABLE_STATUS_CODES),
+            ),
+        ),
     )
-    if response.stop_reason == "refusal":
-        raise RefusalError(response.stop_details.category if response.stop_details else None)
-    return "".join(block.text for block in response.content if block.type == "text").strip()
+
+
+def generate_answer(client: genai.Client, prompt: str) -> str:
+    response = client.models.generate_content(model=get_llm_model(), contents=prompt)
+    feedback = response.prompt_feedback
+    if feedback is not None and feedback.block_reason:
+        raise RefusalError(getattr(feedback.block_reason, "name", str(feedback.block_reason)))
+    candidate = response.candidates[0] if response.candidates else None
+    reason = getattr(candidate.finish_reason, "name", None) if candidate and candidate.finish_reason else None
+    if reason in BLOCKED_FINISH_REASONS:
+        raise RefusalError(reason)
+    return (response.text or "").strip()
 
 
 llm_client = make_llm_client()
@@ -112,7 +121,7 @@ collection = chroma_client.get_collection(COLLECTION_NAME)
 print(f"[INIT] Preparing retriever (mode={RETRIEVAL_CONFIG.mode}, rerank={RETRIEVAL_CONFIG.rerank_enabled})...")
 retriever = build_retriever(RETRIEVAL_CONFIG, embed_model, collection)
 
-print(f"[INIT] Answer generation: Claude ({get_llm_model()})")
+print(f"[INIT] Answer generation: Gemini ({get_llm_model()})")
 
 
 def retrieve_context(query: str, top_k: int = TOP_K):
@@ -223,7 +232,7 @@ def ask():
                 "sources": []
             })
 
-        # Build prompt and get the answer from Claude (the SDK retries 429/5xx/overloaded)
+        # Build prompt and get the answer from Gemini (the SDK retries 429/5xx)
         prompt = build_prompt(question, contexts)
 
         try:
@@ -234,7 +243,7 @@ def ask():
                 "answer": "ഈ ചോദ്യത്തിന് ഉത്തരം നൽകാൻ കഴിയില്ല. / This question could not be answered.",
                 "sources": sources
             })
-        except anthropic.APIError as llm_error:
+        except genai_errors.APIError as llm_error:
             return jsonify({
                 "error": f"AI service temporarily unavailable: {str(llm_error)}",
                 "sources": sources

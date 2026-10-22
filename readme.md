@@ -26,14 +26,14 @@ User question (online)
   -> Lexical: Malayalam-aware BM25 over the same chunks -> top 30 matches
   -> Reciprocal Rank Fusion (RRF) of the two ranked lists
   -> Cross-encoder reranking of the top 30 (BAAI/bge-reranker-v2-m3, int8)
-  -> Top 10 chunks -> Claude (claude-sonnet-5-5) answer with source pages
+  -> Top 10 chunks -> Gemini (gemini-2.5-flash) answer with source pages
 ```
 
-The prompt instructs Claude to use only the retrieved context, explain the legal meaning in simple language, and answer in the language of the question.
+The prompt instructs Gemini to use only the retrieved context, explain the legal meaning in simple language, and answer in the language of the question.
 
 ## Architecture
 
-The diagram below shows the original pipeline (dense retrieval and Gemini). Retrieval is now hybrid with reranking and answers come from Claude, as described in [How It Works](#how-it-works) and [Retrieval](#retrieval).
+The diagram below shows the original pipeline (dense retrieval only). Retrieval is now hybrid with reranking, as described in [How It Works](#how-it-works) and [Retrieval](#retrieval).
 
 <img width="1596" height="2130" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/08046493-9953-4fef-a466-32c4b129d0f3" />
 
@@ -41,14 +41,14 @@ The diagram below shows the original pipeline (dense retrieval and Gemini). Retr
 
 - **Backend:** Python, Flask, Flask-CORS, python-dotenv
 - **Retrieval:** ChromaDB 1.5.5, SentenceTransformers (`BAAI/bge-m3`, `BAAI/bge-reranker-v2-m3`), BM25 implemented in-repo (NumPy)
-- **Answer generation:** Anthropic Claude API (`claude-sonnet-5-5` by default)
+- **Answer generation:** Google Gemini API (`gemini-2.5-flash` by default)
 - **Frontend:** plain HTML/CSS/JavaScript, Marked.js for Markdown, browser `localStorage` for chat history
 - **Ingestion:** PyMuPDF, PaddleOCR, Tesseract (Malayalam + English), LangChain text splitter
 
 ## Project Structure
 
 ```text
-api.py                     Flask app: /api/ask, chat UI, PDFs, /evals viewer, Claude call
+api.py                     Flask app: /api/ask, chat UI, PDFs, /evals viewer, Gemini call
 retrieval/                 Hybrid retrieval layer
   config.py                All retrieval settings (overridable via .env)
   tokenizer.py             Malayalam/English normalization + BM25 tokenizer
@@ -86,10 +86,10 @@ pip install -r requirements.txt
 copy .env.example .env                # Linux/macOS: cp .env.example .env
 ```
 
-Edit `.env` and set your Anthropic API key:
+Edit `.env` and set your Gemini API key (from <https://aistudio.google.com/apikey>):
 
 ```text
-ANTHROPIC_API_KEY=your_anthropic_api_key
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
 Never commit `.env`. If a key is ever committed or shared, revoke it and create a new one.
@@ -170,7 +170,7 @@ All settings are optional `.env` variables (see `.env.example`):
 | `RERANK_QUANTIZE` | `int8` | `int8` on CPU, or `none` for full precision |
 | `RERANKER_MODEL` | `BAAI/bge-reranker-v2-m3` | Any sentence-transformers CrossEncoder |
 | `BM25_INDEX_PATH` | `bm25_index/malayalam_docs.json.gz` | Index file location |
-| `LLM_MODEL` | `claude-sonnet-5-5` | Answer-generation model |
+| `LLM_MODEL` | `gemini-2.5-flash` | Answer-generation model |
 
 Server settings (`FLASK_HOST`, `FLASK_PORT`, `FLASK_DEBUG`, `APP_PASSWORD`, `CORS_ORIGINS`) are described in [Security](#security) and `.env.example`.
 
@@ -187,7 +187,7 @@ Results on the 17 answerable questions (top-10 context, as sent to the LLM):
 | C · Hybrid + rerank, full precision | 13/17 | 16/17 | 17/17 | 0.720 | 0.832 | 24.9 s |
 | **C · Hybrid + rerank, int8 (default)** | **13/17** | **15/17** | **16/17** | **0.700** | **0.809** | **10.5 s** |
 
-Retrieval times were measured on an 8-core laptop CPU without a GPU; Claude adds about 6.5 s per answer.
+Retrieval times were measured on an 8-core laptop CPU without a GPU. The saved evaluation answers were generated with Claude Sonnet 5.5 during a temporary switch; the app now uses Gemini 2.5 Flash, so regenerate answers with `--generate-only` to review Gemini's output.
 
 - Reranking gives the largest gain: the right chunk is ranked first for 13 questions instead of 8, mostly on English questions (2/10 → 6/10). Malayalam questions were already 5/5 at rank 1 with dense search.
 - Hybrid search without reranking ranks better than dense search but has lower recall, because BM25 hits displace some chunks dense search had found.
@@ -216,7 +216,7 @@ Each run is saved to `eval/results/<run>/` (`retrieval.json`, `answers.json`, `s
 python -m unittest discover -s tests -t .
 ```
 
-The unit tests (51) cover the tokenizer, BM25 persistence and incremental sync, RRF, the hybrid retriever's fallbacks, configuration, and the Claude request and refusal handling. They use in-memory fakes and need no models, database or API key.
+The unit tests (53) cover the tokenizer, BM25 persistence and incremental sync, RRF, the hybrid retriever's fallbacks, configuration, and the Gemini request and safety-block handling. They use in-memory fakes and need no models, database or API key.
 
 ## API
 
@@ -267,5 +267,5 @@ Response:
 - **`memory allocation ... failed` or the server exits silently while loading:** the models need about 5 GB of RAM. Close memory-heavy applications, or start without the reranker: set `RERANK_ENABLED=false` in `.env` (hybrid search still works).
 - **Connection refused:** check that `python api.py` is still running and open <http://localhost:8000/api/health>.
 - **Collection not found:** run ingestion first; the app expects the ChromaDB collection `malayalam_docs`.
-- **Claude API errors or rate limits:** check `ANTHROPIC_API_KEY`. The SDK retries rate-limit (429), overloaded (529) and server errors automatically. If the model's safety filter declines a question, the API retries on a fallback model, and the app answers "This question could not be answered" if that also declines.
+- **Gemini errors or quota errors:** check `GEMINI_API_KEY`. The SDK retries rate-limit (429) and server errors (5xx) automatically; if the daily free-tier quota is used up, wait for the reset or enable billing. Newer Google projects may not have access to `gemini-2.5-flash`; set `LLM_MODEL` to a model your key supports. If Gemini blocks a question for safety or recitation, the app answers "This question could not be answered".
 

@@ -1,7 +1,7 @@
 """
 Terminal chat client (Malayalam + English).
 
-Uses the same retrieval, prompt and Claude model as the web app by importing
+Uses the same retrieval, prompt and Gemini model as the web app by importing
 them from api.py (which loads the models on import), so both stay identical.
 
     python scripts/chat.py
@@ -12,7 +12,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import anthropic
+from google.genai import errors as genai_errors
 
 from api import RefusalError, build_prompt, generate_answer, llm_client, retrieve_context
 
@@ -31,7 +31,7 @@ def ask(question: str):
     except RefusalError as refusal:
         print(f"This question could not be answered ({refusal}).")
         return
-    except anthropic.APIError as error:
+    except genai_errors.APIError as error:
         print(f"AI service temporarily unavailable: {error}")
         return
 

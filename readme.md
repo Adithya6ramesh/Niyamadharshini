@@ -269,9 +269,3 @@ Response:
 - **Collection not found:** run ingestion first; the app expects the ChromaDB collection `malayalam_docs`.
 - **Claude API errors or rate limits:** check `ANTHROPIC_API_KEY`. The SDK retries rate-limit (429), overloaded (529) and server errors automatically. If the model's safety filter declines a question, the API retries on a fallback model, and the app answers "This question could not be answered" if that also declines.
 
-## Known Limitations
-
-- Reranking takes about 10 s per question on CPU; a GPU or a smaller reranker would be needed for faster responses.
-- The corpus is OCR'd text with noise (stray characters, split words), which limits both lexical and semantic matching.
-- Sub-section numbers like `36(3)` are often lost in OCR, so queries on them rely on surrounding text.
-- Answer quality has not been formally scored yet; see `manual_review.csv` in the evaluation results.

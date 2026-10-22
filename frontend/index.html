@@ -459,7 +459,13 @@
   </style>
   
   <!-- Marked.js for Markdown parsing -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Pinned versions with Subresource Integrity: the browser refuses a modified file -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"
+          integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"
+          integrity="sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla+3"
+          crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="app" id="app">
@@ -516,6 +522,10 @@
     const chatList = document.getElementById("chatList");
 
     const API_URL = "/api/ask";
+
+    // Escape text before inserting it into HTML (user input, saved chat titles, source names)
+    const escapeHtml = s => String(s ?? "").replace(/[&<>"']/g, ch =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
     const STORAGE_KEY = "niyamadharshini_chats";
     
     // Current conversation state
@@ -678,7 +688,7 @@
             <div style="display: flex; justify-content: space-between; align-items: start;">
               <div style="flex: 1; overflow: hidden;">
                 <div style="font-size: 0.9rem; font-weight: 500; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                  ${chat.title}
+                  ${escapeHtml(chat.title)}
                 </div>
                 <div style="font-size: 0.75rem; opacity: 0.6;">
                   ${dateStr} • ${chat.messages.length} msgs
@@ -732,7 +742,7 @@
       messageDiv.className = "message user";
       messageDiv.innerHTML = `
         <div class="message-avatar">👤</div>
-        <div class="message-content">${text}</div>
+        <div class="message-content">${escapeHtml(text)}</div>
       `;
       chatMessages.appendChild(messageDiv);
       scrollToBottom();
@@ -752,19 +762,44 @@
       const messageDiv = document.createElement("div");
       messageDiv.className = "message bot";
       
-      // Convert markdown to HTML using marked.js
-      const htmlAnswer = marked.parse(answer);
+      // Convert markdown to HTML, then sanitize: answers are model output derived from
+      // document text, so any HTML/script in them must not run in the browser
+      const htmlAnswer = DOMPurify.sanitize(marked.parse(answer));
       
       let sourcesHtml = "";
       if (sources && sources.length > 0) {
         sourcesHtml = `
           <div class="message-sources">
             <h4>📚 Sources:</h4>
-            ${sources.map(source => `
-              <a href="/data/${encodeURIComponent(source.pdf)}" target="_blank" class="source-link">
-                📄 ${source.pdf} | Page ${source.page} | Relevance: ${(1 - source.distance).toFixed(3)}
-              </a>
-            `).join("")}
+            ${sources.map((source, index) => {
+              // Extract meaningful name from PDF filename 
+              const fileName = source.pdf.replace(/\.pdf$/i, '');
+              let sourceName;
+              
+              // Check if it's a Kerala Gazette number pattern
+              if (/^\d+$/.test(fileName)) {
+                // Pure number like "251", "2513"
+                sourceName = `Kerala Gazette No. ${fileName} (Page ${source.page})`;
+              } else if (/^\d+\s+\d+$/.test(fileName)) {
+                // Pattern like "35 24", "52 24"
+                sourceName = `Kerala Gazette No. ${fileName} (Page ${source.page})`;
+              } else {
+                // Other files like "National Defence Academy..."
+                const cleanName = fileName.replace(/[-_]/g, ' ');
+                sourceName = `${cleanName} (Page ${source.page})`;
+              }
+              
+              // 0-1 score from the API; older saved chats only have distance (squared L2 = 2 - 2*cos)
+              const relevance = typeof source.relevance === 'number'
+                ? source.relevance
+                : Math.max(0, 1 - source.distance / 2);
+
+              return `
+                <a href="/data/${encodeURIComponent(source.pdf)}" target="_blank" class="source-link">
+                  📄 ${escapeHtml(sourceName)} | Relevance: ${relevance.toFixed(3)}
+                </a>
+              `;
+            }).join("")}
           </div>
         `;
       }

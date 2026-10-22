@@ -1,0 +1,1519 @@
+﻿question_id,config,language,category,answerable,query,expected_answer,gold_pages,answer,citations,answer_correct,faithful,citations_support_claims,abstained_correctly,reviewer_notes
+q01,A_dense_baseline,en,factual,True,What is the rank of the Chairperson of the Kerala State Elderly Commission?,"The Chairperson is a full-time officer having the rank of Secretary to Government, eligible for salary and allowances as prescribed.",255.pdf p20; 255.pdf p6,"## Chairperson of the Kerala State Elderly Commission
+
+The context does **not state any specific ""rank""** for the Chairperson of the **Kerala State Elderly Commission**. It gives only the appointment method and eligibility conditions.
+
+### What the Act Says (Section 3)
+- The Government constitutes the Commission by **notification**.
+- The Commission consists of a **Chairperson and not more than four members**, all appointed by the Government by notification.
+- The Chairperson, like the members, must be an **""elderly"" person**. Under Section 2(d), this means someone who has completed **sixty years of age**.
+- The Chairperson and members must have **experience in the welfare of the elderly**.
+- Among the Chairperson and members, one must be from the **Scheduled Castes or Scheduled Tribes**, and one must be a **woman**.
+
+### Ranks Mentioned for Other Officers
+Ranks are specified only for the Commission's officers, not for the Chairperson:
+- **Secretary:** not below the rank of **Additional Secretary** to Government.
+- **Registrar:** not below the rank of **Joint Secretary** to Government in the Law Department.
+- **Finance Officer:** not below the rank of **Deputy Secretary** to Government in the Finance Department.
+
+### Conclusion
+The Act prescribes no official rank or service grade for the Chairperson. The post is defined by **age and experience in elderly welfare**, and the appointment is made by Government notification. The context does not say anything further about the Chairperson's status or equivalence.
+
+The other bodies in the context, such as the committee chaired by the Chief Minister, the Dwelling Place Protection Committee and the Bovine Breeding Regulatory Authority, are unrelated to this Commission.",255.pdf p18; 255.pdf p17; 255.pdf p18; 2515.pdf p10; 255.pdf p16; 2513.pdf p25; 255.pdf p17; 2513.pdf p25; 34 24.pdf p26; 255.pdf p26,,,,,
+q01,B_hybrid,en,factual,True,What is the rank of the Chairperson of the Kerala State Elderly Commission?,"The Chairperson is a full-time officer having the rank of Secretary to Government, eligible for salary and allowances as prescribed.",255.pdf p20; 255.pdf p6,"## Rank of the Chairperson – Kerala State Elderly Commission
+
+The Chairperson of the Kerala State Elderly Commission is a **full-time officer having the rank of Secretary to Government**.
+
+### Source
+This appears in the **Kerala State Elderly Commission Act, 2025 (Act 5 of 2025)**, in the provision on the Chairperson's terms of service. The extracted text does not show the section number.
+
+### Key Details
+- The Chairperson is a **full-time officer** with the **rank of Secretary to Government**.
+- The Chairperson is eligible for the **salary and allowances as may be prescribed** by rules under the Act.
+- The Chairperson must not take up any other salaried employment or remunerated work while holding the position.
+- The Chairperson has general superintendence, guidance and day-to-day administration of the Commission, assisted by the other members.
+
+### Related Eligibility Conditions (Section 3)
+- The Chairperson must be an **elderly person**, meaning someone who has completed 60 years of age.
+- The Chairperson must have **experience in the field of welfare of the elderly**.
+- The Commission consists of a Chairperson and not more than four members, all appointed by the Government by notification.
+
+### Practical Meaning
+The Chairperson holds a senior administrative status equal to a Secretary to the Government of Kerala. The exact pay and allowances are not given in the context and depend on rules yet to be prescribed.",255.pdf p17; 255.pdf p18; 255.pdf p18; 255.pdf p17; 255.pdf p16; 2513.pdf p25; 2515.pdf p10; 34 24.pdf p26; 2512.pdf p26; 255.pdf p20,,,,,
+q01,C_hybrid_rerank,en,factual,True,What is the rank of the Chairperson of the Kerala State Elderly Commission?,"The Chairperson is a full-time officer having the rank of Secretary to Government, eligible for salary and allowances as prescribed.",255.pdf p20; 255.pdf p6,"## Rank of the Chairperson of the Kerala State Elderly Commission
+
+The Chairperson of the **Kerala State Elderly Commission** is a **full-time officer with the rank of Secretary to Government**.
+
+### Key Details
+- The Chairperson is entitled to the **salary and allowances as may be prescribed** by rules under the Act.
+- The Chairperson must not take up any other salaried employment or remunerated work while holding the position.
+- The Chairperson also has general superintendence, guidance and day-to-day administration of the Commission, assisted by the other members.
+
+### Related Provisions
+- **Composition (Section 3):** The Commission has a Chairperson and not more than four members, all appointed by the Government by notification.
+- **Qualifications:** The Chairperson and members must be **elderly** (aged 60 or above) and have experience in elderly welfare. One must be from the Scheduled Castes or Scheduled Tribes, and one must be a woman.
+- **Term limit:** The Chairperson or a member cannot hold office for more than two terms.
+
+### Note
+The rank of Secretary to Government applies to the Chairperson only. The Commission's own Secretary must be of at least **Additional Secretary** rank. Members receive only an honorarium and allowances or sitting fees.
+
+This information comes from the **Kerala State Elderly Commission Act, 2025**, which is deemed to have come into force on 21 December 2024.",255.pdf p18; 255.pdf p17; 255.pdf p18; 2513.pdf p25; 255.pdf p4; 255.pdf p16; 255.pdf p20; 2512.pdf p26; 2515.pdf p10; 34 24.pdf p26,,,,,
+q02,A_dense_baseline,ml,factual,True,വയോജന കമ്മീഷന്റെ സെക്രട്ടറിയായി ഏത് പദവിയിലുള്ള ഉദ്യോഗസ്ഥനെയാണ് സർക്കാർ നിയമിക്കേണ്ടത്?,A person not below the rank of Additional Secretary to Government is appointed as Secretary of the Commission (with a Law Department Joint Secretary-rank Registrar and a Finance Department Deputy Secretary-rank Finance Officer).,255.pdf p18; 255.pdf p4,"## വയോജന കമ്മീഷൻ സെക്രട്ടറിയുടെ നിയമനം
+
+**2025-ലെ കേരള സംസ്ഥാന വയോജന കമ്മീഷൻ ആക്റ്റ്** (ആക്റ്റ് 5 of 2025) പ്രകാരം, കമ്മീഷന്റെ സെക്രട്ടറിയെ നിയമിക്കുന്നത് **സർക്കാർ** ആണ്.
+
+### സെക്രട്ടറിയുടെ പദവി
+
+- കമ്മീഷൻ സെക്രട്ടറിയായി **സർക്കാർ അഡീഷണൽ സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത** ഒരു ഉദ്യോഗസ്ഥനെയാണ് നിയമിക്കേണ്ടത്.
+
+### മറ്റ് ഉദ്യോഗസ്ഥരുടെ നിയമനം
+
+ഇതേ വ്യവസ്ഥ പ്രകാരം സർക്കാർ താഴെപ്പറയുന്നവരെയും നിയമിക്കണം:
+
+1. **രജിസ്ട്രാർ:** സർക്കാർ നിയമ വകുപ്പിലെ ജോയിന്റ് സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത ഒരാൾ.
+2. **ഫിനാൻസ് ഓഫീസർ:** സർക്കാർ ധനകാര്യ വകുപ്പിലെ ഡെപ്യൂട്ടി സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത ഒരാൾ.
+
+### നിയമപരമായ അർത്ഥം
+
+അഡീഷണൽ സെക്രട്ടറി അല്ലെങ്കിൽ അതിനു മുകളിലുള്ള പദവിയിലുള്ളവരെ മാത്രമേ സെക്രട്ടറിയായി നിയമിക്കാൻ പാടുള്ളൂ. ഇതിലും താഴ്ന്ന പദവിയിലുള്ള ഒരാളെ നിയമിക്കുന്നത് ഈ വ്യവസ്ഥയ്ക്ക് വിരുദ്ധമാണ്.
+
+ഈ ഉദ്യോഗസ്ഥർക്കുള്ള അധികാരങ്ങളും ചുമതലകളും **നിർണ്ണയിക്കപ്പെടുന്ന (prescribed) പ്രകാരം** ആയിരിക്കും. കമ്മീഷന്റെ ആസ്ഥാനം **തിരുവനന്തപുരത്ത്** ആയിരിക്കും.
+
+> ഇത് ലഭ്യമായ സന്ദർഭത്തിലെ വിവരങ്ങളെ മാത്രം അടിസ്ഥാനമാക്കിയുള്ളതാണ്. വകുപ്പ് നമ്പർ സന്ദർഭത്തിൽ വ്യക്തമായി ലഭ്യമല്ല.",255.pdf p4; 255.pdf p18; 2512.pdf p10; 255.pdf p3; 255.pdf p2; 255.pdf p6; 2512.pdf p26; 255.pdf p2; 34 24.pdf p6; 255.pdf p17,,,,,
+q02,B_hybrid,ml,factual,True,വയോജന കമ്മീഷന്റെ സെക്രട്ടറിയായി ഏത് പദവിയിലുള്ള ഉദ്യോഗസ്ഥനെയാണ് സർക്കാർ നിയമിക്കേണ്ടത്?,A person not below the rank of Additional Secretary to Government is appointed as Secretary of the Commission (with a Law Department Joint Secretary-rank Registrar and a Finance Department Deputy Secretary-rank Finance Officer).,255.pdf p18; 255.pdf p4,"## കേരള സംസ്ഥാന വയോജന കമ്മീഷൻ: സെക്രട്ടറിയുടെ നിയമനം
+
+ഇത് **2025-ലെ കേരള സംസ്ഥാന വയോജന കമ്മീഷൻ ആക്റ്റ്** (ഒരു നിയമം / Act) പ്രകാരമുള്ള വ്യവസ്ഥയാണ്. കമ്മീഷന്റെ രൂപീകരണം സംബന്ധിച്ച **അധ്യായം II-ലെ വകുപ്പ് 3**-ൽ ഇത് പറയുന്നു.
+
+### സെക്രട്ടറിയുടെ പദവി
+
+- സർക്കാർ കമ്മീഷൻ സെക്രട്ടറിയായി നിയമിക്കേണ്ടത് **അഡീഷണൽ സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത** ഒരാളെയാണ്.
+- അതായത്, അഡീഷണൽ സെക്രട്ടറി അല്ലെങ്കിൽ അതിനു മുകളിലുള്ള പദവിയിലെ ഉദ്യോഗസ്ഥനെ മാത്രമേ ഈ സ്ഥാനത്ത് നിയമിക്കാൻ പാടുള്ളൂ.
+
+### മറ്റ് ഉദ്യോഗസ്ഥരുടെ നിയമനം (അതേ വ്യവസ്ഥയിൽ)
+
+1. **രജിസ്ട്രാർ:** സർക്കാർ നിയമ വകുപ്പിലെ ജോയിന്റ് സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത ഒരാൾ.
+2. **ഫിനാൻസ് ഓഫീസർ:** സർക്കാർ ധനകാര്യ വകുപ്പിലെ ഡെപ്യൂട്ടി സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത ഒരാൾ.
+
+### നിയമപരമായ അർത്ഥം
+
+ഇങ്ങനെ നിയമിക്കപ്പെടുന്ന ഉദ്യോഗസ്ഥർക്ക് **നിർണ്ണയിക്കപ്പെടുന്ന (ചട്ടങ്ങളിൽ നിശ്ചയിക്കുന്ന) അധികാരങ്ങളും ചുമതലകളും** ഉണ്ടായിരിക്കും. കമ്മീഷന്റെ ആസ്ഥാനം **തിരുവനന്തപുരത്ത്** ആയിരിക്കും.
+
+### ഹ്രസ്വമായ ഉത്തരം
+
+കമ്മീഷൻ സെക്രട്ടറിയായി സർക്കാർ നിയമിക്കേണ്ടത് **സർക്കാർ അഡീഷണൽ സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത** ഉദ്യോഗസ്ഥനെയാണ്.",255.pdf p4; 2512.pdf p10; 255.pdf p3; 255.pdf p6; 255.pdf p2; 255.pdf p2; 255.pdf p3; 255.pdf p8; 255.pdf p4; 34 24.pdf p6,,,,,
+q02,C_hybrid_rerank,ml,factual,True,വയോജന കമ്മീഷന്റെ സെക്രട്ടറിയായി ഏത് പദവിയിലുള്ള ഉദ്യോഗസ്ഥനെയാണ് സർക്കാർ നിയമിക്കേണ്ടത്?,A person not below the rank of Additional Secretary to Government is appointed as Secretary of the Commission (with a Law Department Joint Secretary-rank Registrar and a Finance Department Deputy Secretary-rank Finance Officer).,255.pdf p18; 255.pdf p4,"## കേരള സംസ്ഥാന വയോജന കമ്മീഷൻ – സെക്രട്ടറിയുടെ നിയമനം
+
+ഇത് **കേരള സംസ്ഥാന വയോജന കമ്മീഷൻ** രൂപീകരിക്കുന്ന ആക്റ്റിലെ (അധ്യായം II, വകുപ്പ് 3) വ്യവസ്ഥയാണ്.
+
+### സെക്രട്ടറിയുടെ പദവി
+
+**സർക്കാർ അഡീഷണൽ സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത** ഒരാളെയാണ് കമ്മീഷന്റെ **സെക്രട്ടറിയായി** സർക്കാർ നിയമിക്കേണ്ടത്.
+
+അതായത്, അഡീഷണൽ സെക്രട്ടറിയോ അതിനു മുകളിലുള്ള പദവിയിലുള്ളയാളോ ആയിരിക്കണം.
+
+### മറ്റ് ഉദ്യോഗസ്ഥർ (അതേ വ്യവസ്ഥ പ്രകാരം)
+
+- **രജിസ്ട്രാർ:** സർക്കാർ നിയമ വകുപ്പിലെ ജോയിന്റ് സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത ഒരാൾ
+- **ഫിനാൻസ് ഓഫീസർ:** സർക്കാർ ധനകാര്യ വകുപ്പിലെ ഡെപ്യൂട്ടി സെക്രട്ടറിയുടെ പദവിയിൽ കുറയാത്ത ഒരാൾ
+
+### പ്രധാന വിശദാംശങ്ങൾ
+
+ഈ ഉദ്യോഗസ്ഥർക്ക് **നിർണ്ണയിക്കപ്പെടുന്ന (prescribed) പ്രകാരമുള്ള അധികാരങ്ങളും ചുമതലകളും** ഉണ്ടായിരിക്കും. കമ്മീഷന്റെ ആസ്ഥാനം **തിരുവനന്തപുരത്ത്** ആയിരിക്കും.
+
+### നിയമപരമായ അർത്ഥം
+
+സെക്രട്ടറിയായി നിയമിക്കാവുന്നവർക്ക് ഒരു കുറഞ്ഞ പദവി നിശ്ചയിച്ചിരിക്കുന്നു. അതിൽ താഴെയുള്ള ഉദ്യോഗസ്ഥനെ ഈ സ്ഥാനത്തേക്ക് നിയമിക്കാൻ സർക്കാരിന് ഈ വ്യവസ്ഥ പ്രകാരം കഴിയില്ല.",255.pdf p4; 255.pdf p6; 255.pdf p18; 2512.pdf p10; 255.pdf p3; 255.pdf p4; 255.pdf p18; 255.pdf p6; 255.pdf p8; 255.pdf p9,,,,,
+q03,A_dense_baseline,en,multi_chunk,True,What are the functions of the Kerala State Elderly Commission?,"Section 9: issue guidelines for welfare and protection of the elderly, provide assistance and facilitate rehabilitation with Government, provide legal aid, undertake schemes using their skills and experience, and perform functions assigned by Government; enumerated functions include (a) inspection or inquiry and recommending remedial measures, (b) co-ordinating Government departments, (c) co-ordinating actions to bring abandoned or orphaned elderly to Care Centres, (d) advising Government on schemes, (e) inquiring into complaints of denial or violation of rights or violence against the elderly. Spans several consecutive chunks.",255.pdf p21; 255.pdf p22; 255.pdf p8,"## Functions of the Kerala State Elderly Commission
+
+The functions are set out in **Section 9** (Chapter III) of the **Kerala State Elderly Commission Act, 2025 (Act 5 of 2025)**. The Act is a statute, and the Commission is constituted by the Government under Section 3.
+
+### General Functions (Section 9, opening paragraph)
+
+Subject to the Act, the Commission shall:
+
+- Issue **guidelines** for the welfare and protection of the elderly.
+- Provide **assistance** and facilitate their **rehabilitation**, in collaboration with the Government when required.
+- Provide **legal aid** of any sort when needed.
+- Undertake and carry out **schemes and activities** that make use of the elderly's skills and experience for the general public.
+- Perform other functions the Government assigns from time to time.
+
+### Specific Functions
+
+1. **Inspection and inquiry:** Conduct inspections or inquiries and recommend remedial measures for implementing provisions on the welfare and protection of the elderly under the Constitution of India or any other law or order in force.
+2. **Coordination:** Coordinate the various Government Departments to ensure the welfare and protection of the elderly.
+3. **Care Centres:** Coordinate action to bring **abandoned or orphaned** elderly persons to the Care Centres.
+4. **Advice on schemes:** Advise the Government on schemes to be planned and implemented for the welfare and protection of the elderly.
+5. **Complaints of rights violations or violence:** When a complaint is received, or it comes to notice, that rights, protection or welfare provisions have been denied or violated, or that violence has occurred against the elderly, and the Commission is prima facie satisfied, it shall:
+   - Conduct a **preliminary inquiry** and prepare a written report.
+   - Bring the report to the notice of the authorities concerned as early as possible and recommend further action.
+   - In appropriate cases, provide assistance from the **Legal Aid Authorities**.
+6. **Complaints from custody:** Inquire into complaints from **prisons, lock-ups** where elderly persons are detained, or other custody-related places, and submit reports to the authorities concerned.
+7. **Status statement:** Prepare and publish a **status statement of the elderly** as may be prescribed.
+8. **Other advice:** Advise the Government on other matters referred to the Commission from time to time.
+
+### Related Powers (Section 10)
+
+To carry out these functions, the Commission may use the services of:
+
+- Any Government officer, with the Government's permission.
+- Any officer of Government-owned Corporations or Boards, or of Local Authorities, with the sanction of the body concerned and the Government's concurrence.
+
+### Key Definitions
+
+- **""Elderly""** means a person who has completed **sixty years** of age.
+- **""Care Centre""** means a Government old age home, or an old age home recognised by the Orphanage Control Board, for protecting the elderly.
+
+### Practical Implication
+
+The Commission works as a **guideline-issuing, inquiry-conducting and advisory body**. It can inquire into complaints, recommend action and arrange legal aid. The context does not say it has binding enforcement powers, so its role appears to be recommendatory.",255.pdf p18; 255.pdf p17; 255.pdf p17; 255.pdf p21; 255.pdf p16; 255.pdf p26; 255.pdf p21; 255.pdf p22; 255.pdf p22; 2515.pdf p13,,,,,
+q03,B_hybrid,en,multi_chunk,True,What are the functions of the Kerala State Elderly Commission?,"Section 9: issue guidelines for welfare and protection of the elderly, provide assistance and facilitate rehabilitation with Government, provide legal aid, undertake schemes using their skills and experience, and perform functions assigned by Government; enumerated functions include (a) inspection or inquiry and recommending remedial measures, (b) co-ordinating Government departments, (c) co-ordinating actions to bring abandoned or orphaned elderly to Care Centres, (d) advising Government on schemes, (e) inquiring into complaints of denial or violation of rights or violence against the elderly. Spans several consecutive chunks.",255.pdf p21; 255.pdf p22; 255.pdf p8,"## Functions of the Kerala State Elderly Commission
+
+The **Kerala State Elderly Commission** was constituted under the **Kerala State Elderly Commission Act, 2025 (Act 5 of 2025)**. Its functions are laid out in **Section 9** (Chapter III), and its powers in **Section 10**. The English translation of the Act was published by a Law (Legislation-H) Department **Notification** dated 25th April 2025.
+
+### General Functions (Section 9)
+
+Subject to the Act, the Commission must:
+
+- Issue **guidelines** for the welfare and protection of the elderly.
+- Provide **assistance** and help with **rehabilitation**, in collaboration with Government when required.
+- Provide **legal aid** of any sort when needed.
+- Undertake **schemes and activities** that make use of the elderly's skills and experience for the general public.
+- Perform any other functions the Government assigns from time to time.
+
+### Specific Functions
+
+To further its object, the Commission shall:
+
+1. **Inspect or inquire**, and recommend remedial measures, for implementing provisions on the welfare and protection of the elderly under the Constitution of India or any other law or order in force. *(clause a)*
+2. **Coordinate** the various Government Departments to ensure the welfare and protection of the elderly. *(clause b)*
+3. Take further action in appropriate cases and provide assistance from the **Legal Aid Authorities**. *(the text of this clause is only partly available)*
+4. **Inquire into complaints** from prisons, lock-ups where the elderly are detained, or other custody-related places, and submit reports to the authorities concerned. *(clause f)*
+5. **Prepare and publish a status statement** of the elderly, as prescribed. *(clause g)*
+6. **Advise Government** on other matters referred to it from time to time. *(clause h)*
+
+### Powers to Support These Functions (Section 10)
+
+To carry out its functions, the Commission may use the services of:
+
+- Any **Government officer**, with the Government's permission.
+- Any officer of **Corporations or Boards owned by the Government, or of Local Authorities**. This needs the sanction of the body concerned and the concurrence of the Government.
+
+### Key Points
+
+- An **""Elderly""** person is someone who has completed **sixty years** of age.
+- The Commission has a Chairperson and not more than four members, with headquarters at **Thiruvananthapuram**.
+
+### Note on Completeness
+
+The context does not include clauses (c), (d) and (e) of Section 9(2) in full, and clause (e) is only partly visible. The list above is therefore not exhaustive.",255.pdf p18; 255.pdf p17; 255.pdf p17; 255.pdf p21; 255.pdf p22; 255.pdf p21; 255.pdf p16; 2512.pdf p26; 255.pdf p18; 255.pdf p26,,,,,
+q03,C_hybrid_rerank,en,multi_chunk,True,What are the functions of the Kerala State Elderly Commission?,"Section 9: issue guidelines for welfare and protection of the elderly, provide assistance and facilitate rehabilitation with Government, provide legal aid, undertake schemes using their skills and experience, and perform functions assigned by Government; enumerated functions include (a) inspection or inquiry and recommending remedial measures, (b) co-ordinating Government departments, (c) co-ordinating actions to bring abandoned or orphaned elderly to Care Centres, (d) advising Government on schemes, (e) inquiring into complaints of denial or violation of rights or violence against the elderly. Spans several consecutive chunks.",255.pdf p21; 255.pdf p22; 255.pdf p8,"## Functions of the Kerala State Elderly Commission
+
+The **Kerala State Elderly Commission** is a statutory body constituted under the **Kerala State Elderly Commission Act, 2025 (Act 5 of 2025)**. Its functions are set out in **Section 9** of the Act, which falls under Chapter III (Functions, Powers etc. of the Commission).
+
+### General Functions (Section 9)
+
+Subject to the Act, the Commission is to:
+
+- Issue **guidelines** for the welfare and protection of the elderly.
+- Provide **assistance** and facilitate **rehabilitation** of the elderly, in collaboration with the Government when required.
+- Provide **legal aid** of any sort when needed.
+- Undertake and carry out **schemes and activities** that make use of the skills and experience of the elderly for the general public.
+- Perform any **other functions** the Government assigns from time to time.
+
+### Specific Functions
+
+In furtherance of its object, the Commission shall:
+
+1. **Inspect or inquire** and recommend remedial measures for implementing provisions on the welfare and protection of the elderly under the Constitution of India or any other law or order in force.
+2. **Co-ordinate** the various Government Departments to ensure the welfare and protection of the elderly.
+3. **Inquire into complaints** from prisons, lock-ups or other custody-related places where the elderly are detained, and submit reports to the authorities concerned.
+4. **Prepare and publish a status statement** of the elderly, as may be prescribed.
+5. **Advise the Government** on other matters referred to it from time to time.
+
+The context also shows that the Commission takes **further action** on complaints and, in appropriate cases, arranges assistance from the **Legal Aid Authorities**. The text of this particular clause is incomplete.
+
+### Related Power (Section 10)
+
+To carry out its functions, the Commission may use the services of:
+
+- Any **Government officer**, with the Government's permission.
+- Any officer of **Corporations, Boards or Local Authorities**, with the sanction of the body concerned and the Government's concurrence.
+
+### Legal Implication
+
+The Commission is mainly a **guideline-issuing, coordinating, inquiring and advisory body**. It can recommend remedies and give legal and rehabilitation support, but the context does not show it having direct enforcement powers.
+
+### Note on Completeness
+
+The retrieved text does not include some clauses of Section 9 (those between clauses (b) and (f)). The list above may therefore not be exhaustive, and the full Act should be consulted for the complete list.",255.pdf p17; 255.pdf p18; 255.pdf p17; 255.pdf p21; 255.pdf p21; 255.pdf p26; 2512.pdf p26; 255.pdf p16; 255.pdf p18; 255.pdf p22,,,,,
+q04,A_dense_baseline,en,identifier,True,Which Act was published by Notification No. 18/Leg.C3/2024/Law?,"The Kerala Panchayat Raj (Second Amendment) Act, 2024 (15 of 2024); the notification authorises publication of its English translation.",52 24.pdf p1; 52 24.pdf p3,"## Notification No. 18/Leg.C3/2024/Law
+
+**Notification No. 18/Leg.C3/2024/Law** published the English translation of the **Kerala Panchayat Raj (Second Amendment) Act, 2024 (Act 15 of 2024)**.
+
+### Key Details
+- **Issuing department:** Law (Legislation-C) Department, Government of Kerala
+- **Date:** 9th July, 2024, at Thiruvananthapuram (25th Mithunam, 1199 / 18th Ashadha, 1946)
+- **Signed by:** K. G. Sanal Kumar, Law Secretary, by order of the Governor
+
+### Legal Meaning
+- The notification was issued under **clause (3) of Article 348 of the Constitution of India**. The context gives only ""clause of Article 348"", so the clause number is my inference.
+- Article 348 deals with the language used for authoritative texts of Acts. This notification authorises the Governor to publish an **English translation** of the Act in the Gazette.
+- The notification is a **publication authorisation**. It does not set out the Act's provisions. The context does not give the content of the Panchayat Raj amendment itself.
+
+### Note on Similar Notifications
+Do not confuse it with **Notification No. 58/Leg.C3/2023/Law** (2nd March, 2024). That one concerned the **Kerala Panchayat Raj (Amendment) Act, 2024 (Act 5 of 2024)**, which is a different Act.",54 24.pdf p21; 52 24.pdf p3; 48 24.pdf p6; 33.pdf p1; 49 24.pdf p10; 48 24.pdf p5; 40 24.pdf p4; 41 24.pdf p5; 35 24.pdf p5; 38 24.pdf p2,,,,,
+q04,B_hybrid,en,identifier,True,Which Act was published by Notification No. 18/Leg.C3/2024/Law?,"The Kerala Panchayat Raj (Second Amendment) Act, 2024 (15 of 2024); the notification authorises publication of its English translation.",52 24.pdf p1; 52 24.pdf p3,"## Notification No. 18/Leg.C3/2024/Law
+
+**Notification No. 18/Leg.C3/2024/Law** published the English translation of the **Kerala Panchayat Raj (Second Amendment) Act, 2024 (Act 15 of 2024)**.
+
+### Key Details
+- **Type of document:** Government Notification from the Law (Legislation-C) Department, Government of Kerala.
+- **Date:** 9th July, 2024 (25th Mithunam, 1199 / 18th Ashadha, 1946), Thiruvananthapuram.
+- **Signed by:** K. G. Sanal Kumar, Law Secretary, by order of the Governor.
+
+### Legal Meaning
+- The notification was issued under **Article 348 of the Constitution of India**. That Article deals with the language used for authoritative texts of laws. It allows the Governor to authorise publication of an English translation of a law passed in another language.
+- The Governor authorised publication in the Gazette of the **English translation** of the Act. The notification itself is not the Act.
+- This makes the English version an officially authorised text of the Act.
+
+### Note
+The context contains only the notification's covering text, not the Act's provisions. I therefore cannot say what the Kerala Panchayat Raj (Second Amendment) Act, 2024 actually changes.
+
+Do not confuse this with **Notification No. 58/Leg.C3/2023/Law** (2nd March, 2024). That one published the **Kerala Panchayat Raj (Amendment) Act, 2024 (Act 5 of 2024)**, which is a different Act.",52 24.pdf p3; 54 24.pdf p21; 33.pdf p1; 41 24.pdf p5; 40 24.pdf p4; 49 24.pdf p10; 48 24.pdf p5; 43 24.pdf p5; 35 24.pdf p5; 45 24.pdf p5,,,,,
+q04,C_hybrid_rerank,en,identifier,True,Which Act was published by Notification No. 18/Leg.C3/2024/Law?,"The Kerala Panchayat Raj (Second Amendment) Act, 2024 (15 of 2024); the notification authorises publication of its English translation.",52 24.pdf p1; 52 24.pdf p3,"## Notification No. 18/Leg.C3/2024/Law
+
+**Notification No. 18/Leg.C3/2024/Law** published the English translation of the **Kerala Panchayat Raj (Second Amendment) Act, 2024 (Act 15 of 2024)**.
+
+### Key Details
+- **Issuing authority:** Government of Kerala, Law (Legislation-C) Department
+- **Date:** 9th July, 2024 (25th Mithunam, 1199 / 18th Ashadha, 1946), Thiruvananthapuram
+- **Signed by:** K. G. Sanal Kumar, Law Secretary, by order of the Governor
+- **Type of document:** Government Notification
+
+### Legal Meaning
+The notification was issued under **clause (3) of Article 348 of the Constitution of India**. The context shows only ""clause of Article 348"", and the clause number is missing from the extracted text. Article 348 deals with the language used in legislation, and this provision allows the Governor to authorise publication of an English translation of a State Act in the Gazette.
+
+### Implication
+- The Act (Act 15 of 2024) was already passed in the original language, which is presumably Malayalam. This notification only authorises the **official English translation** to be published in the Gazette.
+- The translation published this way is an authorised text of the Act.
+
+### Note
+The context does not give the contents or provisions of the Kerala Panchayat Raj (Second Amendment) Act, 2024. It contains only the notification authorising publication of the translation.",52 24.pdf p3; 41 24.pdf p5; 254.pdf p1; 54 24.pdf p21; 40 24.pdf p4; 33.pdf p1; 50 24.pdf p1; 35 24.pdf p5; 259.pdf p1; 51 24.pdf p1,,,,,
+q05,A_dense_baseline,ml,identifier,True,വിജ്ഞാപനം നമ്പർ 32/ലെഗ്.ബി2/2024/നിയമം പ്രകാരം പ്രസിദ്ധീകരിച്ച ആക്റ്റ് ഏതാണ്?,"The Kerala Revenue Recovery (Amendment) Act, 2024 (Act 17 of 2024).",51 24.pdf p1; 51 24.pdf p2; 51 24.pdf p8,"## വിജ്ഞാപനം നമ്പർ 32/ലെഗ്.ബി2/2024/നിയമം
+
+ലഭ്യമായ ഭാഗത്ത് ഈ വിജ്ഞാപനത്തിൽ പ്രസിദ്ധീകരിച്ച **ആക്റ്റിന്റെ പേര് വ്യക്തമായി പറയുന്നില്ല**. അതിനാൽ ഏത് ആക്റ്റ് എന്ന് ഉറപ്പിച്ച് പറയാൻ കഴിയില്ല.
+
+### വിജ്ഞാപനത്തിൽ വ്യക്തമായി പറയുന്ന കാര്യങ്ങൾ
+- **വകുപ്പ്:** കേരള സർക്കാർ, നിയമ (നിയമനിർമ്മാണ-ബി) വകുപ്പ്
+- **വിജ്ഞാപനം നമ്പർ:** 32/ലെഗ്.ബി2/2024/നിയമം
+- **തീയതി:** തിരുവനന്തപുരം, 2024 ജൂലൈ 26 (1199 കർക്കടകം 11)
+- **ഗവർണ്ണറുടെ അനുമതി:** നിയമസഭ പാസ്സാക്കിയ ബില്ലിന് 2024 ജൂലൈ 25-ന് ലഭിച്ചു
+- **ഒപ്പ്:** ഗവർണ്ണറുടെ ഉത്തരവിൻപ്രകാരം നിയമ സെക്രട്ടറി കെ. ജി. സനൽ കുമാർ
+
+### നിയമപരമായ അർഥം
+ഇത് ഒരു **വിജ്ഞാപനമാണ്** (Notification). നിയമസഭ പാസ്സാക്കിയ ബില്ലിന് ഗവർണ്ണറുടെ അനുമതി ലഭിച്ചതിനാൽ, അത് ആക്റ്റായി പൊതുജനങ്ങളുടെ അറിവിലേക്ക് പ്രസിദ്ധപ്പെടുത്തുന്നു എന്നാണ് ഇതിന്റെ അർഥം.
+
+### സാധ്യമായ ബന്ധം (സ്ഥിരീകരിച്ചിട്ടില്ല)
+നൽകിയ രേഖകളിൽ **2024-ലെ 32-ാം ആക്റ്റായ ""കേരള കന്നുകാലി പ്രജനന ആക്റ്റ്, 2024"" (The Kerala Bovine Breeding Act, 2024)** എന്ന ആക്റ്റും ഉണ്ട്. ഈ വിജ്ഞാപനത്തിന്റെ നമ്പറും ആക്റ്റ് നമ്പറും 32 ആണെങ്കിലും, രണ്ടും തമ്മിൽ ബന്ധമുണ്ടെന്ന് ഉദ്ധരിച്ച ഭാഗങ്ങളിൽ വ്യക്തമാക്കിയിട്ടില്ല. അതിനാൽ ഇത് അനുമാനം മാത്രമാണ്.
+
+### നിഗമനം
+വിജ്ഞാപനത്തിന്റെ പൂർണ്ണരൂപം, അതായത് ആക്റ്റിന്റെ പേര് ഉൾപ്പെടുന്ന ഭാഗം, ലഭ്യമല്ലാത്തതിനാൽ ഏത് ആക്റ്റ് എന്ന് സ്ഥിരീകരിക്കാൻ ഈ സന്ദർഭം പര്യാപ്തമല്ല. ഉറപ്പിനായി ഗസറ്റിന്റെ പൂർണ്ണ പാഠം പരിശോധിക്കണം.",51 24.pdf p8; 34 24.pdf p23; 37 24.pdf p3; 50 24.pdf p25; 52 24.pdf p1; 34 24.pdf p2; 54 24.pdf p1; 2517.pdf p3; 49 24.pdf p10; 43 24.pdf p5,,,,,
+q05,B_hybrid,ml,identifier,True,വിജ്ഞാപനം നമ്പർ 32/ലെഗ്.ബി2/2024/നിയമം പ്രകാരം പ്രസിദ്ധീകരിച്ച ആക്റ്റ് ഏതാണ്?,"The Kerala Revenue Recovery (Amendment) Act, 2024 (Act 17 of 2024).",51 24.pdf p1; 51 24.pdf p2; 51 24.pdf p8,"## വിജ്ഞാപനം നമ്പർ 32/ലെഗ്.ബി2/2024/നിയമം – വിശദീകരണം
+
+നൽകിയ സന്ദർഭത്തിൽ ഈ വിജ്ഞാപനത്തിന്റെ **ആക്റ്റിന്റെ പേര് ഇല്ല**. അതിനാൽ ഏത് ആക്റ്റാണ് പ്രസിദ്ധീകരിച്ചതെന്ന് ഈ വിവരങ്ങളിൽ നിന്ന് വ്യക്തമാക്കാൻ കഴിയില്ല.
+
+### ലഭ്യമായ വിവരങ്ങൾ
+
+- **രേഖയുടെ തരം:** കേരള സർക്കാർ നിയമ (നിയമനിർമ്മാണ-ബി) വകുപ്പിന്റെ **വിജ്ഞാപനം**
+- **നമ്പർ:** 32/ലെഗ്.ബി2/2024/നിയമം
+- **തീയതി:** 2024 ജൂലൈ 26 (1199 കർക്കടകം 11, 1946 ശ്രാവണം 4)
+- **ഗവർണ്ണറുടെ അനുമതി:** നിയമസഭ പാസ്സാക്കിയ ബില്ലിന് 2024 ജൂലൈ 25-ാം തീയതി ലഭിച്ചു.
+- **ഒപ്പിട്ടത്:** ഗവർണ്ണറുടെ ഉത്തരവിൻപ്രകാരം കെ. ജി. സനൽ കുമാർ, സെക്രട്ടറി
+
+### നിയമപരമായ അർത്ഥം
+
+ഈ വിജ്ഞാപനം വഴി, കേരള നിയമസഭ പാസ്സാക്കുകയും ഗവർണ്ണർ അനുമതി നൽകുകയും ചെയ്ത ഒരു **ആക്റ്റ്** പൊതുജനങ്ങളുടെ അറിവിലേക്കായി ഔദ്യോഗികമായി പ്രസിദ്ധപ്പെടുത്തുന്നു. ഗവർണ്ണറുടെ അനുമതി ലഭിച്ചതോടെ ബിൽ ആക്റ്റായി മാറി.
+
+### പരിമിതി
+
+ലഭ്യമായ ഭാഗത്ത് ആക്റ്റിന്റെ പേരോ അതിലെ വകുപ്പുകളോ ഇല്ല. അവ ഈ വിജ്ഞാപനത്തോടൊപ്പമുള്ള തുടർപേജുകളിലായിരിക്കാം. ആക്റ്റിന്റെ പേര് അറിയാൻ ആ ഗസറ്റിന്റെ പൂർണ്ണരൂപം പരിശോധിക്കണം.",51 24.pdf p8; 50 24.pdf p25; 37 24.pdf p3; 54 24.pdf p1; 257.pdf p3; 2517.pdf p3; 52 24.pdf p1; 53 24.pdf p1; 47 24.pdf p1; 34 24.pdf p1,,,,,
+q05,C_hybrid_rerank,ml,identifier,True,വിജ്ഞാപനം നമ്പർ 32/ലെഗ്.ബി2/2024/നിയമം പ്രകാരം പ്രസിദ്ധീകരിച്ച ആക്റ്റ് ഏതാണ്?,"The Kerala Revenue Recovery (Amendment) Act, 2024 (Act 17 of 2024).",51 24.pdf p1; 51 24.pdf p2; 51 24.pdf p8,"## വിജ്ഞാപനം നമ്പർ 32/ലെഗ്.ബി2/2024/നിയമം – ലഭ്യമായ വിവരങ്ങൾ
+
+നൽകിയ സന്ദർഭത്തിൽ ഈ വിജ്ഞാപനത്തിന്റെ ഭാഗം മാത്രമാണുള്ളത്. അതിൽ **ആക്റ്റിന്റെ പേര് പറയുന്നില്ല**. അതിനാൽ ഏത് ആക്റ്റാണെന്ന് സന്ദർഭത്തിൽ നിന്ന് ഉറപ്പിച്ചു പറയാൻ കഴിയില്ല.
+
+### വിജ്ഞാപനത്തിൽ വ്യക്തമായി കാണുന്ന കാര്യങ്ങൾ
+- **വകുപ്പ്:** കേരള സർക്കാർ, നിയമ (നിയമനിർമ്മാണ-ബി) വകുപ്പ്
+- **വിജ്ഞാപനം നമ്പർ:** 32/ലെഗ്.ബി2/2024/നിയമം
+- **തീയതി:** 2024 ജൂലൈ 26 (1199 കർക്കടകം 11)
+- **ഗവർണ്ണറുടെ അനുമതി:** നിയമസഭ പാസ്സാക്കിയ ബില്ലിന് 2024 ജൂലൈ 25-ന് ലഭിച്ചു
+- **ഒപ്പ്:** ഗവർണ്ണറുടെ ഉത്തരവിൻപ്രകാരം സെക്രട്ടറി കെ. ജി. സനൽ കുമാർ
+
+### നിയമപരമായ അർഥം
+ഇത് ഒരു **വിജ്ഞാപനം (Notification)** ആണ്. നിയമസഭ പാസ്സാക്കിയ ബില്ലിന് ഗവർണ്ണറുടെ അനുമതി ലഭിച്ചതിനാൽ, അത് **ആക്റ്റ്** ആയി പൊതുജനങ്ങളുടെ അറിവിലേക്ക് പ്രസിദ്ധപ്പെടുത്തുന്നു എന്നാണ് ഇതിന്റെ അർഥം.
+
+### സാധ്യമായ ബന്ധം (സ്ഥിരീകരിക്കാനാവില്ല)
+സന്ദർഭത്തിൽ **2024-ലെ 32-ാം ആക്റ്റായ ""കേരള കന്നുകാലി പ്രജനന ആക്റ്റ്, 2024"" (The Kerala Bovine Breeding Act, 2024)** ഉണ്ട്. ആക്റ്റ് നമ്പറും വിജ്ഞാപന നമ്പറും ""32"" ആയതിനാൽ ഇവ ബന്ധപ്പെട്ടതാകാം.
+
+എന്നാൽ ഇത് ഉറപ്പിക്കാൻ കഴിയില്ല:
+- ആ ആക്റ്റിന്റെ ഭാഗത്ത് വിജ്ഞാപനം നമ്പറോ അനുമതി തീയതിയോ കാണുന്നില്ല.
+- രണ്ട് ഭാഗങ്ങളുടെയും പേജ് സൂചന വ്യത്യസ്തമാണ് (17, 37).
+- ആക്റ്റ് നമ്പറും വിജ്ഞാപന നമ്പറും വ്യത്യസ്ത ക്രമനമ്പറുകളാണ്, അതിനാൽ സംഖ്യയുടെ സാമ്യം മാത്രം തെളിവല്ല.
+
+### നിഗമനം
+നൽകിയ സന്ദർഭം ആക്റ്റിന്റെ പേര് വ്യക്തമാക്കാൻ **അപര്യാപ്തമാണ്**. വിജ്ഞാപനത്തിന് തൊട്ടുപിന്നാലെ വരുന്ന ആക്റ്റിന്റെ പേജ് ലഭ്യമാക്കിയാൽ കൃത്യമായി സ്ഥിരീകരിക്കാം.",51 24.pdf p8; 34 24.pdf p23; 53 24.pdf p1; 35 24.pdf p1; 34 24.pdf p2; 54 24.pdf p1; 37 24.pdf p3; 48 24.pdf p1; 40 24.pdf p1; 52 24.pdf p1,,,,,
+q06,A_dense_baseline,en,identifier,True,Notification No. 79/Leg.C3/2025/Law relates to which Act?,"The Kerala Coir Workers' Welfare Fund (Amendment) Act, 2025 (Act 9 of 2025), amending the Kerala Coir Workers' Welfare Fund Act, 1987.",259.pdf p1; 259.pdf p2; 259.pdf p6,"## Notification No. 79/Leg.C3/2025/Law
+
+The retrieved text does **not name the Act** to which this notification relates, so I cannot say which Act it is.
+
+### What the Context Shows
+- **Issuing authority:** Law (Legislation-C) Department, Government of Kerala.
+- **Date:** 29 October 2025 (12 Thulam 1201 / 7 Karthika 1947), Thiruvananthapuram.
+- **Published in:** Kerala Gazette Extraordinary, Vol. XIV, No. 3826, dated 30 October 2025.
+- **Nature:** A notification publishing an Act of the Kerala State Legislature ""for general information"".
+- **Assent:** The Bill passed by the Legislative Assembly received the **Governor's assent on 25 October 2025**.
+- **Signed by:** K. G. Sanal Kumar, Law Secretary, by order of the Governor.
+
+### Legal Meaning
+The notification is the official gazette publication of a newly enacted Act. Once the Governor assents to a Bill passed by the Assembly, it becomes law, and this notification makes it public. The Act's title and text would appear after the notification, but that part is not in the retrieved context.
+
+### Caution About Similar Notifications
+Notification **No. 171/Leg.A1/2025/Law**, also dated 29 October 2025, concerns the English translation of the **Kerala Appropriation (No. 3) Act, 2025 (Act 10 of 2025)**. That is a different notification, issued by a different section (Leg. A1) and under Article 348. The context does not link it to No. 79/Leg.C3, so I cannot confirm they relate to the same Act.
+
+### Conclusion
+The context is insufficient to identify the Act. The Act's title, which should follow the notification in the full Gazette, would settle the question.",259.pdf p6; 252.pdf p10; 2510.pdf p5; 259.pdf p1; 2510.pdf p6; 2514.pdf p30; 255.pdf p17; 2514.pdf p29; 2515.pdf p8; 2516.pdf p4,,,,,
+q06,B_hybrid,en,identifier,True,Notification No. 79/Leg.C3/2025/Law relates to which Act?,"The Kerala Coir Workers' Welfare Fund (Amendment) Act, 2025 (Act 9 of 2025), amending the Kerala Coir Workers' Welfare Fund Act, 1987.",259.pdf p1; 259.pdf p2; 259.pdf p6,"## Notification No. 79/Leg.C3/2025/Law
+
+The retrieved text does not name the Act this notification relates to.
+
+### What the context says
+- **Issuing authority:** Government of Kerala, Law (Legislation-C) Department.
+- **Date:** 29th October 2025 (12th Thulam, 1201 / 7th Karthika, 1947), Thiruvananthapuram.
+- **Gazette:** Kerala Gazette Extraordinary, Vol. XIV, No. 3826, dated 30th October 2025.
+- **Nature of the notification:** It publishes an **Act of the Kerala State Legislature** for general information.
+- **Assent:** The Bill, as passed by the Legislative Assembly, received the **Governor's assent on 25th October 2025**.
+
+### Legal meaning
+This is a **Notification** publishing a newly enacted State Act. Once the Governor assents, the Act is published in the Gazette so the public is formally informed of it. The title and Act number would appear in the text that follows, but that part was not retrieved.
+
+### Why I cannot name the Act
+- The passage ends before the Act's title appears.
+- Other notifications in the context (for example No. 60/Leg.C3/2025 on the Coir Workers' Welfare Cess (Amendment) Act, and No. 82/Leg.C3/2025 on the Industrial Single Window Clearance Boards Amendment Act) carry different numbers. They cannot be used to identify No. 79.
+
+To get the answer, please provide the next page or section of this Gazette (No. 3826, 30th October 2025), which should show the Act's name.",259.pdf p1; 252.pdf p10; 2515.pdf p8; 2510.pdf p5; 258.pdf p6; 2514.pdf p29; 2512.pdf p20; 251.pdf p7; 255.pdf p16; 2516.pdf p4,,,,,
+q06,C_hybrid_rerank,en,identifier,True,Notification No. 79/Leg.C3/2025/Law relates to which Act?,"The Kerala Coir Workers' Welfare Fund (Amendment) Act, 2025 (Act 9 of 2025), amending the Kerala Coir Workers' Welfare Fund Act, 1987.",259.pdf p1; 259.pdf p2; 259.pdf p6,"## Notification No. 79/Leg.C3/2025/Law
+
+The retrieved text does not say which Act this notification relates to.
+
+### What the Context Shows
+- **Type of document:** A Notification of the **Law (Legislation-C) Department**, Government of Kerala.
+- **Date:** 29th October 2025 (12th Thulam 1201 / 7th Karthika 1947).
+- **Published in:** Kerala Gazette Extraordinary, 30th October 2025, No. 3826.
+- **Purpose:** It publishes ""the following Act of the Kerala State Legislature"" for general information.
+- **Governor's assent:** The Bill, as passed by the Legislative Assembly, received assent on **25th October 2025**.
+- **Signed by:** K. G. Sanal Kumar, Law Secretary.
+
+### Legal Meaning
+Once the Governor assents to a Bill, it becomes an Act. This notification is the official step that publishes the Act in the Gazette so the public is informed.
+
+### What Is Missing
+The context contains only the cover and notification pages. The title and text of the Act that follows are not included, so I cannot name it.
+
+### Notifications That Should Not Be Confused With It
+Other notifications in the context have different numbers and relate to specific Acts:
+- **No. 60/Leg.C3/2025/Law:** English translation of the Kerala Coir Workers' Welfare Cess (Amendment) Act, 2025.
+- **No. 82/Leg.C3/2025/Law:** English translation of the Kerala Industrial Single Window Clearance Boards and Industrial Township Area Development (Amendment) Act, 2025.
+
+These are separate notifications, so they cannot be treated as the answer for No. 79.
+
+To identify the Act, please provide the pages that follow the notification in the same Gazette issue (No. 3826, 30th October 2025).",259.pdf p1; 259.pdf p6; 258.pdf p6; 2515.pdf p8; 254.pdf p1; 2513.pdf p18; 2514.pdf p30; 252.pdf p10; 2511.pdf p20; 2513.pdf p19,,,,,
+q07,A_dense_baseline,ml,paraphrase,True,കുടിശ്ശിക തുകയെക്കാൾ കൂടുതൽ മൂല്യമുള്ള വസ്തുവാണെങ്കിൽ ജപ്തി അതിന്റെ ഒരു ഭാഗത്ത് മാത്രമായി പരിമിതപ്പെടുത്താൻ കളക്ടറോട് അപേക്ഷിക്കാമോ?,"Yes. Under the sub-section added to section 36 of the Revenue Recovery Act by the 2024 amendment, the defaulter may request the Collector to limit attachment to a portion of the attached immovable property if its fair value plus improvements exceeds the arrear; the Collector may do so if satisfied the arrear can be recovered by selling that portion. Fair value is as fixed under the Kerala Stamp Act, 1959.",51 24.pdf p11; 51 24.pdf p3,"## വസ്തു ജപ്തി ഭാഗികമായി പരിമിതപ്പെടുത്താൻ കളക്ടറോട് അപേക്ഷിക്കാമോ?
+
+**അതെ, അപേക്ഷിക്കാം.** സന്ദർഭത്തിലെ ഭേദഗതി പ്രകാരം, ജപ്തി ചെയ്ത വസ്തുവിന്റെ മൂല്യം കുടിശ്ശിക തുകയെക്കാൾ കൂടുതലാണെങ്കിൽ വീഴ്ചക്കാരന് (defaulter) ജപ്തി ഒരു ഭാഗത്തേക്ക് മാത്രമായി ചുരുക്കാൻ കളക്ടറോട് അപേക്ഷിക്കാം.
+
+### ഏത് വ്യവസ്ഥയാണിത്?
+
+ഇത് പ്രധാന ആക്റ്റിലെ **36-ാം വകുപ്പിന്റെ ഭേദഗതി** ആണ് (ഭേദഗതി ആക്റ്റിലെ 5-ാം വകുപ്പ്). നിലവിലെ ഉപവകുപ്പിനു ശേഷം ഒരു പുതിയ ഉപവകുപ്പ് കൂട്ടിച്ചേർക്കുന്നു.
+
+### അപേക്ഷിക്കാനുള്ള വ്യവസ്ഥ
+
+- ജപ്തി ചെയ്ത സ്ഥാവരവസ്തുവിന്റെ **ന്യായവിലയും** അതിലെ **ദേഹണ്ഡങ്ങളുടെ (improvements) മൂല്യവും** ചേർന്ന ആകെ തുക **കുടിശ്ശിക തുകയെക്കാൾ അധികമായിരിക്കണം**.
+- ഇങ്ങനെയെങ്കിൽ, ജപ്തി വസ്തുവിന്റെ ഒരു ഭാഗത്ത് മാത്രമാക്കണമെന്ന് വീഴ്ചക്കാരന് കളക്ടറോട് അപേക്ഷിക്കാം.
+
+### കളക്ടറുടെ അധികാരം
+
+- അപേക്ഷ ലഭിക്കുമ്പോൾ, വസ്തുവിന്റെ **ആ ഭാഗം വിറ്റാൽ കുടിശ്ശിക ഈടാക്കാൻ കഴിയുമെന്ന് കളക്ടർക്ക് ബോധ്യപ്പെടണം**.
+- ബോധ്യപ്പെട്ടാൽ, ജപ്തി ആ ഭാഗത്തേക്ക് മാത്രമായി പരിമിതപ്പെടുത്താൻ കളക്ടർക്ക് സാധിക്കും.
+- വ്യവസ്ഥയിൽ ""may"" (പരിമിതപ്പെടുത്താവുന്നതാണ്) എന്നാണ് പറയുന്നത്. അതിനാൽ ഇത് കളക്ടറുടെ വിവേചനാധികാരമാണ്, അപേക്ഷിച്ചാൽ ഉടൻ അനുവദിക്കണമെന്ന നിർബന്ധമില്ല.
+
+### ""ന്യായവില"" എന്നാൽ?
+
+വിശദീകരണം പ്രകാരം, ഈ ഉപവകുപ്പിന്റെ ആവശ്യത്തിന് ന്യായവില എന്നത് **1959-ലെ കേരള മുദ്രപത്ര ആക്റ്റ്** (1959-ലെ 17) പ്രകാരം നിശ്ചയിച്ച ന്യായവിലയാണ്.
+
+### പ്രായോഗിക അർത്ഥം
+
+കുടിശ്ശികയെക്കാൾ വളരെ മൂല്യമുള്ള വസ്തു മുഴുവൻ ജപ്തിയിൽ കിടക്കേണ്ടതില്ല. കുടിശ്ശിക തീർക്കാൻ ആവശ്യമായ ഭാഗം മാത്രം ജപ്തി ചെയ്താൽ മതിയെന്ന് അപേക്ഷിക്കാൻ ഇത് വീഴ്ചക്കാരനെ അനുവദിക്കുന്നു.
+
+### കുറിപ്പ്
+
+നൽകിയ സന്ദർഭത്തിൽ അപേക്ഷയുടെ രീതി, സമയപരിധി, ഫീസ് എന്നിവ വ്യക്തമാക്കിയിട്ടില്ല. ഈ വിവരങ്ങൾക്ക് ആക്റ്റിന്റെ പൂർണ്ണരൂപം പരിശോധിക്കേണ്ടതാണ്.",51 24.pdf p11; 51 24.pdf p3; 2513.pdf p11; 51 24.pdf p3; 51 24.pdf p12; 50 24.pdf p3; 50 24.pdf p47; 253.pdf p11; 2513.pdf p4; 253.pdf p8,,,,,
+q07,B_hybrid,ml,paraphrase,True,കുടിശ്ശിക തുകയെക്കാൾ കൂടുതൽ മൂല്യമുള്ള വസ്തുവാണെങ്കിൽ ജപ്തി അതിന്റെ ഒരു ഭാഗത്ത് മാത്രമായി പരിമിതപ്പെടുത്താൻ കളക്ടറോട് അപേക്ഷിക്കാമോ?,"Yes. Under the sub-section added to section 36 of the Revenue Recovery Act by the 2024 amendment, the defaulter may request the Collector to limit attachment to a portion of the attached immovable property if its fair value plus improvements exceeds the arrear; the Collector may do so if satisfied the arrear can be recovered by selling that portion. Fair value is as fixed under the Kerala Stamp Act, 1959.",51 24.pdf p11; 51 24.pdf p3,"## ജപ്തി വസ്തുവിന്റെ ഒരു ഭാഗത്തേക്ക് പരിമിതപ്പെടുത്തൽ
+
+**അതെ, അപേക്ഷിക്കാം.** നൽകിയിരിക്കുന്ന ഭേദഗതി വ്യവസ്ഥ (പ്രധാന ആക്റ്റിലെ **36-ാം വകുപ്പിൽ** പുതിയ ഉപവകുപ്പായി ചേർക്കുന്നത്) പ്രകാരം, ഇത്തരം സാഹചര്യത്തിൽ വീഴ്ചക്കാരന് കളക്ടറോട് അപേക്ഷിക്കാവുന്നതാണ്.
+
+### എപ്പോൾ അപേക്ഷിക്കാം?
+
+- ജപ്തി ചെയ്യേണ്ട **സ്ഥാവരവസ്തുവിന്റെ ന്യായവിലയും** അതിലെ **ദേഹണ്ഡങ്ങളുടെ (കൃഷി/വിളകൾ മുതലായവ) മൂല്യവും** കൂട്ടിയ ആകെ തുക **കുടിശ്ശിക തുകയെക്കാൾ അധികമാണെന്ന്** കാണുമ്പോൾ.
+- അപ്പോൾ വീഴ്ചക്കാരന് ജപ്തി വസ്തുവിന്റെ **ഒരു ഭാഗത്തു മാത്രമായി** പരിമിതപ്പെടുത്താൻ കളക്ടറോട് അപേക്ഷിക്കാം.
+
+### കളക്ടറുടെ അധികാരം
+
+- അപേക്ഷ ലഭിക്കുമ്പോൾ, വസ്തുവിന്റെ **ആ ഭാഗം വിൽക്കുന്നതിലൂടെ കുടിശ്ശിക ഈടാക്കാൻ കഴിയുമെന്ന് കളക്ടർക്ക് ബോധ്യപ്പെടണം**.
+- ബോധ്യപ്പെട്ടാൽ, കളക്ടർക്ക് ജപ്തി ആ ഭാഗത്തു മാത്രമായി പരിമിതപ്പെടുത്താവുന്നതാണ്.
+- ഇത് കളക്ടറുടെ വിവേചനാധികാരമാണ്; ബോധ്യപ്പെടുന്നില്ലെങ്കിൽ പരിമിതപ്പെടുത്തണമെന്ന് നിർബന്ധമില്ല.
+
+### ""ന്യായവില"" എന്നതിന്റെ അർത്ഥം
+
+ഈ ഉപവകുപ്പിന്റെ ആവശ്യത്തിന്, ന്യായവില എന്നാൽ **1959-ലെ കേരള മുദ്രപത്ര ആക്റ്റ്** (1959-ലെ 17) പ്രകാരം നിശ്ചയിച്ച ന്യായവിലയാണ്.
+
+### നിയമപരമായ പ്രാധാന്യം
+
+കുടിശ്ശികയെക്കാൾ വളരെ മൂല്യമുള്ള വസ്തു മുഴുവനായി ജപ്തി ചെയ്യുന്നത് ഒഴിവാക്കാൻ ഈ വ്യവസ്ഥ സഹായിക്കുന്നു. കുടിശ്ശിക തീർക്കാൻ ആവശ്യമായ ഭാഗത്തേക്ക് മാത്രം ജപ്തി ഒതുക്കി, ബാക്കി വസ്തു വീഴ്ചക്കാരന് സംരക്ഷിക്കാം.
+
+### കുറിപ്പ്
+
+ലഭ്യമായ ഭാഗത്ത് ഇത് ഒരു **ഭേദഗതി ആക്റ്റിലെ വ്യവസ്ഥയായി** കാണുന്നു. പ്രധാന ആക്റ്റിന്റെ മുഴുവൻ പേര്, അപേക്ഷയുടെ രീതി, സമയപരിധി എന്നിവ നൽകിയ ഭാഗത്ത് വ്യക്തമല്ല.",51 24.pdf p11; 2513.pdf p11; 51 24.pdf p11; 50 24.pdf p47; 51 24.pdf p12; 50 24.pdf p30; 254.pdf p6; 50 24.pdf p46; 51 24.pdf p14; 51 24.pdf p14,,,,,
+q07,C_hybrid_rerank,ml,paraphrase,True,കുടിശ്ശിക തുകയെക്കാൾ കൂടുതൽ മൂല്യമുള്ള വസ്തുവാണെങ്കിൽ ജപ്തി അതിന്റെ ഒരു ഭാഗത്ത് മാത്രമായി പരിമിതപ്പെടുത്താൻ കളക്ടറോട് അപേക്ഷിക്കാമോ?,"Yes. Under the sub-section added to section 36 of the Revenue Recovery Act by the 2024 amendment, the defaulter may request the Collector to limit attachment to a portion of the attached immovable property if its fair value plus improvements exceeds the arrear; the Collector may do so if satisfied the arrear can be recovered by selling that portion. Fair value is as fixed under the Kerala Stamp Act, 1959.",51 24.pdf p11; 51 24.pdf p3,"## വകുപ്പ് 36-ലെ ഭേദഗതി: ജപ്തി വസ്തുവിന്റെ ഒരു ഭാഗത്തേക്ക് പരിമിതപ്പെടുത്തൽ
+
+**അതെ, അപേക്ഷിക്കാം.** ഭേദഗതി ബില്ലിലെ വകുപ്പ് 5 പ്രകാരം പ്രധാന ആക്റ്റിലെ **വകുപ്പ് 36-ൽ** പുതിയൊരു ഉപവകുപ്പ് ചേർക്കുന്നു. ജപ്തി ചെയ്ത വസ്തുവിന്റെ മൂല്യം കുടിശ്ശികയെക്കാൾ കൂടുതലാണെങ്കിൽ, ജപ്തി ഒരു ഭാഗത്തേക്ക് മാത്രമാക്കാൻ **വീഴ്ചക്കാരന്** കളക്ടറോട് അപേക്ഷിക്കാൻ ഇത് അവകാശം നൽകുന്നു.
+
+### പ്രധാന വ്യവസ്ഥകൾ
+
+- **ആർക്ക് അപേക്ഷിക്കാം:** ജപ്തി ചെയ്യപ്പെട്ട സ്ഥാവരവസ്തുവിന്റെ ഉടമയായ വീഴ്ചക്കാരന്.
+- **വ്യവസ്ഥ:** സ്ഥാവരവസ്തുവിന്റെ **ന്യായവിലയും** അതിലെ **ദേഹണ്ഡങ്ങളുടെ (improvements) മൂല്യവും** ചേർന്ന ആകെ തുക **കുടിശ്ശിക തുകയെക്കാൾ അധികമാകണം**.
+- **കളക്ടറുടെ അധികാരം:** അപേക്ഷ ലഭിക്കുമ്പോൾ, വസ്തുവിന്റെ ആ ഭാഗം വിറ്റാൽ കുടിശ്ശിക ഈടാക്കാൻ കഴിയുമെന്ന് **കളക്ടർക്ക് ബോധ്യപ്പെട്ടാൽ**, ജപ്തി ആ ഭാഗത്തേക്ക് മാത്രമായി പരിമിതപ്പെടുത്താം.
+
+### ""ന്യായവില"" എന്നാൽ എന്ത്?
+
+ഈ ഉപവകുപ്പിന്റെ ആവശ്യത്തിന്, ന്യായവില എന്നാൽ **1959-ലെ കേരള മുദ്രപത്ര ആക്റ്റ്** (1959-ലെ 17) പ്രകാരം നിശ്ചയിച്ച ന്യായവിലയാണ്.
+
+### നിയമപരമായ അർത്ഥവും പ്രാധാന്യവും
+
+- വീഴ്ചക്കാരന് അപേക്ഷിക്കാൻ അവകാശമുണ്ട്. എന്നാൽ അപേക്ഷ അനുവദിക്കുന്നത് **കളക്ടറുടെ വിവേചനാധികാരമാണ്**. ഇത് സ്വയമേവ ലഭിക്കുന്ന അവകാശമല്ല.
+- കുടിശ്ശിക ഈടാക്കാൻ ഭാഗികമായ വിൽപ്പന മതിയാകുമെന്ന് കളക്ടർക്ക് ഉറപ്പുണ്ടായിരിക്കണം.
+- കുടിശ്ശികയെക്കാൾ വളരെ കൂടുതൽ മൂല്യമുള്ള വസ്തു മുഴുവനായി ജപ്തി ചെയ്യുന്നത് ഒഴിവാക്കാൻ ഇത് സഹായിക്കുന്നു.
+
+### ശ്രദ്ധിക്കേണ്ടത്
+
+നൽകിയ സന്ദർഭത്തിൽ അപേക്ഷയുടെ ഫോം, സമയപരിധി, നടപടിക്രമം എന്നിവ വ്യക്തമാക്കിയിട്ടില്ല. അതിനാൽ ഇക്കാര്യങ്ങളെക്കുറിച്ച് ഇവിടെ നിന്ന് ഉറപ്പിച്ച് പറയാനാവില്ല.",51 24.pdf p11; 51 24.pdf p3; 51 24.pdf p11; 51 24.pdf p12; 51 24.pdf p14; 51 24.pdf p14; 51 24.pdf p3; 51 24.pdf p15; 2513.pdf p11; 2513.pdf p8,,,,,
+q08,A_dense_baseline,en,factual,True,"Within how many days must a first appeal be filed under the Kerala Right to Public Service Act, 2025?","Within thirty days from receipt of the rejection order, expiry of the stipulated time limit, or receipt of deficient service; the first appellate authority may admit a late appeal for sufficient cause.",2512.pdf p25; 2512.pdf p8,"## First Appeal under the Kerala Right to Public Service Act, 2025
+
+**Answer:** A first appeal must be filed within **thirty (30) days**.
+
+### Source
+The provision is in **Section 7 (First Appeal)** of the **Kerala Right to Public Service Act, 2025 (Act 12 of 2025)**.
+
+### Who Can File
+A person may appeal to the **first appellate authority** if any of these apply:
+- Their application was **rejected** under section 5 of the Act.
+- They did **not receive the public service within the stipulated time limit**.
+- The service they received was **deficient** in any way.
+
+### When the 30 Days Start
+The period is counted from whichever applies:
+1. The date of **receipt of the order of rejection**.
+2. The **expiry of the stipulated time limit**.
+3. The date of **receipt of the deficient service**.
+4. The relevant date where the service is **not rendered as per section 5**.
+
+### Late Appeals
+The text includes a **proviso** that the first appellate authority *may admit an appeal filed after the 30 days*. The retrieved context cuts off here, so the exact conditions are not fully shown. The similar proviso for revision petitions to the Commission permits a late filing if there is ""sufficient cause"".
+
+### Practical Implication
+An aggrieved applicant should file the appeal within 30 days. A late appeal depends on the authority's discretion. Whether a late first appeal can be admitted, and on what conditions, should be checked against the full text of Section 7.",2512.pdf p21; 2516.pdf p5; 2512.pdf p26; 2512.pdf p25; 2512.pdf p20; 252.pdf p11; 2516.pdf p5; 253.pdf p42; 2514.pdf p30; 42 24.pdf p6,,,,,
+q08,B_hybrid,en,factual,True,"Within how many days must a first appeal be filed under the Kerala Right to Public Service Act, 2025?","Within thirty days from receipt of the rejection order, expiry of the stipulated time limit, or receipt of deficient service; the first appellate authority may admit a late appeal for sufficient cause.",2512.pdf p25; 2512.pdf p8,"## Time Limit for First Appeal under the Kerala Right to Public Service Act, 2025
+
+A first appeal must be filed within **thirty (30) days**. This is laid down in **Section 7 (First Appeal)** of the **Kerala Right to Public Service Act, 2025 (Act 12 of 2025)**.
+
+### Who Can File an Appeal
+A person may appeal to the **first appellate authority** if:
+
+- Their application has been **rejected** under section 5.
+- They have **not received the public service** within the stipulated time limit.
+- The service they received is **deficient** in some way.
+- The service was not rendered as required under the relevant sub-section of section 5.
+
+### When the 30 Days Start
+The 30-day period is counted from whichever applies:
+
+1. The date of receipt of the **order of rejection**.
+2. The **expiry of the stipulated time limit** for the service.
+3. The date of receipt of the **deficient service**.
+4. The relevant date where the service is not rendered as per section 5.
+
+### Condonation of Delay
+The first appellate authority may admit an appeal filed **after 30 days** if it is satisfied that the appellant had **sufficient cause** for the delay.
+
+### Related Procedure
+- The authority may direct the **designated officer** to render the service or rectify the deficiency within a specified period, which must not exceed the stipulated time limit. It may also reject the appeal after **recording reasons in writing**.
+- The parties must be given a **reasonable opportunity of being heard** before an order is passed.
+- The appeal must be **disposed of within 30 days** of filing.
+
+### Practical Implication
+A person who does not receive a service on time, or is unhappy with its quality or a rejection, has **30 days** to approach the first appellate authority. A late appeal is not automatically barred, but the person must show a genuine reason for the delay.",2512.pdf p21; 2512.pdf p25; 2512.pdf p26; 2512.pdf p25; 2516.pdf p5; 2512.pdf p20; 2516.pdf p5; 2516.pdf p6; 252.pdf p11; 2516.pdf p6,,,,,
+q08,C_hybrid_rerank,en,factual,True,"Within how many days must a first appeal be filed under the Kerala Right to Public Service Act, 2025?","Within thirty days from receipt of the rejection order, expiry of the stipulated time limit, or receipt of deficient service; the first appellate authority may admit a late appeal for sufficient cause.",2512.pdf p25; 2512.pdf p8,"## First Appeal under the Kerala Right to Public Service Act, 2025
+
+A first appeal must be filed within **thirty (30) days**. This is provided in **Section 7 (First Appeal)** of the **Kerala Right to Public Service Act, 2025 (Act 12 of 2025)**.
+
+### Who Can File
+A person may file a first appeal if any of the following applies:
+- Their application was rejected under section 5.
+- They did not receive the public service within the stipulated time limit.
+- The service they received was deficient in any manner.
+
+### When the 30 Days Start
+The 30-day period is counted from the relevant date, as the case may be:
+1. The date of receipt of the order of rejection.
+2. The expiry of the stipulated time limit.
+3. The date of receipt of the deficient service.
+4. The date on which the service was not rendered as required under section 5.
+
+### Late Appeals
+The **first appellate authority** may admit an appeal filed after the 30 days. This is allowed only if the authority is satisfied that the appellant had **sufficient cause** for not filing in time.
+
+### Related Details
+- **Powers of the authority:** It may direct the designated officer to render the service or rectify the deficiency within a specified period, which cannot exceed the stipulated time limit. It may instead reject the appeal, recording its reasons in writing.
+- **Hearing:** Before passing an order, the authority must give the parties a **reasonable opportunity of being heard**.
+- **Disposal time:** The appeal must be disposed of within **thirty days from the date of filing**.
+
+### Summary
+The time limit to file a first appeal is **30 days**, and it can be extended only where the appellate authority accepts that there was sufficient cause for the delay.",2512.pdf p25; 2512.pdf p8; 2512.pdf p21; 2512.pdf p25; 2512.pdf p26; 2512.pdf p23; 2516.pdf p5; 2512.pdf p23; 2512.pdf p33; 2512.pdf p26,,,,,
+q09,A_dense_baseline,ml,factual,True,രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെ കമ്മീഷന് മുമ്പാകെ റിവിഷൻ ഹർജി എത്ര ദിവസത്തിനുള്ളിൽ നൽകണം?,"Within sixty days from the date of receipt of the second appellate authority's order (section 9, Revision).",2512.pdf p26; 2512.pdf p9,"## രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെയുള്ള റിവിഷൻ
+
+ലഭ്യമായ സന്ദർഭത്തിലെ **വകുപ്പ് 9 (റിവിഷൻ)** പ്രകാരമാണ് ഈ ചോദ്യത്തിനുള്ള ഉത്തരം. ഇത് ഒരു **നിയമത്തിലെ (ആക്റ്റിലെ) വ്യവസ്ഥ** ആണ്.
+
+### സമയപരിധി
+
+രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെ **അറുപത് (60) ദിവസത്തിനുള്ളിൽ** കമ്മീഷൻ മുമ്പാകെ റിവിഷൻ ഹർജി സമർപ്പിക്കണം.
+
+- ഉത്തരവിൽ സങ്കടമനുഭവിക്കുന്ന (aggrieved) ഏതൊരാൾക്കും ഹർജി നൽകാം.
+- ഇംഗ്ലീഷ് പാഠത്തിൽ, 60 ദിവസം കണക്കാക്കുന്നത് ഉത്തരവ് **ലഭിച്ച തീയതി** മുതലാണെന്ന് പറയുന്നു.
+
+### കാലതാമസത്തിനുള്ള ഇളവ്
+
+- യഥാസമയം റിവിഷൻ ഫയൽ ചെയ്യാതിരുന്നതിന് **മതിയായ കാരണം** ഉണ്ടെന്ന് കമ്മീഷന് ബോധ്യപ്പെട്ടാൽ, 60 ദിവസം കഴിഞ്ഞ ഹർജിയും കമ്മീഷന് സ്വീകരിക്കാം.
+
+### കമ്മീഷന്റെ തീരുമാനം
+
+- കമ്മീഷന്റെ തീരുമാനം **അന്തിമവും** ബന്ധപ്പെട്ട എല്ലാ കക്ഷികൾക്കും **ബാധകവും** ആയിരിക്കും.
+
+### ചുരുക്കത്തിൽ
+
+രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെ **60 ദിവസത്തിനകം** കമ്മീഷനിൽ റിവിഷൻ ഹർജി നൽകണം. മതിയായ കാരണമുണ്ടെങ്കിൽ മാത്രം വൈകിയ ഹർജി കമ്മീഷൻ പരിഗണിക്കും.",2512.pdf p9; 2512.pdf p26; 2514.pdf p9; 2512.pdf p25; 254.pdf p10; 2512.pdf p9; 2512.pdf p25; 2512.pdf p8; 2514.pdf p10; 2514.pdf p22,,,,,
+q09,B_hybrid,ml,factual,True,രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെ കമ്മീഷന് മുമ്പാകെ റിവിഷൻ ഹർജി എത്ര ദിവസത്തിനുള്ളിൽ നൽകണം?,"Within sixty days from the date of receipt of the second appellate authority's order (section 9, Revision).",2512.pdf p26; 2512.pdf p9,"## രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെ റിവിഷൻ ഹർജി
+
+ഇത് **കേരള സംസ്ഥാന സേവനാവകാശ കമ്മീഷൻ** സംബന്ധിച്ച ആക്റ്റിലെ **വകുപ്പ് 9 (റിവിഷൻ)** പ്രകാരമുള്ള വ്യവസ്ഥയാണ്.
+
+### സമയപരിധി
+
+രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിൽ സങ്കടമനുഭവിക്കുന്ന ഏതൊരാൾക്കും, ആ ഉത്തരവിന്റെ തീയതി മുതൽ **അറുപത് (60) ദിവസത്തിനുള്ളിൽ** കമ്മീഷൻ മുമ്പാകെ റിവിഷൻ ഹർജി സമർപ്പിക്കാം.
+
+### കാലതാമസം സംബന്ധിച്ച ഇളവ്
+
+- റിവിഷൻ യഥാസമയം ഫയൽ ചെയ്യാതിരുന്നതിന് **മതിയായ കാരണമുണ്ടായിരുന്നു** എന്ന് കമ്മീഷന് ബോധ്യപ്പെട്ടാൽ, 60 ദിവസം കഴിഞ്ഞ ശേഷമുള്ള ഹർജിയും സ്വീകരിക്കാവുന്നതാണ്.
+
+### കമ്മീഷന്റെ തീരുമാനത്തിന്റെ ഫലം
+
+- റിവിഷനിൽ **കമ്മീഷന്റെ തീരുമാനം അന്തിമമാണ്**.
+- ബന്ധപ്പെട്ട **എല്ലാ കക്ഷികൾക്കും** അത് ബാധകമായിരിക്കും.
+
+### ചുരുക്കത്തിൽ
+
+റിവിഷൻ ഹർജി ഉത്തരവിന്റെ തീയതി മുതൽ **60 ദിവസത്തിനുള്ളിൽ** നൽകണം. മതിയായ കാരണം ബോധ്യപ്പെട്ടാൽ മാത്രം കമ്മീഷന് ഈ കാലാവധിക്കുശേഷവും ഹർജി സ്വീകരിക്കാം.",2512.pdf p9; 2512.pdf p9; 2512.pdf p8; 2514.pdf p9; 2514.pdf p22; 2512.pdf p16; 2514.pdf p10; 2512.pdf p12; 259.pdf p10; 258.pdf p4,,,,,
+q09,C_hybrid_rerank,ml,factual,True,രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെ കമ്മീഷന് മുമ്പാകെ റിവിഷൻ ഹർജി എത്ര ദിവസത്തിനുള്ളിൽ നൽകണം?,"Within sixty days from the date of receipt of the second appellate authority's order (section 9, Revision).",2512.pdf p26; 2512.pdf p9,"## രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെയുള്ള റിവിഷൻ ഹർജി
+
+നൽകിയിരിക്കുന്ന സന്ദർഭം അനുസരിച്ച്, ഇത് ഒരു **ആക്റ്റിലെ (സേവനാവകാശ നിയമം) വകുപ്പ് 9 – റിവിഷൻ** വ്യവസ്ഥയാണ്.
+
+### ഉത്തരം
+
+രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിനെതിരെ **അറുപത് (60) ദിവസത്തിനുള്ളിൽ** കമ്മീഷന് മുമ്പാകെ റിവിഷൻ ഹർജി സമർപ്പിക്കണം.
+
+### പ്രധാന വ്യവസ്ഥകൾ
+
+- രണ്ടാം അപ്പീൽ അധികാരിയുടെ ഉത്തരവിൽ **സങ്കടമനുഭവിക്കുന്ന ഏതൊരാൾക്കും** റിവിഷൻ ഹർജി നൽകാം.
+- ഹർജി **കമ്മീഷൻ മുമ്പാകെ** ആണ് സമർപ്പിക്കേണ്ടത്.
+- ഉത്തരവ് ലഭിച്ച തീയതി മുതലാണ് 60 ദിവസം കണക്കാക്കുന്നത്. ഇംഗ്ലീഷ് പാഠത്തിൽ ""date of receipt of the said order"" എന്നാണ് പറയുന്നത്.
+
+### കാലതാമസം സംബന്ധിച്ച ഇളവ്
+
+യഥാസമയം റിവിഷൻ ഫയൽ ചെയ്യാതിരുന്നതിന് **മതിയായ കാരണമുണ്ടായിരുന്നുവെന്ന്** കമ്മീഷന് ബോധ്യപ്പെട്ടാൽ, 60 ദിവസം കഴിഞ്ഞ് സമർപ്പിക്കുന്ന റിവിഷൻ ഹർജിയും കമ്മീഷന് സ്വീകരിക്കാവുന്നതാണ്.
+
+### തീരുമാനത്തിന്റെ ഫലം
+
+**കമ്മീഷന്റെ തീരുമാനം അന്തിമമാണ്**. ബന്ധപ്പെട്ട എല്ലാ കക്ഷികൾക്കും അത് ബാധകമായിരിക്കും.
+
+### ചുരുക്കത്തിൽ
+
+| വിഷയം | വ്യവസ്ഥ |
+|---|---|
+| ഹർജി നൽകേണ്ട സ്ഥലം | കമ്മീഷൻ |
+| സമയപരിധി | 60 ദിവസം |
+| കാലതാമസം | മതിയായ കാരണമുണ്ടെങ്കിൽ കമ്മീഷന് അനുവദിക്കാം |
+| കമ്മീഷൻ തീരുമാനം | അന്തിമവും എല്ലാ കക്ഷികൾക്കും ബാധകവും |",2512.pdf p9; 2512.pdf p26; 2512.pdf p9; 2512.pdf p8; 2512.pdf p25; 259.pdf p4; 258.pdf p9; 2514.pdf p22; 259.pdf p10; 258.pdf p4,,,,,
+q10,A_dense_baseline,en,section,True,"What does the substituted section 9 of the Guruvayoor Devaswom Act, 1978 provide after the 2025 amendment?","Section 9 (Remuneration of the Chairman and members): the Chairman and members of the Committee receive monthly honoraria and sitting fees fixed by Government by Gazette notification, plus prescribed travelling and daily allowances; a member nominated under clause (d) of section 4(1) gets no honorarium. Section 2 of the amending Act is deemed in force from 1 January 2025.",2517.pdf p2,"## Substituted Section 9 – Guruvayoor Devaswom Act, 1978
+
+The context is **insufficient** to say what the new section 9 provides. The retrieved text is cut off right after the section heading begins.
+
+### What the Context Shows
+
+- The **Guruvayoor Devaswom (Amendment) Act, 2025** (Act 17 of 2025) further amends the **Guruvayoor Devaswom Act, 1978** (Act 14 of 1978).
+- **Section 2** of the amendment Act substitutes the existing **section 9** of the principal Act with a new section.
+- The heading of the new section is **""9. Remuneration of the Chairman and members.""**
+- The text begins: *""The Chairman and members of…""* and then stops.
+
+### Legal Meaning and Implication
+
+From the heading and the start of the text, the new section 9 deals with the **remuneration** of the **Chairman and members** of the Guruvayoor Devaswom managing body. The context does not give the amount, the form of payment (salary, honorarium, sitting fee, allowances), or any conditions.
+
+### Commencement
+
+- **Section 2** (the substitution of section 9) is **deemed to have come into force on 1 January 2025**. It therefore operates **retrospectively**.
+- The **remaining sections** come into force **at once**, meaning on the date the Act commenced.
+
+### Conclusion
+
+The substituted section 9 concerns the remuneration of the Chairman and members and applies from 1 January 2025. Its actual provisions are not in the retrieved text. The full text of Act 17 of 2025 is needed to confirm the details.",2517.pdf p2; 2517.pdf p4; 259.pdf p2; 258.pdf p7; 258.pdf p6; 2516.pdf p4; 41 24.pdf p7; 254.pdf p2; 255.pdf p16; 2515.pdf p8,,,,,
+q10,B_hybrid,en,section,True,"What does the substituted section 9 of the Guruvayoor Devaswom Act, 1978 provide after the 2025 amendment?","Section 9 (Remuneration of the Chairman and members): the Chairman and members of the Committee receive monthly honoraria and sitting fees fixed by Government by Gazette notification, plus prescribed travelling and daily allowances; a member nominated under clause (d) of section 4(1) gets no honorarium. Section 2 of the amending Act is deemed in force from 1 January 2025.",2517.pdf p2,"## Guruvayoor Devaswom (Amendment) Act, 2025 – Substituted Section 9
+
+**Context:** This is **Act 17 of 2025**, an amending Act. It amends the **Guruvayoor Devaswom Act, 1978 (Act 14 of 1978)**, referred to as the ""principal Act"".
+
+### What the Context Shows
+
+Section 2 of the Amendment Act provides that the existing **section 9** of the principal Act is replaced with a new section. The new section is titled:
+
+> **""9. Remuneration of the Chairman and members.""**
+
+The extracted text begins the new provision with the words: *""The Chairman and members of...""*
+
+### Insufficient Information
+
+The retrieved text **cuts off** right after these opening words. It does not include the rest of the substituted section, so I cannot say:
+
+- what remuneration, allowance, or fee is prescribed
+- who determines it, or on what terms
+- any conditions or limits that apply
+
+I will not guess at the content beyond what the text states.
+
+### What Can Be Said
+
+- **Subject matter:** The substituted section 9 deals with the **remuneration of the Chairman and members** of the Guruvayoor Devaswom body (the Managing Committee).
+- **Effective date:** Under section 1 of the Amendment Act, **section 2 is deemed to have come into force on 1 January 2025**. The new section 9 therefore applies **retrospectively** from that date. The remaining sections took effect at once.
+
+### Legal Implication
+
+Remuneration for the Chairman and members is now governed by the new section 9, with effect from **1 January 2025**. To know the exact amount or terms, you would need the full text of section 2 of Act 17 of 2025 from the official Gazette.",2517.pdf p2; 2517.pdf p4; 41 24.pdf p7; 259.pdf p2; 35 24.pdf p6; 254.pdf p2; 257.pdf p2; 253.pdf p33; 2516.pdf p5; 40 24.pdf p6,,,,,
+q10,C_hybrid_rerank,en,section,True,"What does the substituted section 9 of the Guruvayoor Devaswom Act, 1978 provide after the 2025 amendment?","Section 9 (Remuneration of the Chairman and members): the Chairman and members of the Committee receive monthly honoraria and sitting fees fixed by Government by Gazette notification, plus prescribed travelling and daily allowances; a member nominated under clause (d) of section 4(1) gets no honorarium. Section 2 of the amending Act is deemed in force from 1 January 2025.",2517.pdf p2,"## Guruvayoor Devaswom (Amendment) Act, 2025 (Act 17 of 2025): Substituted Section 9
+
+The context is **insufficient** to say what the new section 9 provides. The text cuts off after its opening words.
+
+### What the context shows
+- **Instrument:** This is an **Act** of the Kerala Legislature, Act 17 of 2025. It further amends the **Guruvayoor Devaswom Act, 1978 (Act 14 of 1978)**.
+- **Amendment:** Section 2 of the amending Act replaces the existing section 9 of the principal Act with a new section 9.
+- **Heading of the new section:** ""**Remuneration of the Chairman and members**.""
+- **Opening words:** ""The Chairman and members of…"". The sentence is incomplete in the retrieved text.
+
+### Legal meaning and implication
+- The new section 9 deals with the **remuneration** (pay, allowances or similar payments) of the **Chairman and members** of the Guruvayoor Devaswom body.
+- Under section 1 of the amending Act, section 2 is **deemed to have come into force on 1 January 2025**. The new remuneration provision therefore applies **retrospectively** from that date, even though it was enacted later.
+- The remaining sections of the amending Act came into force at once.
+
+### What cannot be determined from the context
+- The **amount or rate** of remuneration.
+- Whether it covers **sitting fees, honorarium, allowances or other benefits**.
+- Any **conditions** on payment, or who fixes the amounts (for example, the Government).
+
+The other retrieved passages (on section 20, 22 and 34, and on the Coir Workers' Welfare Fund, General Sales Tax and Public Service Commission Acts) relate to different enactments. They do not describe the new section 9.
+
+To get the full wording, please consult the complete text of Act 17 of 2025 as published in the Kerala Gazette.",2517.pdf p2; 2517.pdf p4; 253.pdf p33; 259.pdf p2; 253.pdf p32; 2516.pdf p5; 35 24.pdf p6; 2516.pdf p6; 41 24.pdf p7; 257.pdf p2,,,,,
+q11,A_dense_baseline,en,section,True,"In the Guruvayoor Devaswom (Amendment) Act, 2025, what amount replaces ""five thousand rupees"" in sections 11 and 17?","""fifty thousand rupees"" is substituted for ""five thousand rupees"" in section 11 and section 17 of the principal Act.",2517.pdf p2,"## Guruvayoor Devaswom (Amendment) Act, 2025 (Act 17 of 2025)
+
+This is an **Act** amending the **Guruvayoor Devaswom Act, 1978 (14 of 1978)**. It is an amendment passed by the Kerala Legislature.
+
+### Answer
+
+In both **section 11** and **section 17** of the principal Act, the words **""five thousand rupees""** are replaced with **""fifty thousand rupees""**.
+
+### Details from the Context
+
+- **Section 3 (Amendment of section 11):** In the relevant sub-section of section 11 of the principal Act, ""five thousand rupees"" is replaced by ""fifty thousand rupees"".
+- **Section 4 (Amendment of section 17):** In the relevant sub-section of section 17 of the principal Act, ""five thousand rupees"" is replaced by ""fifty thousand rupees"".
+
+### Legal Implication
+
+The monetary limit in each provision is increased **tenfold**, from ₹5,000 to ₹50,000.
+
+### Note on Limits of the Context
+
+The context does not give the sub-section numbers, and it does not show what sections 11 and 17 deal with. I therefore cannot say what the ₹50,000 limit applies to.
+
+The context also shows a separate amendment to section 17 (in a different part of the text, numbered ""5. Amendment of section 17""). That amendment replaces criminal punishments with monetary penalties. It appears to belong to a different Act, because its section numbering and page references differ from this one. It does not change the answer above.",2517.pdf p2; 54 24.pdf p35; 38 24.pdf p13; 253.pdf p4; 253.pdf p4; 253.pdf p5; 2517.pdf p2; 253.pdf p5; 253.pdf p14; 259.pdf p3,,,,,
+q11,B_hybrid,en,section,True,"In the Guruvayoor Devaswom (Amendment) Act, 2025, what amount replaces ""five thousand rupees"" in sections 11 and 17?","""fifty thousand rupees"" is substituted for ""five thousand rupees"" in section 11 and section 17 of the principal Act.",2517.pdf p2,"## Guruvayoor Devaswom (Amendment) Act, 2025 (Act 17 of 2025)
+
+This is an **Act** that amends the **Guruvayoor Devaswom Act, 1978 (14 of 1978)**.
+
+### Answer
+
+In both sections, the words **""five thousand rupees""** are replaced with **""fifty thousand rupees""**.
+
+- **Section 3** of the Amendment Act amends **section 11** of the principal Act, replacing ""five thousand rupees"" with ""fifty thousand rupees"".
+- **Section 4** of the Amendment Act amends **section 17** of the principal Act, replacing ""five thousand rupees"" with ""fifty thousand rupees"".
+
+### Legal Implication
+
+The amount in both provisions is increased **tenfold**, from ₹5,000 to ₹50,000.
+
+### Limits of the Context
+
+The extracted text does not say what sections 11 and 17 of the principal Act deal with. It also does not name the sub-sections being amended, because the sub-section numbers are missing from the extract. It is therefore not possible to say whether the amount is a monetary limit, a fine, or something else.",2517.pdf p2; 2517.pdf p2; 54 24.pdf p35; 259.pdf p3; 253.pdf p5; 253.pdf p4; 50 24.pdf p9; 54 24.pdf p35; 258.pdf p8; 253.pdf p17,,,,,
+q11,C_hybrid_rerank,en,section,True,"In the Guruvayoor Devaswom (Amendment) Act, 2025, what amount replaces ""five thousand rupees"" in sections 11 and 17?","""fifty thousand rupees"" is substituted for ""five thousand rupees"" in section 11 and section 17 of the principal Act.",2517.pdf p2,"## Amendment of Sections 11 and 17 – ""Five Thousand Rupees"" Replaced
+
+### Answer
+In the extract provided, the words **""five thousand rupees""** are replaced by **""fifty thousand rupees""** in both sections:
+
+- **Section 11** of the principal Act (Clause 3 of the amending provisions): ""five thousand rupees"" is replaced with ""fifty thousand rupees"".
+- **Section 17** of the principal Act (Clause 4 of the amending provisions): ""five thousand rupees"" is replaced with ""fifty thousand rupees"".
+
+### Legal Meaning
+The amount specified in each section is increased **ten times**, from ₹5,000 to **₹50,000**. The extract does not say what the amount relates to in each section, such as a fine or a monetary limit. I therefore cannot explain its exact effect.
+
+### Important Note
+The extract does not name the Act. It does not say that it is the **Guruvayoor Devaswom (Amendment) Act, 2025**, so I cannot confirm that from the text. The same passage also replaces **section 9** (remuneration of the Chairman and members of the Committee), which suggests it amends an Act that establishes a Committee. For a definitive answer, please check the full text of the Act.",2517.pdf p2; 253.pdf p18; 259.pdf p3; 253.pdf p5; 38 24.pdf p13; 258.pdf p8; 253.pdf p17; 253.pdf p8; 50 24.pdf p8; 253.pdf p15,,,,,
+q12,A_dense_baseline,mixed,multi_chunk,True,Kerala General Sales Tax (Amendment) Act 2025 പ്രകാരം horti-wine എങ്ങനെയാണ് ഉൾപ്പെടുത്തിയത്?,"Section 5 explanation (b): ""Horti-wine,"" inserted after ""means and includes wine,""; Schedule serial number 2 (Foreign Liquor) item (iv): ""including horti-wine"" inserted after ""Wine""; and a definition (ia) giving Horti-wine the meaning in rule 2 of the Kerala Small Scale Winery Rules, 2022.",257.pdf p2; 257.pdf p4,"## 2025-ലെ കേരള പൊതുവില്പന നികുതി (ഭേദഗതി) ആക്റ്റ് (Act 7 of 2025)
+
+ഇത് ഒരു **ആക്റ്റ്** (നിയമം) ആണ്. **1963-ലെ കേരള പൊതുവില്പന നികുതി ആക്റ്റ്** (Kerala General Sales Tax Act, 1963) വീണ്ടും ഭേദഗതി ചെയ്യുന്നതിനുള്ളതാണ് ഇത്. **Horti-wine** എന്നതിനെ വൈനിന്റെ കൂട്ടത്തിൽ വ്യക്തമായി ഉൾപ്പെടുത്തുക എന്നതാണ് ഭേദഗതിയുടെ ഉദ്ദേശ്യം.
+
+### പ്രാരംഭം
+- ആക്റ്റിന്റെ ചുരുക്കപ്പേര്: **2025-ലെ കേരള പൊതുവില്പന നികുതി (ഭേദഗതി) ആക്റ്റ്**.
+- ഇത് **ഉടൻ പ്രാബല്യത്തിൽ വരും**.
+
+### Horti-wine ഉൾപ്പെടുത്തിയ രീതി
+
+**1. വകുപ്പ് 5-ലെ ഭേദഗതി (വകുപ്പ് 2)**
+- 5-ാം വകുപ്പിലെ ഉപവകുപ്പിന്റെ **വിശദീകരണം (ബി)** യിൽ ""വൈൻ,"" എന്ന വാക്കിനും ചിഹ്നത്തിനും ശേഷം **""ഹോർട്ടി വൈൻ,""** എന്ന് ചേർക്കും.
+- ഇതോടെ ആ വിശദീകരണത്തിൽ ""വൈൻ ഉൾപ്പെടെ"" എന്ന ഭാഗത്ത് ഹോർട്ടി വൈനും ഉൾപ്പെടും.
+
+**2. പട്ടികയിലെ ഭേദഗതി (വകുപ്പ് 3)**
+- **(എ)** പട്ടികയിലെ ക്രമനമ്പർ 2-ൽ, ""വിദേശമദ്യം"" (Foreign Liquor) എന്ന ശീർഷകത്തിന് കീഴിലുള്ള ഇനം (iv)-ൽ, ""വൈൻ"" എന്ന വാക്കിന് ശേഷം **""including horti-wine""** (മലയാളം പാഠത്തിൽ ""ഹോർട്ടി വൈൻ ഉൾപ്പെടെയുള്ള"") എന്ന വാക്കുകൾ ചേർക്കും.
+- **(ബി)** വിശദീകരണത്തിന് ശേഷം പുതിയ ഖണ്ഡം **(ia)** ചേർക്കും.
+
+### ""Horti-wine""-ന്റെ നിർവചനം
+പുതുതായി ചേർത്ത ഖണ്ഡം (ia) പ്രകാരം, ""Horti-wine""-ന് **2022-ലെ കേരള സ്മോൾ സ്കെയിൽ വൈനറി (ഫോർ പ്രൊഡക്ഷൻ ഓഫ് ഹോർട്ടി വൈൻ ഫ്രം ട്രോപ്പിക്കൽ ഫ്രൂട്ട്സ് ആൻഡ് അഗ്രിക്കൾച്ചറൽ പ്രൊഡക്ട്സ് ഓഫ് കേരള) ചട്ടങ്ങളിലെ** ചട്ടം 2-ലെ ഒരു ഖണ്ഡത്തിൽ നൽകിയിരിക്കുന്ന അതേ അർഥം തന്നെയാണ്. ഖണ്ഡത്തിന്റെ അക്ഷരം ലഭ്യമായ പാഠത്തിൽ വ്യക്തമല്ല. മലയാളം പാഠത്തിൽ ""ഖണ്ഡം (ജി)"" എന്ന് കാണുന്നു.
+
+### നിയമപരമായ അർഥവും ഫലവും
+- Horti-wine ഇനി **വൈനിന്റെ നിർവചനത്തിലും** **വിദേശമദ്യ വിഭാഗത്തിലും** വ്യക്തമായി ഉൾപ്പെടുന്നു.
+- ഈ ആക്റ്റിന്റെ ആവശ്യത്തിനുള്ള നിർവചനം 2022-ലെ ചട്ടങ്ങളിൽ നിന്ന് എടുക്കുന്നതിനാൽ, അവയുടെ അർഥത്തിൽ ഏകീകരണം ഉണ്ടാകും.
+
+### പരിമിതി
+നൽകിയ പാഠത്തിൽ 5-ാം വകുപ്പിലെ ഉപവകുപ്പ് നമ്പറും ഇനം/ഖണ്ഡം നമ്പറുകളും ഭാഗികമായി വ്യക്തമല്ല. ഈ പരിമിതി മൂലം ഓരോ വ്യവസ്ഥയുടെയും കൃത്യമായ നമ്പർ ഇവിടെ ഉറപ്പിച്ച് പറയാൻ കഴിയില്ല. നികുതി നിരക്കുകളെക്കുറിച്ചുള്ള വിവരവും ഈ പാഠത്തിൽ ഇല്ല.",257.pdf p2; 257.pdf p2; 257.pdf p4; 257.pdf p4; 51 24.pdf p2; 2515.pdf p9; 2515.pdf p8; 251.pdf p8; 2510.pdf p6; 253.pdf p32,,,,,
+q12,B_hybrid,mixed,multi_chunk,True,Kerala General Sales Tax (Amendment) Act 2025 പ്രകാരം horti-wine എങ്ങനെയാണ് ഉൾപ്പെടുത്തിയത്?,"Section 5 explanation (b): ""Horti-wine,"" inserted after ""means and includes wine,""; Schedule serial number 2 (Foreign Liquor) item (iv): ""including horti-wine"" inserted after ""Wine""; and a definition (ia) giving Horti-wine the meaning in rule 2 of the Kerala Small Scale Winery Rules, 2022.",257.pdf p2; 257.pdf p4,"## കേരള ജനറൽ സെയിൽസ് ടാക്സ് (ഭേദഗതി) ആക്റ്റ്, 2025 – Horti-wine ഉൾപ്പെടുത്തൽ
+
+ഇത് **2025-ലെ ആക്റ്റ് 7** ആണ്. **Kerala General Sales Tax Act, 1963** ഭേദഗതി ചെയ്യുന്ന ഒരു **നിയമനിർമ്മാണം (Act)** ആണിത്. ഈ ഭേദഗതി പ്രകാരം **Horti-wine** എന്നത് നിലവിലുള്ള വൈൻ/വിദേശമദ്യ വിഭാഗത്തിൽ വ്യക്തമായി ഉൾപ്പെടുത്തി.
+
+### പ്രധാന വ്യവസ്ഥകൾ
+
+1. **വകുപ്പ് 5-ലെ ഭേദഗതി**
+   - വകുപ്പ് 5-ലെ ഉപവകുപ്പിന്റെ explanation (b)-ൽ, ""means and includes wine,"" എന്നതിന് ശേഷം **""Horti-wine,""** എന്ന വാക്ക് ചേർക്കണം.
+
+2. **ഷെഡ്യൂളിലെ ഭേദഗതി – (a)**
+   - ഷെഡ്യൂളിലെ ക്രമനമ്പർ 2, ""Foreign Liquor"" എന്ന തലക്കെട്ടിന് കീഴിൽ, ഇനം (iv)-ൽ ""Wine"" എന്ന വാക്കിന് ശേഷം **""including horti-wine""** എന്ന് ചേർക്കണം.
+
+3. **ഷെഡ്യൂളിലെ ഭേദഗതി – (b)**
+   - Explanation-ന് ശേഷം പുതിയ ഭാഗം **(ia)** ചേർത്തു.
+   - **""Horti-wine""** എന്നതിന്, **Kerala Small Scale Winery (for production of horti-wine from tropical fruits and agricultural products of Kerala) Rules, 2022**-ൽ നൽകിയിട്ടുള്ള അതേ അർത്ഥം ആയിരിക്കും.
+
+### നിയമപരമായ അർത്ഥവും പ്രത്യാഘാതവും
+
+- Horti-wine ഇനി **വൈനിന്റെ ഭാഗമായി** കണക്കാക്കപ്പെടും. അതിനാൽ ഷെഡ്യൂളിൽ വൈനിന് ബാധകമായ വ്യവസ്ഥകൾ ഇതിനും ബാധകമാകും.
+- Horti-wine-ന്റെ നിർവചനം **2022-ലെ ചട്ടങ്ങളെ** ആശ്രയിച്ചാണ്. അതിനാൽ പ്രത്യേക നിർവചനം ഈ നിയമത്തിൽ ആവർത്തിച്ച് എഴുതിയിട്ടില്ല.
+
+### പ്രാബല്യം
+
+- ആക്റ്റിന്റെ പേര് **Kerala General Sales Tax (Amendment) Act, 2025** എന്നാണ്.
+- ഇത് **ഉടൻ പ്രാബല്യത്തിൽ വരും** (""It shall come into force at once"").
+
+### പരിമിതി
+
+നൽകിയിരിക്കുന്ന ഭാഗങ്ങളിൽ നികുതി നിരക്കോ മറ്റ് വിശദാംശങ്ങളോ ഇല്ല. അതിനാൽ അവയെക്കുറിച്ച് ഇവിടെ പറയാൻ കഴിയില്ല.",257.pdf p2; 257.pdf p2; 2515.pdf p9; 258.pdf p7; 253.pdf p41; 253.pdf p20; 254.pdf p2; 2515.pdf p8; 2515.pdf p9; 253.pdf p32,,,,,
+q12,C_hybrid_rerank,mixed,multi_chunk,True,Kerala General Sales Tax (Amendment) Act 2025 പ്രകാരം horti-wine എങ്ങനെയാണ് ഉൾപ്പെടുത്തിയത്?,"Section 5 explanation (b): ""Horti-wine,"" inserted after ""means and includes wine,""; Schedule serial number 2 (Foreign Liquor) item (iv): ""including horti-wine"" inserted after ""Wine""; and a definition (ia) giving Horti-wine the meaning in rule 2 of the Kerala Small Scale Winery Rules, 2022.",257.pdf p2; 257.pdf p4,"## 2025-ലെ കേരള പൊതുവില്പന നികുതി (ഭേദഗതി) ആക്റ്റ് (2025-ലെ ആക്റ്റ് 7)
+
+ഇത് **1963-ലെ കേരള പൊതുവില്പന നികുതി ആക്റ്റ്** (1963-ലെ 15) ഭേദഗതി ചെയ്യുന്ന ഒരു **ആക്റ്റ്** ആണ്. ഇതുവഴി **ഹോർട്ടി വൈൻ (horti-wine)** നികുതി നിയമത്തിന്റെ പരിധിയിൽ വ്യക്തമായി ഉൾപ്പെടുത്തിയിരിക്കുന്നു.
+
+### 1. വകുപ്പ് 5-ലെ ഭേദഗതി (ആക്റ്റിലെ വകുപ്പ് 2)
+
+- മുഖ്യ ആക്റ്റിലെ **വകുപ്പ് 5-ലെ വിശദീകരണം (ബി)** യിൽ ""വൈൻ,"" എന്ന വാക്കിനും ചിഹ്നത്തിനും ശേഷം **""ഹോർട്ടി വൈൻ,""** എന്ന് ചേർക്കണം.
+- അതായത്, ആ വിശദീകരണത്തിൽ ""വൈൻ ഉൾപ്പെടെ"" എന്ന് പറയുന്നിടത്ത് ഇനി ഹോർട്ടി വൈനും പ്രത്യേകമായി പരാമർശിക്കപ്പെടും.
+
+### 2. പട്ടികയിലെ ഭേദഗതി (ആക്റ്റിലെ വകുപ്പ് 3)
+
+- **(എ)** പട്ടികയിൽ ക്രമനമ്പർ 2-ൽ **""വിദേശമദ്യം"" (Foreign Liquor)** എന്ന ശീർഷകത്തിന് കീഴിലുള്ള ഇനത്തിൽ (iv), ""വൈൻ"" എന്ന വാക്കിന് മുമ്പായി **""ഹോർട്ടി വൈൻ ഉൾപ്പെടെയുള്ള""** (including horti-wine) എന്ന് ചേർക്കണം.
+- **(ബി)** വിശദീകരണത്തിന് ശേഷം പുതിയ നിർവചനം ചേർക്കണം.
+
+### 3. ""ഹോർട്ടി വൈൻ"" എന്നതിന്റെ നിർവചനം
+
+പുതുതായി ചേർത്ത ഭാഗത്ത് പറയുന്നത്: ""ഹോർട്ടി വൈൻ"" എന്നതിന്, **2022-ലെ കേരള സ്മാൾ സ്കെയിൽ വൈനറി (ഫോർ പ്രൊഡക്ഷൻ ഓഫ് ഹോർട്ടി വൈൻ ഫ്രം ട്രോപ്പിക്കൽ ഫ്രൂട്ട്സ് ആൻഡ് അഗ്രിക്കൾച്ചറൽ പ്രോഡക്ട്സ് ഓഫ് കേരള) ചട്ടങ്ങളിലെ** ചട്ടം 2-ലെ ഖണ്ഡത്തിൽ നൽകിയിരിക്കുന്ന അതേ അർഥം തന്നെയായിരിക്കും.
+
+### 4. പ്രാബല്യം
+
+- ഈ ആക്റ്റ് **ഉടൻ പ്രാബല്യത്തിൽ** വന്നു.
+- ചുരുക്കപ്പേര്: *2025-ലെ കേരള പൊതുവില്പന നികുതി (ഭേദഗതി) ആക്റ്റ്*.
+
+### നിയമപരമായ അർഥവും ഫലവും
+
+- ഹോർട്ടി വൈൻ **വൈൻ വിഭാഗത്തിന്റെ ഭാഗമായി**, വിദേശമദ്യ ഇനത്തിൽ വ്യക്തമായി ഉൾപ്പെടുത്തി.
+- അതിനാൽ പൊതുവില്പന നികുതി ആക്റ്റ് പ്രകാരമുള്ള വ്യവസ്ഥകൾ ഇതിന് ബാധകമാകുമെന്ന് വ്യക്തമാകുന്നു.
+- നിർവചനം 2022-ലെ ചട്ടങ്ങളിൽ നിന്ന് എടുത്തതിനാൽ, അർഥത്തിൽ ആശയക്കുഴപ്പം ഒഴിവാകും.
+
+### പരിമിതി
+
+നൽകിയ ഭാഗത്ത് നികുതി നിരക്ക് സംബന്ധിച്ച വിവരങ്ങളോ, 2022-ലെ ചട്ടങ്ങളിലെ നിർവചനത്തിന്റെ കൃത്യമായ വാചകമോ ഇല്ല. അതിനാൽ അവയെക്കുറിച്ച് ഇവിടെ പറയാനാകില്ല.",257.pdf p2; 257.pdf p4; 257.pdf p2; 257.pdf p4; 253.pdf p42; 253.pdf p41; 50 24.pdf p14; 258.pdf p7; 253.pdf p32; 253.pdf p41,,,,,
+q13,A_dense_baseline,en,factual,True,"Who is included in ""family"" under the Kerala Single Dwelling Place Protection Act, 2025?","The wife or husband, children, father or mother of the debtor.",2513.pdf p20; 2513.pdf p3,"## Definition of ""Family"" under the Kerala Single Dwelling Place Protection Act, 2025
+
+The **Kerala Single Dwelling Place Protection Act, 2025 (Act 13 of 2025)** is an Act of the Legislature. Its English translation was published in the Gazette by a Law (Legislation-I) Department notification dated 1 November 2025. **Section 2(d)** of the Act defines ""family"".
+
+### Persons Included in ""Family""
+
+Under **Section 2(d)**, ""family"" means the following relatives of the **debtor**:
+
+1. **Wife or husband** (the spouse)
+2. **Children**
+3. **Father or mother**
+
+### Who Is a ""Debtor""?
+
+Under **Section 2(b)**, a ""debtor"" is a person or persons who raised a loan from a financial institution functioning in the State by mortgaging a single dwelling place. The dwelling place may belong to the debtor or to a surety.
+
+### Why This Definition Matters
+
+**Section 4** says that families who lose their dwelling place because of attachment or recovery proceedings are eligible for protection under the Act. This applies when the loan was raised by mortgaging the single dwelling place and was not repaid. Protection is subject to the Act's provisions.
+
+The definition therefore sets out which household members the Act's protection covers.
+
+### Points to Note
+
+- The definition is **exhaustive in its wording**. It lists only the spouse, children, and parents of the debtor.
+- The context does not say whether other relatives, such as siblings or grandparents, are covered. The text provided does not address this.",2513.pdf p19; 2513.pdf p19; 2513.pdf p18; 2513.pdf p20; 2513.pdf p20; 2513.pdf p25; 255.pdf p17; 2513.pdf p29; 2513.pdf p25; 2513.pdf p27,,,,,
+q13,B_hybrid,en,factual,True,"Who is included in ""family"" under the Kerala Single Dwelling Place Protection Act, 2025?","The wife or husband, children, father or mother of the debtor.",2513.pdf p20; 2513.pdf p3,"## Definition of ""Family"" under the Kerala Single Dwelling Place Protection Act, 2025
+
+The definition appears in **Section 2(d)** of the **Kerala Single Dwelling Place Protection Act, 2025 (Act 13 of 2025)**. This is a statutory provision, not a notification or order.
+
+### Who Is Included
+
+Under Section 2(d), ""family"" means the following relatives of the **debtor**:
+
+1. The **wife or husband**
+2. The **children**
+3. The **father or mother**
+
+### Who Is a ""Debtor""
+
+Under **Section 2(b)**, a ""debtor"" is a person or persons who raised a loan from a financial institution functioning in the State. The loan must have been raised by mortgaging a **single dwelling place**, which belongs either to the debtor or to a surety.
+
+### Legal Implication
+
+- The definition is **exhaustive in form**. It lists only the spouse, children, and parents of the debtor.
+- **Section 4** gives protection to ""families"" who lose their dwelling place because of attachment or recovery proceedings by a financial institution. The protection is subject to the Act's provisions.
+- Relatives not named in the definition, such as siblings or grandparents, are not covered by the wording in the context provided.
+
+### Note
+
+The context does not say whether the definition is read together with other provisions, such as the eligibility criteria in Section 5. For those details, the full text of the Act would need to be consulted.",2513.pdf p19; 2513.pdf p19; 2513.pdf p20; 2513.pdf p18; 2513.pdf p20; 2513.pdf p25; 2513.pdf p27; 2513.pdf p25; 2513.pdf p21; 2515.pdf p9,,,,,
+q13,C_hybrid_rerank,en,factual,True,"Who is included in ""family"" under the Kerala Single Dwelling Place Protection Act, 2025?","The wife or husband, children, father or mother of the debtor.",2513.pdf p20; 2513.pdf p3,"## Definition of ""Family"" under the Kerala Single Dwelling Place Protection Act, 2025
+
+The **Kerala Single Dwelling Place Protection Act, 2025 (Act 13 of 2025)** is a statute. Its definitions are in **Section 2**, and clause (d) defines ""family.""
+
+### Who Is Included
+
+Under **Section 2(d)**, ""family"" means:
+
+- The **wife or husband** of the debtor
+- The **children** of the debtor
+- The **father or mother** of the debtor
+
+### Legal Meaning and Implication
+
+The definition is limited to the persons listed. The text does not mention other relatives, such as siblings or grandparents.
+
+The term matters because the Act protects **families** who risk losing their single dwelling place after a loan default. The Act describes this as eviction following attachment or recovery proceedings by a financial institution. A ""debtor"" is a person who raised a loan by mortgaging a single dwelling place, belonging either to himself or to a surety, from a financial institution functioning in the State.
+
+### Note
+
+The context gives only the definition itself. It does not say whether other persons can be treated as family in particular situations. If you need to know how the definition applies to eligibility or benefits, the full text of the relevant sections would be needed.",2513.pdf p20; 2513.pdf p19; 2513.pdf p20; 2513.pdf p2; 2513.pdf p19; 2513.pdf p21; 255.pdf p17; 2513.pdf p18; 2513.pdf p29; 2513.pdf p23,,,,,
+q14,A_dense_baseline,ml,paraphrase,True,ലോൺ തിരിച്ചടയ്ക്കാൻ കഴിയാതെ ഒരേയൊരു വീട് നഷ്ടപ്പെടുന്ന കുടുംബങ്ങളെ സംരക്ഷിക്കാൻ ഏത് നിയമമാണ് ഉള്ളത്?,"The Kerala Single Dwelling Place Protection Act, 2025 (Act 13 of 2025), which aims to prevent families losing their single dwelling place through eviction for non-repayment of loans from financial institutions secured by mortgaging it.",2513.pdf p19; 2513.pdf p2,"## 2025-ലെ കേരള ഏക കിടപ്പാടം സംരക്ഷണ ആക്റ്റ്
+
+ഇത്തരം കുടുംബങ്ങളെ സംരക്ഷിക്കാനുള്ള നിയമം **2025-ലെ കേരള ഏക കിടപ്പാടം സംരക്ഷണ ആക്റ്റ്** (The Kerala Single Dwelling Place Protection Act, 2025 – **2025-ലെ ആക്റ്റ് 13**) ആണ്. ഇത് ഗവർണറുടെ അധികാരത്തിൽ പ്രസിദ്ധീകരിച്ച ഒരു **ആക്റ്റ്** (നിയമം) ആണ്.
+
+### നിയമത്തിന്റെ ലക്ഷ്യം
+
+സംസ്ഥാനത്ത് പ്രവർത്തിക്കുന്ന ധനകാര്യസ്ഥാപനത്തിൽ നിന്ന് ഏക കിടപ്പാടം പണയപ്പെടുത്തി വായ്പയെടുക്കുകയും തിരിച്ചടവ് മുടങ്ങുകയും ചെയ്താൽ, കുടുംബങ്ങൾ കുടിയിറക്കപ്പെടുന്ന അവസ്ഥ ഒഴിവാക്കുക എന്നതാണ് ലക്ഷ്യം. അത്തരക്കാരുടെ കിടപ്പാടം സംരക്ഷിക്കുന്നതുൾപ്പെടെയുള്ള നടപടികളും ഇതിൽ വ്യവസ്ഥ ചെയ്യുന്നു.
+
+### പ്രധാന വ്യവസ്ഥകൾ
+
+- **സംരക്ഷണത്തിനുള്ള അർഹത (വകുപ്പ് 4):** ഏക കിടപ്പാടം പണയപ്പെടുത്തി വായ്പയെടുക്കുകയും, തിരിച്ചടവ് മുടങ്ങിയതിനാൽ ധനകാര്യസ്ഥാപനത്തിന്റെ ജപ്തി/റിക്കവറി നടപടികളിലൂടെ കിടപ്പാടം നഷ്ടപ്പെടുന്ന കുടുംബങ്ങൾക്ക്, ആക്റ്റിലെ വ്യവസ്ഥകൾക്ക് വിധേയമായി സംരക്ഷണത്തിന് അർഹതയുണ്ട്.
+- **ഭരണഘടനാ അടിസ്ഥാനം (വകുപ്പ് 3):** ഭരണഘടനയുടെ അനുച്ഛേദം 39(b)-ൽ പറയുന്ന നിർദ്ദേശകതത്വം നടപ്പാക്കാനുള്ള സംസ്ഥാന നയത്തിന്റെ ഭാഗമാണ് ഈ ആക്റ്റ്.
+- **അർഹതാമാനദണ്ഡങ്ങൾ (വകുപ്പ് 5):**
+  - വായ്പത്തുക പരമാവധി **അഞ്ച് ലക്ഷം രൂപ** വരെ.
+  - ആനുകൂല്യം ലഭിക്കുന്നയാൾ **ആധാർ** ഉടമയായിരിക്കണം.
+  - വിദ്യാഭ്യാസം, ചികിത്സ, വിവാഹം, വീട് നിർമ്മാണം/പുനരുദ്ധാരണം, കൃഷി, സ്വയംതൊഴിൽ ഉപജീവനം എന്നീ ആവശ്യങ്ങൾക്കെടുത്ത വായ്പകൾക്ക് മാത്രമേ സംരക്ഷണം ലഭിക്കൂ.
+  - സ്വന്തമായുണ്ടായിരുന്ന വസ്തുക്കൾ കൈമാറ്റം ചെയ്തിട്ടില്ലെന്ന വ്യവസ്ഥയും ബാധകമാണ്.
+  - സർക്കാർ തിരിച്ചടവ് ബാധ്യത പൂർണ്ണമായോ ഭാഗികമായോ ഏറ്റെടുത്താൽ, ഒരു കുടുംബത്തിന് ഈ ആനുകൂല്യം **ഒരിക്കൽ മാത്രമേ** ലഭിക്കൂ.
+  - സർക്കാരിന് വിജ്ഞാപനം വഴി ഈ മാനദണ്ഡങ്ങൾ ഭേദഗതി ചെയ്യാൻ അധികാരമുണ്ട്.
+
+### നടപ്പാക്കുന്ന സംവിധാനം
+
+- **ജില്ലാതല കിടപ്പാടം സംരക്ഷണസമിതി (വകുപ്പ് 6):** ഓരോ ജില്ലയിലും സർക്കാർ വിജ്ഞാപനം വഴി രൂപീകരിക്കും.
+- **സംസ്ഥാനതല കിടപ്പാടം സംരക്ഷണസമിതി:** ആസ്ഥാനം **തിരുവനന്തപുരം** (വകുപ്പ് 18).
+- സമിതി പരിഗണിക്കുന്ന കാര്യങ്ങൾ: ആസ്തിനിർണ്ണയ സ്റ്റേറ്റ്മെന്റ്, തഹസിൽദാരുടെ സാക്ഷ്യപത്രം, തിരിച്ചടവ് ഗുണകരമാണോ എന്ന ശിപാർശ, ബദൽ കിടപ്പാടം/പുനരധിവാസ പദ്ധതി, തിരിച്ചടവ് മുടങ്ങിയതിന്റെ കാരണങ്ങൾ.
+- ജപ്തി നടപടികൾ നിർത്തിവയ്ക്കുന്നതിനും കുടിയിറക്കം ഒഴിവാക്കുന്നതിനുമുള്ള ശിപാർശകൾ, **സംസ്ഥാനതല ബാങ്കേഴ്സ് സമിതി**യുടെയും ധനകാര്യസ്ഥാപനത്തിന്റെയും പ്രതിനിധികളുമായി ചർച്ച നടത്തിയ ശേഷം തയ്യാറാക്കും.
+
+### ജാമ്യക്കാരനുള്ള പ്രത്യേക വ്യവസ്ഥ (വകുപ്പ് 17)
+
+അസ്സൽ കടക്കാരന് തിരിച്ചടയ്ക്കാൻ ശേഷിയുണ്ടായിട്ടും അടയ്ക്കാതിരിക്കുകയും, അതുമൂലം ജാമ്യക്കാരന്റെ ഏക കിടപ്പാടം നഷ്ടപ്പെടാവുന്ന സ്ഥിതിയുണ്ടാവുകയും ചെയ്താൽ, സർക്കാർ തുക ഏറ്റെടുക്കാം. തുടർന്ന് പലിശയും അനുബന്ധ ചെലവുകളും സഹിതം **1968-ലെ കേരള നികുതി വസൂലാക്കൽ ആക്റ്റ്** പ്രകാരം ഭൂമിയിന്മേലുള്ള കരകുടിശ്ശിക പോലെ അസ്സൽ കടക്കാരനിൽ നിന്ന് ഈടാക്കാൻ സർക്കാരിന് അധികാരമുണ്ട്.
+
+### പ്രാബല്യം
+
+ഈ ആക്റ്റ് **സർക്കാർ വിജ്ഞാപനം വഴി നിശ്ചയിക്കുന്ന തീയതി** മുതലാണ് പ്രാബല്യത്തിൽ വരുന്നത് (വകുപ്പ് 1). ലഭ്യമായ ഭാഗത്ത് ആ തീയതി പറഞ്ഞിട്ടില്ല.
+
+### ശ്രദ്ധിക്കേണ്ടത്
+
+നൽകിയ ഭാഗങ്ങളിൽ അപേക്ഷാ നടപടിക്രമത്തിന്റെ പൂർണ്ണ വിവരങ്ങളും (വകുപ്പ് 21 പ്രകാരമുള്ള അപ്പീൽ ഉൾപ്പെടെ) ബാക്കി വകുപ്പുകളും ലഭ്യമല്ല. അതിനാൽ കൃത്യമായ നടപടിക്രമത്തിന് ആക്റ്റിന്റെ പൂർണ്ണരൂപം പരിശോധിക്കണം.",2513.pdf p19; 2513.pdf p2; 2513.pdf p20; 2513.pdf p19; 2513.pdf p4; 2513.pdf p21; 2513.pdf p12; 2513.pdf p27; 2513.pdf p8; 2513.pdf p24,,,,,
+q14,B_hybrid,ml,paraphrase,True,ലോൺ തിരിച്ചടയ്ക്കാൻ കഴിയാതെ ഒരേയൊരു വീട് നഷ്ടപ്പെടുന്ന കുടുംബങ്ങളെ സംരക്ഷിക്കാൻ ഏത് നിയമമാണ് ഉള്ളത്?,"The Kerala Single Dwelling Place Protection Act, 2025 (Act 13 of 2025), which aims to prevent families losing their single dwelling place through eviction for non-repayment of loans from financial institutions secured by mortgaging it.",2513.pdf p19; 2513.pdf p2,"## 2025-ലെ കേരള ഏക കിടപ്പാടം സംരക്ഷണ ആക്റ്റ്
+
+ലോൺ തിരിച്ചടയ്ക്കാൻ കഴിയാത്തതിനാൽ ഒരേയൊരു വീട് (ഏക കിടപ്പാടം) നഷ്ടപ്പെടുന്ന കുടുംബങ്ങളെ സംരക്ഷിക്കാനുള്ള നിയമം **2025-ലെ കേരള ഏക കിടപ്പാടം സംരക്ഷണ ആക്റ്റ്** ആണ്. ഇത് ഒരു **ആക്റ്റ് (നിയമം)** ആണ്.
+
+### ആക്റ്റിന്റെ ലക്ഷ്യം
+
+- സംസ്ഥാനത്തെ ധനകാര്യസ്ഥാപനത്തിൽ ഏക കിടപ്പാടം പണയപ്പെടുത്തി വായ്പയെടുത്ത്, തിരിച്ചടവ് മുടങ്ങി വീട് നഷ്ടപ്പെട്ട് കുടുംബങ്ങൾ കുടിയിറക്കപ്പെടുന്ന അവസ്ഥ ഒഴിവാക്കുക.
+- അത്തരം കുടുംബങ്ങളുടെ കിടപ്പാടം സംരക്ഷിക്കാനുള്ള നടപടികൾ ഏർപ്പെടുത്തുക.
+- **ഭരണഘടനയുടെ 39-ാം അനുച്ഛേദം (ഖ) ഖണ്ഡത്തിലെ നിർദ്ദേശകതത്വം** നടപ്പാക്കാനുള്ള സംസ്ഥാന നയമാണിതെന്ന് വകുപ്പ് 3 പ്രഖ്യാപിക്കുന്നു.
+
+### ആർക്കാണ് സംരക്ഷണം? (വകുപ്പ് 4)
+
+ധനകാര്യസ്ഥാപനത്തിൽ ഏക കിടപ്പാടം പണയപ്പെടുത്തി വായ്പ എടുക്കുകയും, തിരിച്ചടവ് മുടങ്ങിയതിനാൽ ജപ്തി/റിക്കവറി നടപടികളിലൂടെ വീട് നഷ്ടപ്പെടുകയും ചെയ്യുന്ന കുടുംബങ്ങൾക്ക്, ആക്റ്റിലെ വ്യവസ്ഥകൾക്ക് വിധേയമായി സംരക്ഷണത്തിന് അർഹതയുണ്ട്.
+
+### അർഹതാമാനദണ്ഡങ്ങൾ (വകുപ്പ് 5)
+
+- **വായ്പ തുക** പരമാവധി 5 ലക്ഷം രൂപ.
+- പലിശ, പിഴപ്പലിശ, ചെലവുകൾ ഉൾപ്പെടെ **ആകെ തിരിച്ചടവ് തുക** പരമാവധി 10 ലക്ഷം രൂപ.
+- പണയപ്പെടുത്തിയ വസ്തു ഒഴികെ കടമെടുത്തയാൾക്കോ കുടുംബത്തിനോ മറ്റ് വസ്തുവകകളോ തിരിച്ചടവിനുള്ള മറ്റ് മാർഗ്ഗങ്ങളോ ഉണ്ടാകരുത്.
+- ആകെ ഭൂമി മുനിസിപ്പൽ/കോർപ്പറേഷൻ പ്രദേശത്ത് 5 സെന്റിലും ഗ്രാമപഞ്ചായത്ത് പ്രദേശത്ത് 10 സെന്റിലും കൂടരുത്.
+- **വാർഷിക മൊത്ത വരുമാനം** പരമാവധി 3 ലക്ഷം രൂപ.
+- വായ്പ എടുത്ത തീയതിക്കു ശേഷം സ്വന്തം പേരിലുള്ള വസ്തുവകകൾ കൈമാറ്റം ചെയ്തിരിക്കരുത്.
+- ആനുകൂല്യം ലഭിക്കേണ്ടയാൾ **ആധാർ ഉടമ** ആയിരിക്കണം.
+- വിദ്യാഭ്യാസം, ചികിത്സ, വിവാഹം, ഭവന നിർമ്മാണം/നവീകരണം, കൃഷി, സ്വയംതൊഴിൽ എന്നീ ആവശ്യങ്ങൾക്ക് എടുത്ത വായ്പയ്ക്ക് മാത്രമേ സംരക്ഷണം ലഭിക്കൂ.
+- സർക്കാർ തിരിച്ചടവ് ബാധ്യത ഏറ്റെടുത്താൽ, ഒരു കുടുംബത്തിന് ഈ ആനുകൂല്യം **ഒന്നിലധികം തവണ** ലഭിക്കില്ല.
+- സർക്കാരിന് **വിജ്ഞാപനം** വഴി ഈ മാനദണ്ഡങ്ങളിൽ ഭേദഗതി വരുത്താം.
+
+### സംരക്ഷണം എങ്ങനെ ലഭിക്കും?
+
+- **ജില്ലാതല കിടപ്പാടം സംരക്ഷണസമിതി** അന്വേഷണം നടത്തി റിപ്പോർട്ട് തയ്യാറാക്കുന്നു. തിരിച്ചടവ് മുടങ്ങിയതിന്റെ കാരണങ്ങളും വിലയിരുത്തും.
+- അനുരഞ്ജനം, പലിശ ഇളവ്, ഗഡുക്കളുടെ പുനഃക്രമീകരണം തുടങ്ങിയ താൽക്കാലിക കടാശ്വാസ മാർഗ്ഗങ്ങൾ സ്വീകരിക്കും.
+- തിരിച്ചടവിന് മാർഗ്ഗമില്ലെന്നോ അനുരഞ്ജനം സാധ്യമല്ലെന്നോ ബോധ്യപ്പെട്ടാൽ, തിരിച്ചടവ് തുക **പൂർണ്ണമായോ ഭാഗികമായോ സർക്കാർ ഏറ്റെടുക്കാൻ** **സംസ്ഥാനതല കിടപ്പാടം സംരക്ഷണസമിതിക്ക്** ശിപാർശ നൽകും. ഈ സമിതിയുടെ ആസ്ഥാനം തിരുവനന്തപുരമാണ്.
+- റിപ്പോർട്ടിനൊപ്പം ആസ്തിനിർണ്ണയ സ്റ്റേറ്റ്മെന്റ്, തഹസിൽദാരുടെ സാക്ഷ്യപത്രം (സർക്കാർ ഭവനപദ്ധതിയിൽ വീട്/ഭൂമി ലഭിച്ചിട്ടുണ്ടോ എന്നത്) എന്നിവ ഉണ്ടാകും.
+
+### സർക്കാർ സ്വീകരിക്കാവുന്ന നടപടികൾ
+
+1. തിരിച്ചടവ് തുക ഏറ്റെടുത്ത് ധനകാര്യസ്ഥാപനത്തിന്റെ ബാധ്യത ഒഴിവാക്കി **കിടപ്പാടം വീണ്ടെടുക്കുക**.
+2. സർക്കാരിന്റെ പുനരധിവാസ/ഭവന പദ്ധതിയിൽ ഉൾപ്പെടുത്തി **മറ്റൊരു കിടപ്പാടം ലഭ്യമാക്കുക**.
+3. ഏക കിടപ്പാടം മാത്രം സംരക്ഷിച്ച് ബാക്കി വസ്തുക്കൾ ജപ്തി/റിക്കവറിക്ക് വിധേയമാക്കാനുള്ള സാധ്യത പരിശോധിക്കുക.
+
+തുക ഏറ്റെടുക്കുമ്പോൾ അത് ജില്ലാ കളക്ടർ മുഖേന ധനകാര്യസ്ഥാപനത്തിന്റെ അക്കൗണ്ടിലേക്ക് നിക്ഷേപിക്കും.
+
+### സർക്കാരിന്റെ തിരിച്ചുപിടിക്കാനുള്ള അധികാരം
+
+സർക്കാർ തിരിച്ചടവ് തുക ഏറ്റെടുത്താൽ, പലിശയും അനുബന്ധ ചെലവുകളും സഹിതം **1968-ലെ കേരള നികുതി വസൂലാക്കൽ ആക്റ്റ്** പ്രകാരം, ഭൂമിയിന്മേലുള്ള കരകുടിശ്ശിക പോലെ, യഥാർത്ഥ കടക്കാരനിൽ നിന്ന് ഈടാക്കാൻ സർക്കാരിന് അധികാരമുണ്ട്.
+
+### ശ്രദ്ധിക്കേണ്ടത്
+
+ലഭ്യമായ ഭാഗങ്ങളിൽ അപേക്ഷാ നടപടിക്രമം, ഫാറം, സമയപരിധി എന്നിവ വിശദമായി ഇല്ല. അവ ""നിർണ്ണയിക്കപ്പെട്ട പ്രകാരം"" ചട്ടങ്ങളിലാണ് വ്യക്തമാക്കുക. ആക്റ്റിന്റെ പൂർണ്ണ പാഠവും ചട്ടങ്ങളും പരിശോധിക്കേണ്ടതാണ്.",2513.pdf p2; 2513.pdf p4; 2513.pdf p8; 2513.pdf p12; 2513.pdf p5; 2513.pdf p5; 2513.pdf p11; 2513.pdf p7; 2513.pdf p4; 2513.pdf p8,,,,,
+q14,C_hybrid_rerank,ml,paraphrase,True,ലോൺ തിരിച്ചടയ്ക്കാൻ കഴിയാതെ ഒരേയൊരു വീട് നഷ്ടപ്പെടുന്ന കുടുംബങ്ങളെ സംരക്ഷിക്കാൻ ഏത് നിയമമാണ് ഉള്ളത്?,"The Kerala Single Dwelling Place Protection Act, 2025 (Act 13 of 2025), which aims to prevent families losing their single dwelling place through eviction for non-repayment of loans from financial institutions secured by mortgaging it.",2513.pdf p19; 2513.pdf p2,"## 2025-ലെ കേരള ഏക കിടപ്പാടം സംരക്ഷണ ആക്റ്റ്
+
+ലോൺ തിരിച്ചടയ്ക്കാൻ കഴിയാതെ ഏക വീട് നഷ്ടപ്പെടുന്ന കുടുംബങ്ങളെ സംരക്ഷിക്കാനുള്ള നിയമം **2025-ലെ കേരള ഏക കിടപ്പാടം സംരക്ഷണ ആക്റ്റ്** (**The Kerala Single Dwelling Place Protection Act, 2025**, **2025-ലെ ആക്റ്റ് 13**) ആണ്. ഇത് ഗവർണറുടെ അധികാരത്തിൽ പ്രസിദ്ധീകരിച്ച ഒരു **ആക്റ്റ്** (നിയമം) ആണ്.
+
+### നിയമത്തിന്റെ ലക്ഷ്യം
+
+- സംസ്ഥാനത്തെ ധനകാര്യസ്ഥാപനത്തിൽ നിന്ന് ഏക കിടപ്പാടം പണയപ്പെടുത്തി വായ്പയെടുത്ത്, തിരിച്ചടവ് മുടങ്ങിയതിനാൽ കുടുംബങ്ങൾ കുടിയിറക്കപ്പെടുന്ന അവസ്ഥ ഒഴിവാക്കുക.
+- അത്തരക്കാരുടെ കിടപ്പാടം സംരക്ഷിക്കുന്നതുൾപ്പെടെയുള്ള നടപടികൾ ഏർപ്പെടുത്തുക.
+
+### പ്രധാന വ്യവസ്ഥകൾ
+
+**1. സംരക്ഷണത്തിനുള്ള അർഹത (വകുപ്പ് 4)**
+
+ഏക കിടപ്പാടം പണയപ്പെടുത്തി വായ്പയെടുക്കുകയും, തിരിച്ചടവ് മുടങ്ങിയതിനാൽ ധനകാര്യസ്ഥാപനത്തിന്റെ ജപ്തി/റിക്കവറി നടപടികളിലൂടെ കിടപ്പാടം നഷ്ടപ്പെടുകയും ചെയ്യുന്ന കുടുംബങ്ങൾക്ക്, ആക്റ്റിലെ വ്യവസ്ഥകൾക്ക് വിധേയമായി, സംരക്ഷണം ലഭിക്കാൻ അർഹതയുണ്ട്.
+
+**2. അർഹതാമാനദണ്ഡങ്ങൾ (വകുപ്പ് 5)**
+
+- വായ്പ തുക പരമാവധി **അഞ്ച് ലക്ഷം രൂപ** കവിയരുത്.
+- അർഹതയുള്ളയാൾ **ആധാർ** ഉടമയായിരിക്കണം.
+- വായ്പ **വിദ്യാഭ്യാസം, ചികിത്സ, വിവാഹം, വീട് നിർമ്മാണം/നവീകരണം, കൃഷി, സ്വയംതൊഴിൽ വഴി ഉപജീവനമാർഗ്ഗം** എന്നീ ആവശ്യങ്ങൾക്കായി എടുത്തതായിരിക്കണം. മറ്റ് ആവശ്യങ്ങൾക്കെടുത്ത വായ്പകൾക്ക് സംരക്ഷണം ലഭിക്കില്ല.
+- സ്വന്തം പേരിലുള്ള സ്വത്തുക്കൾ കൈമാറ്റം ചെയ്തവരെ സംബന്ധിച്ച ഒരു മാനദണ്ഡവും ഉണ്ട്. (ലഭ്യമായ ഭാഗം അപൂർണ്ണമാണ്.)
+- ഈ മാനദണ്ഡങ്ങൾ സർക്കാരിന് വിജ്ഞാപനം വഴി ഭേദഗതി ചെയ്യാം.
+- തിരിച്ചടവ് ബാധ്യത സർക്കാർ പൂർണ്ണമായോ ഭാഗികമായോ ഏറ്റെടുത്താൽ, ഒരു കുടുംബത്തിന് ഈ ആനുകൂല്യം **ഒന്നിലധികം തവണ** ലഭിക്കില്ല.
+
+**3. ജാമ്യക്കാരനെ സംബന്ധിച്ച പ്രത്യേക വ്യവസ്ഥ (വകുപ്പ് 17)**
+
+അസ്സൽ കടക്കാരന് തിരിച്ചടയ്ക്കാൻ ശേഷിയുണ്ടായിട്ടും അടയ്ക്കാതിരിക്കുകയും, അതുമൂലം ജാമ്യം നിന്നയാളുടെ ഏക കിടപ്പാടം നഷ്ടപ്പെടുന്ന സാഹചര്യം വരികയും ചെയ്താൽ, സർക്കാർ തുക ഏറ്റെടുക്കാം. തുടർന്ന് പലിശയും അനുബന്ധ ചെലവുകളും സഹിതം **1968-ലെ കേരള നികുതി വസൂലാക്കൽ ആക്റ്റ്** പ്രകാരം ഭൂനികുതി കുടിശ്ശികയെന്നപോലെ അസ്സൽ കടക്കാരനിൽ നിന്ന് ഈടാക്കാൻ സർക്കാരിന് അധികാരമുണ്ട്.
+
+### സംവിധാനങ്ങൾ
+
+- **ജില്ലാതല കിടപ്പാടം സംരക്ഷണസമിതി:** ഓരോ ജില്ലയിലും സർക്കാർ വിജ്ഞാപനം വഴി രൂപീകരിക്കും (വകുപ്പ് 6). അപേക്ഷകൾ പരിശോധിച്ച്, തിരിച്ചടവ് മുടങ്ങിയ കാരണങ്ങളെക്കുറിച്ചുള്ള വിലയിരുത്തൽ നൽകും.
+- **സംസ്ഥാനതല കിടപ്പാടം സംരക്ഷണസമിതി:** ആസ്ഥാനം **തിരുവനന്തപുരം** (വകുപ്പ് 18). ധനകാര്യസ്ഥാപനങ്ങളുടെയും സംസ്ഥാനതല ബാങ്കേഴ്സ് സമിതിയുടെയും പ്രതിനിധികളുമായി ചർച്ച നടത്തി, നിയമനടപടികൾ നിർത്തിവയ്ക്കാനോ കുടിയിറക്ക് ഒഴിവാക്കാനോ ഉള്ള ശുപാർശകൾ തയ്യാറാക്കും.
+- **അപ്പീൽ:** ആക്റ്റിലെ വകുപ്പ് 21 പ്രകാരം അപ്പീൽ നൽകാം.
+- സമിതിക്ക് ആവശ്യമായ ഉദ്യോഗസ്ഥരെ സർക്കാർ നിയോഗിക്കും (വകുപ്പ് 19).
+
+### നിയമപരമായ പശ്ചാത്തലം
+
+- ഇത് **ഇന്ത്യൻ ഭരണഘടനയുടെ അനുച്ഛേദം 39 (ഖ)** പ്രകാരമുള്ള നിർദ്ദേശകതത്വം നടപ്പാക്കാനുള്ള സംസ്ഥാന നയമാണെന്ന് വകുപ്പ് 3 പ്രഖ്യാപിക്കുന്നു.
+- ആക്റ്റ് പ്രാബല്യത്തിൽ വരുന്നത് **സർക്കാർ വിജ്ഞാപനത്തിലൂടെ നിശ്ചയിക്കുന്ന തീയതി** മുതലാണ്.
+
+### ശ്രദ്ധിക്കുക
+
+നൽകിയ ഭാഗങ്ങളിൽ അർഹതാമാനദണ്ഡങ്ങളുടെ ചില ഉപവകുപ്പുകളും അപേക്ഷാ നടപടിക്രമത്തിന്റെ പൂർണ്ണ വിവരങ്ങളും ലഭ്യമല്ല. അതിനാൽ കൃത്യമായ നടപടിക്രമങ്ങൾക്ക് ആക്റ്റിന്റെ പൂർണ്ണ പാഠവും ബന്ധപ്പെട്ട ചട്ടങ്ങളും പരിശോധിക്കണം.",2513.pdf p19; 2513.pdf p4; 2513.pdf p20; 2513.pdf p2; 2513.pdf p27; 2513.pdf p12; 2513.pdf p19; 2513.pdf p24; 2513.pdf p21; 2513.pdf p4,,,,,
+q15,A_dense_baseline,en,factual,True,"What does ""public records"" include under the Kerala Public Records Act, 2025?","Manuscripts, copper plates, copper rolls, bamboo splints, palm leaves, ancient texts, case files, diagrams, maps, photos, charts, documents, paper records, files, canvas records, plans, audio clippings and other media; microfilm, microfiche and facsimile copies; reproductions of images embodied in microfilm; and records produced by computer or other devices.",2511.pdf p22,"## ""Public Records"" under the Kerala Public Records Act, 2025 (Act 11 of 2025)
+
+### Is the definition available?
+
+The retrieved text **does not contain the actual definition of ""public records""** from Section 2. Only parts of Section 2 appear, namely clauses (a) to (e) and some later clauses. The definition itself is missing, so I cannot quote it.
+
+### What the Act covers (from the Preamble and long title)
+
+The Act regulates the **appraisal, collection, classification, preservation and administration** of public records of:
+
+- **Government Departments**
+- **Local Self Government Institutions**
+- **State Public Sector Undertakings**
+- **Commissions, Boards and Committees** constituted by the Government
+
+It also covers **accepting records from private sources**.
+
+### Related definitions in the context
+
+- **""Records from private sources""** means records held by a private individual or any non-governmental organisation.
+- A fragment, ""(iii) Local Self Government Institutions and related offices"", appears in the definitions. The surrounding text is missing, so I cannot say which term it belongs to.
+- **""Reference media""** means checklists, transfer lists, subject lists and descriptive lists. The records creating agencies or the Archives Department use these to find public records.
+- **""File""** means a collection of records with a file number, including correspondence. The rest of this definition is cut off.
+
+### Legal implication
+
+The Act applies to records of the bodies listed above, and private records can be accepted into the system. Under **Section 8**, no public record may be destroyed or disposed of except as provided in the **Kerala Destruction of Records Act, 1961** and the rules under it, or rules under this Act. Records **more than 100 years old** need Government permission and a report from the **Director** (State Archives Department) that they are too defaced for archival use.
+
+### Conclusion
+
+The context is insufficient to state the exact definition of ""public records"". The full text of **Section 2** of the Act would be needed to confirm the exact items it includes.",2511.pdf p21; 2511.pdf p21; 2514.pdf p30; 2511.pdf p23; 2514.pdf p30; 2511.pdf p20; 2512.pdf p21; 2516.pdf p5; 2511.pdf p27; 2512.pdf p20,,,,,
+q15,B_hybrid,en,factual,True,"What does ""public records"" include under the Kerala Public Records Act, 2025?","Manuscripts, copper plates, copper rolls, bamboo splints, palm leaves, ancient texts, case files, diagrams, maps, photos, charts, documents, paper records, files, canvas records, plans, audio clippings and other media; microfilm, microfiche and facsimile copies; reproductions of images embodied in microfilm; and records produced by computer or other devices.",2511.pdf p22,"## Meaning of ""Public Records"" under the Kerala Public Records Act, 2025
+
+**The retrieved text does not contain the full definition of ""public records""** in Section 2. The relevant clause is cut off, so I cannot give its exact wording. The context does show which bodies' records the Act covers.
+
+### What the Context Shows
+**Act 11 of 2025** regulates the appraisal, collection, classification, preservation and administration of public records of:
+
+- **Government Departments**
+- **Local Self Government Institutions**
+- **State Public Sector Undertakings**
+- **Commissions, Boards and Committees** constituted by the Government
+
+The Act also covers **accepting records from private sources**.
+
+### Related Definitions in the Context
+- **""Records from private sources""** means records held by a private individual or any non-governmental organisation.
+- **""File""** means a collection of records with a file number, including correspondence. The rest of the definition is cut off.
+- A fragment reading ""(iii) Local Self Government Institutions and related offices"" appears to belong to a definition of the bodies covered, but the surrounding text is missing.
+
+### Legal Implication
+Records created or held by the bodies above fall within the Act's regulatory scope. Section 8 says no public record may be destroyed or disposed of except under the **Kerala Destruction of Records Act, 1961** and its rules, or under rules made under this Act. Records more than **100 years old** can be destroyed only with Government permission and on the Director's report that they are too defaced for archival use.
+
+### Limitation
+To state precisely what ""public records"" includes, such as the types of documents or materials, the text of Section 2 containing that clause is needed. The current context does not provide it.",2511.pdf p21; 2511.pdf p21; 2511.pdf p23; 2511.pdf p20; 2512.pdf p21; 2516.pdf p5; 2511.pdf p27; 2516.pdf p5; 2516.pdf p4; 2512.pdf p20,,,,,
+q15,C_hybrid_rerank,en,factual,True,"What does ""public records"" include under the Kerala Public Records Act, 2025?","Manuscripts, copper plates, copper rolls, bamboo splints, palm leaves, ancient texts, case files, diagrams, maps, photos, charts, documents, paper records, files, canvas records, plans, audio clippings and other media; microfilm, microfiche and facsimile copies; reproductions of images embodied in microfilm; and records produced by computer or other devices.",2511.pdf p22,"## Definition of ""Public Records"" under the Kerala Public Records Act, 2025
+
+The **Kerala Public Records Act, 2025** (Act 11 of 2025) defines ""public records"" in **Section 2(j)**. The definition is broad and covers traditional, ancient, and modern digital records.
+
+### What ""Public Records"" Includes
+
+**1. Physical and traditional records (Section 2(j)(i))**
+- Manuscripts, copper plates, copper rolls, bamboo splints, palm leaves and ancient texts
+- Leaves, case files, diagrams, maps, photos and charts
+- Documents, paper records, files, canvas records and plans
+- Audio clippings and records in other various media
+
+**2. Micro-reproductions (Section 2(j)(ii))**
+- Microfilm, microfiche and facsimile copies of records
+
+**3. Images embodied in microfilm (Section 2(j)(iii))**
+- Any reproduction of an image or images embodied in such microfilm, whether in real size or not
+
+**4. Computer or device-generated records (Section 2(j)(iv))**
+- Any other records produced by a computer or any other device of a records creating agency
+
+### Legal Meaning and Implication
+
+The definition is **inclusive**, as shown by the word ""includes"". It is not limited to the listed items. It covers records in any format, from ancient palm leaves to electronic data.
+
+Records of the Government Departments, Local Self Government Institutions, State Public Sector Undertakings, and Commissions, Boards and Committees constituted by the Government fall within the Act's scope, as stated in its preamble.
+
+Once a record is a ""public record"", the following rules apply:
+- **Section 8** says it cannot be destroyed or disposed of except as provided under the **Kerala Destruction of Records Act, 1961** and its rules, or rules made under this Act.
+- Records more than **100 years old** cannot be destroyed without Government permission and a report from the Director.
+- Contravening the protections in **Sections 4 and 8** is punishable under **Section 9**.
+
+### Note on Context
+The context gives the full text of clause (j). However, the definitions of other terms, such as ""records creating agency"" and the full text of sections 4 and 9, are only partly available.",2511.pdf p21; 2511.pdf p22; 2511.pdf p21; 2511.pdf p23; 2511.pdf p20; 2514.pdf p30; 2511.pdf p27; 2511.pdf p23; 2512.pdf p21; 2516.pdf p5,,,,,
+q16,A_dense_baseline,mixed,factual,True,Kerala Bovine Breeding Act പ്രകാരം authorized inseminator ആരെല്ലാമാണ്?,"A Veterinarian, or a Field Officer, Assistant Field Officer or Livestock Inspector of the Animal Husbandry Department, or an A.I. technician trained by the Authority or an institution approved by it.",34 24.pdf p24; 34 24.pdf p3,"## അംഗീകൃത ഇൻസെമിനേറ്റർ (Authorized Inseminator)
+
+ഇത് **കേരള കന്നുകാലി പ്രജനന ആക്റ്റ്, 2024 (Kerala Bovine Breeding Act, 2024 – Act 32 of 2024)** ലെ **സെക്ഷൻ 2(d)** ലെ നിർവചനമാണ്. ഈ ആക്റ്റ് പ്രകാരം താഴെ പറയുന്നവരെയാണ് ""Authorized inseminator"" ആയി കണക്കാക്കുന്നത്.
+
+### ആരെല്ലാം ഉൾപ്പെടുന്നു?
+
+1. **Veterinarian**: Indian Veterinary Council Act, 1984 (Central Act 52 of 1984) പ്രകാരം രജിസ്റ്റർ ചെയ്ത വെറ്ററിനറി പ്രാക്ടീഷണർ (സെക്ഷൻ 2(zb)).
+2. **Animal Husbandry Department ൽ പ്രവർത്തിക്കുന്ന ഉദ്യോഗസ്ഥർ**:
+   - Field Officer
+   - Assistant Field Officer
+   - Livestock Inspector
+3. **A.I. Technician**: **Authority** (Bovine Breeding Regulatory Authority) നൽകുന്ന പരിശീലനം, അല്ലെങ്കിൽ Authority യുടെ അംഗീകാരമുള്ള സ്ഥാപനങ്ങളിൽ നിന്നുള്ള പരിശീലനം പൂർത്തിയാക്കിയ ടെക്നീഷ്യൻ.
+
+### നിയമപരമായ അർത്ഥം
+
+- വെറ്ററിനറി ഡോക്ടർമാർക്കും മൃഗസംരക്ഷണ വകുപ്പിലെ മേൽപ്പറഞ്ഞ തസ്തികകളിലുള്ളവർക്കും ഈ പദവി അവരുടെ തസ്തിക/യോഗ്യത അടിസ്ഥാനമാക്കിയാണ്.
+- സ്വകാര്യ ടെക്നീഷ്യൻമാർക്ക് **Authority അംഗീകരിച്ച പരിശീലനം** നിർബന്ധമാണ്.
+
+### അനുബന്ധ വ്യവസ്ഥ
+
+**സെക്ഷൻ 14** പ്രകാരം, കൃത്രിമ ബീജസങ്കലനം (Artificial Insemination) നടത്തുന്ന ടെക്നീഷ്യൻമാരെ Authority, സർക്കാർ നിർദ്ദേശിക്കുന്ന രീതിയിലും വ്യവസ്ഥകളോടെയും **സർട്ടിഫൈ** ചെയ്യണം.
+
+### കുറിപ്പ്
+
+നൽകിയിരിക്കുന്ന സന്ദർഭത്തിൽ സെക്ഷൻ 2(d) യിലെ നിർവചനവും സെക്ഷൻ 14 ഉം മാത്രമാണുള്ളത്. പരിശീലനത്തിന്റെ വിശദമായ വ്യവസ്ഥകളോ സർട്ടിഫിക്കേഷൻ നടപടിക്രമമോ ഇതിൽ ലഭ്യമല്ല.",34 24.pdf p23; 34 24.pdf p26; 34 24.pdf p23; 34 24.pdf p24; 34 24.pdf p24; 34 24.pdf p25; 34 24.pdf p32; 34 24.pdf p25; 34 24.pdf p26; 34 24.pdf p22,,,,,
+q16,B_hybrid,mixed,factual,True,Kerala Bovine Breeding Act പ്രകാരം authorized inseminator ആരെല്ലാമാണ്?,"A Veterinarian, or a Field Officer, Assistant Field Officer or Livestock Inspector of the Animal Husbandry Department, or an A.I. technician trained by the Authority or an institution approved by it.",34 24.pdf p24; 34 24.pdf p3,"## Kerala Bovine Breeding Act, 2024 – അംഗീകൃത ഇൻസെമിനേറ്റർ (Authorized Inseminator)
+
+**Kerala Bovine Breeding Act, 2024** (2024-ലെ 32-ാം ആക്റ്റ്) ലെ **സെക്ഷൻ 2(d)** ആണ് ""Authorized inseminator"" എന്നതിന് നിർവചനം നൽകുന്നത്.
+
+### അംഗീകൃത ഇൻസെമിനേറ്റർ ആയി കണക്കാക്കുന്നവർ
+
+1. **Veterinarian** – ഇന്ത്യൻ വെറ്ററിനറി കൗൺസിൽ ആക്റ്റ്, 1984 (കേന്ദ്ര ആക്റ്റ് 52/1984) പ്രകാരം രജിസ്റ്റർ ചെയ്ത വെറ്ററിനറി പ്രാക്ടീഷണർ (സെക്ഷൻ 2(zb)).
+2. **Animal Husbandry Department-ൽ പ്രവർത്തിക്കുന്ന ഉദ്യോഗസ്ഥർ:**
+   - Field Officer
+   - Assistant Field Officer
+   - Livestock Inspector
+3. **A. I. Technician** – താഴെ പറയുന്നവരിൽ നിന്ന് പരിശീലനം നേടിയവർ:
+   - **Authority** (Bovine Breeding Regulatory Authority) യിൽ നിന്ന്, അല്ലെങ്കിൽ
+   - Authority-യുടെ **അംഗീകാരമുള്ള സ്ഥാപനങ്ങളിൽ** നിന്ന്
+
+### നിയമപരമായ അർത്ഥവും പ്രാധാന്യവും
+
+ഈ നിർവചനപ്രകാരം, കൃത്രിമ ബീജസങ്കലനം (Artificial Insemination) നടത്താൻ യോഗ്യരായവർ വെറ്ററിനറി ഡോക്ടർമാരും മൃഗസംരക്ഷണ വകുപ്പിലെ നിശ്ചിത ഉദ്യോഗസ്ഥരും അംഗീകൃത പരിശീലനം നേടിയ A.I. ടെക്നീഷ്യന്മാരുമാണ്.
+
+പരിശീലനം ലഭിക്കാത്തവരോ അംഗീകാരമില്ലാത്ത സ്ഥാപനങ്ങളിൽ പരിശീലനം നേടിയവരോ ഈ നിർവചനത്തിൽ ഉൾപ്പെടുന്നില്ല.
+
+### അനുബന്ധ വ്യവസ്ഥ
+
+സെക്ഷൻ 7(f) പ്രകാരം, പരിശീലനം ലഭിച്ച A.I. ടെക്നീഷ്യന്മാരെ **certify** ചെയ്യുന്നത് Authority-യുടെ ചുമതലകളിൽ ഉൾപ്പെടുന്നു. ഇത് Authority നിശ്ചയിക്കുന്ന വ്യവസ്ഥകൾക്കും ചട്ടങ്ങളിൽ പറയുന്ന നടപടിക്രമങ്ങൾക്കും വിധേയമാണ്.",34 24.pdf p24; 34 24.pdf p23; 34 24.pdf p23; 34 24.pdf p25; 34 24.pdf p26; 34 24.pdf p25; 34 24.pdf p24; 34 24.pdf p22; 34 24.pdf p28; 34 24.pdf p28,,,,,
+q16,C_hybrid_rerank,mixed,factual,True,Kerala Bovine Breeding Act പ്രകാരം authorized inseminator ആരെല്ലാമാണ്?,"A Veterinarian, or a Field Officer, Assistant Field Officer or Livestock Inspector of the Animal Husbandry Department, or an A.I. technician trained by the Authority or an institution approved by it.",34 24.pdf p24; 34 24.pdf p3,"## Kerala Bovine Breeding Act, 2024 – അംഗീകൃത ഇൻസെമിനേറ്റർ (Authorized Inseminator)
+
+ഇത് **2024-ലെ കേരള കന്നുകാലി പ്രജനന ആക്റ്റ്** (Act 32 of 2024) എന്ന നിയമത്തിലെ **section 2(d)** പ്രകാരമുള്ള നിർവചനമാണ്. ഇത് ഒരു **നിയമത്തിലെ (Act) വ്യവസ്ഥയാണ്**, ഗവൺമെന്റ് ഉത്തരവോ വിജ്ഞാപനമോ അല്ല.
+
+### ആരെല്ലാമാണ് Authorized Inseminator?
+
+നിർവചനം അനുസരിച്ച് താഴെ പറയുന്നവരാണ് ഈ ഗണത്തിൽ വരുന്നത്:
+
+1. **Veterinarian (വെറ്ററിനേറിയൻ)**
+   - 1984-ലെ ഇന്ത്യൻ വെറ്ററിനറി കൗൺസിൽ ആക്റ്റ് (Central Act 52 of 1984) പ്രകാരം രജിസ്റ്റർ ചെയ്ത വെറ്ററിനറി പ്രാക്ടീഷണർ (section 2(zb)).
+
+2. **Animal Husbandry Department-ൽ പ്രവർത്തിക്കുന്ന ഉദ്യോഗസ്ഥർ:**
+   - Field Officer
+   - Assistant Field Officer
+   - Livestock Inspector
+
+3. **A.I. Technician**
+   - **Authority** (Bovine Breeding Regulatory Authority) നൽകുന്ന പരിശീലനം ലഭിച്ചവർ, അല്ലെങ്കിൽ
+   - Authority-യുടെ അംഗീകാരമുള്ള സ്ഥാപനങ്ങളിൽ നിന്ന് പരിശീലനം നേടിയവർ.
+
+### നിയമപരമായ അർഥം
+
+- വെറ്ററിനേറിയൻമാർക്കും Animal Husbandry Department ഉദ്യോഗസ്ഥർക്കും അവരുടെ പദവി/ജോലി അടിസ്ഥാനമാക്കിയാണ് അംഗീകാരം.
+- മറ്റുള്ളവർക്ക് (A.I. technicians) **Authority-യുടെ അംഗീകൃത പരിശീലനം** നിർബന്ധമാണ്.
+- **Section 14** പ്രകാരം, Artificial Insemination നടത്തുന്ന technician-നെ Authority, സർക്കാർ നിശ്ചയിക്കുന്ന രീതിയിലും വ്യവസ്ഥകളിലും **certify** ചെയ്യണം.
+
+### ശ്രദ്ധിക്കേണ്ടത്
+
+ഈ ആക്റ്റിലെ ""Artificial Insemination"" എന്നതിന്റെ നിർവചനം (section 2(a)) അനുസരിച്ച്, പ്രായപൂർത്തിയായ കന്നുകാലികളുടെ പ്രത്യുൽപാദന വ്യവസ്ഥയിൽ പ്രജനന കാളയുടെ ബീജം സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് കൃത്രിമമായി നിക്ഷേപിക്കുന്ന പ്രവൃത്തിയാണ്. Technician certification-ന്റെ വിശദമായ നടപടിക്രമങ്ങൾ നൽകിയ context-ൽ ഇല്ല.",34 24.pdf p24; 34 24.pdf p23; 34 24.pdf p28; 34 24.pdf p23; 34 24.pdf p25; 34 24.pdf p32; 34 24.pdf p26; 34 24.pdf p25; 34 24.pdf p35; 34 24.pdf p5,,,,,
+q17,A_dense_baseline,en,paraphrase,True,"What majority of members is needed to dissolve a society under the Kerala Societies Registration Act, 2025?",Not less than three-fourths of the total members of the society may determine that it be dissolved (section 30).,2514.pdf p17; 2514.pdf p41,"## Dissolution of a Society under the Kerala Societies Registration Act, 2025
+
+This is **Act 14 of 2025**, an Act of the Kerala Legislature. Its English translation was authorised for Gazette publication by the Law (Legislation-A) Department, **Notification No. 121/Leg. A2/2025/Law dated 7 November 2025**.
+
+### Majority Required
+
+A society can be dissolved only by a **three-fourths (¾) majority** of its members. This is set out in **Section 30**.
+
+- Not less than **three-fourths of the total members** may decide that the society be dissolved.
+- Under the second proviso, the decision must be made by a **three-fourths majority of votes** cast at a **special general body meeting** convened for that purpose.
+- Votes may be cast **in person**, or **by proxy** where proxies are entrusted.
+
+### Related Conditions
+
+- **Government sanction:** If the Government is a member of, a subscriber to, or otherwise interested in the society, it **cannot be dissolved without Government sanction**.
+- **Filing of details:** Details of the disposal and settlement of property, claims and liabilities, with the related documents, must be filed before the **Registrar within thirty days**.
+- **Disputes:** Disputes within the governing body or among members about managing the society's affairs go to the **Civil Court of original jurisdiction** of the district where the society's registered office is situated.
+
+### Distribution of Property (Section 31)
+
+- Surplus property after settling debts and liabilities **cannot be paid or distributed to members**.
+- It must go to another society with similar objects.
+- That society is chosen by **at least a three-fourths majority** of the members present at the time of dissolution, voting in person or by proxy where allowed.
+- If no such decision is made, the **Civil Court of original jurisdiction** decides.
+
+### Summary
+
+Dissolution by the members requires a **three-fourths majority** at a special general body meeting. Government sanction is also needed where the Government has an interest in the society.",2514.pdf p30; 2514.pdf p30; 2514.pdf p45; 2514.pdf p41; 2514.pdf p42; 2514.pdf p32; 2514.pdf p41; 2514.pdf p36; 2514.pdf p29; 2514.pdf p48,,,,,
+q17,B_hybrid,en,paraphrase,True,"What majority of members is needed to dissolve a society under the Kerala Societies Registration Act, 2025?",Not less than three-fourths of the total members of the society may determine that it be dissolved (section 30).,2514.pdf p17; 2514.pdf p41,"## Dissolution of a Society under the Kerala Societies Registration Act, 2025
+
+This question concerns **Act 14 of 2025**, the Kerala Societies Registration Act, 2025. The relevant provision is **Section 30**, which deals with dissolution of societies and management of their affairs.
+
+### Majority Required
+
+A society can be dissolved only if **not less than three-fourths (3/4)** of its members decide so.
+
+- Section 30 says ""not less than three-fourths of the total members"" may determine that the society shall be dissolved.
+- The second proviso adds that the dissolution must be backed by a **three-fourths majority of members**. Votes must be cast in person, or by proxy where proxies are entrusted.
+- The votes must be cast at a **special general body meeting** convened for this purpose.
+
+### Other Important Conditions
+
+1. **Government sanction:** If the Government is a member of, a subscriber to, or otherwise interested in the society, it **cannot be dissolved without Government sanction**.
+2. **Filing with the Registrar:** Details of the disposal and settlement of the society's property, claims and liabilities must be filed with the Registrar, with the related documents, **within thirty days**.
+3. **Disputes:** Any dispute within the governing body or among members about management goes to the **Civil Court of original jurisdiction** in the district of the society's registered office.
+
+### What Happens to the Property
+
+- The society's property, claims and liabilities are settled under its own rules. If there are none, the governing body decides what is expedient (Section 30).
+- Under **Section 31**, any remaining property after debts and liabilities are paid **cannot be distributed among the members**.
+- It must go to another society with similar objects. That society is chosen by a vote of **at least three-fourths of the members present** (in person or by proxy) at the time of dissolution. Failing that, the **Civil Court** decides.
+
+### Related Note
+
+Section 32 allows the Government, or **ten per cent of the members** on the rolls, to apply to the District Court for a scheme or a new governing body. This is a separate route and does not itself dissolve the society.
+
+### Summary
+
+A **three-fourths majority** of members, voting at a special general body meeting, is required to dissolve a society. If the Government has an interest in the society, its sanction is also needed.",2514.pdf p30; 2514.pdf p45; 2514.pdf p42; 2514.pdf p32; 2514.pdf p29; 2514.pdf p41; 2514.pdf p33; 2514.pdf p41; 2514.pdf p30; 2514.pdf p38,,,,,
+q17,C_hybrid_rerank,en,paraphrase,True,"What majority of members is needed to dissolve a society under the Kerala Societies Registration Act, 2025?",Not less than three-fourths of the total members of the society may determine that it be dissolved (section 30).,2514.pdf p17; 2514.pdf p41,"## Dissolution of a Society under the Kerala Societies Registration Act, 2025
+
+The question concerns **Section 30** of the **Kerala Societies Registration Act, 2025 (Act 14 of 2025)**, which deals with the dissolution of societies and the management of their affairs.
+
+### Majority Required
+- A society may be dissolved if **not less than three-fourths (3/4) of the total members** decide to dissolve it.
+- Once this decision is made, the society is dissolved **immediately or at the time agreed upon**.
+
+### Voting Requirements
+- The second proviso to Section 30 says that **no society shall be dissolved** unless a **three-fourths majority** of the members vote in favour.
+- Votes may be cast **in person**, or **by proxy** where proxies are entrusted.
+- The vote must take place at a **special general body meeting** convened for this purpose.
+
+### Additional Conditions
+- **Government-linked societies:** If the Government is a member of, a subscriber to, or otherwise interested in the society, it **cannot be dissolved without Government sanction**.
+- **Filing details:** The details of the disposal and settlement of property, claims and liabilities must be filed with the **Registrar**, along with related documents, **within thirty days**.
+- **Disputes:** Any dispute among the governing body or members about the management of the society's affairs goes to the **Civil Court of original jurisdiction** in the district where the society's registered office is situated.
+
+### Related Provision: Property After Dissolution (Section 31)
+- Any property left after debts and liabilities are paid **cannot be given to the members**.
+- It must go to another society with similar objects. This is decided by **at least a three-fourths majority** of the members present, in person or by proxy, at the time of dissolution. If they do not decide, the **Civil Court** decides.
+
+### Summary
+A society needs a **three-fourths majority** of its members to be dissolved. The decision must be made at a special general body meeting, and Government sanction is also needed where the Government has an interest in the society.",2514.pdf p41; 2514.pdf p42; 2514.pdf p30; 2514.pdf p41; 2514.pdf p43; 2514.pdf p32; 2514.pdf p43; 2514.pdf p30; 2514.pdf p29; 252.pdf p11,,,,,
+q18,A_dense_baseline,en,unanswerable,False,What powers does the Kerala Lokayukta have to investigate complaints against ministers?,Not answerable from the corpus: no indexed document concerns the Lokayukta. The system should say the context is insufficient.,,"## Kerala Lokayukta: Powers to Investigate Complaints Against Ministers
+
+### Insufficient Information in the Context
+
+The retrieved text **does not contain any provision about the Kerala Lokayukta** or its powers over ministers. None of the excerpts mention the **Kerala Lokayukta Act**, the Lokayukta or Upa-Lokayukta, or any procedure for investigating complaints against ministers. I therefore cannot answer this question from the context.
+
+### What the Context Actually Covers
+
+The excerpts come from several unrelated Acts and schemes:
+
+- **Public Records Act (Kerala):** covers the destruction of public records, the power to file cases, definitions such as ""public authority"" and ""head of the department,"" and rule-making power.
+- **Kerala State Right to Service Act, 2012:** this Act is repealed (section 27 of the newer Act). The excerpts also describe the **Kerala State Right to Service Commission**, a single-member body headed by a person of at least Secretary rank.
+- **Dwelling Place Protection Act:** covers provisions on sureties and the State Level Dwelling Place Protection Committee.
+- **Tax arrears settlement scheme:** includes definitions such as ""Commissioner of State Tax"" and ""disputed tax.""
+- **Animal/livestock authority provisions:** cover local authorities and the submission of reports.
+- **Investment promotion provisions:** cover the powers of the Kerala State Investment Promotion Monitoring Committee.
+
+### Suggested Next Step
+
+To answer this question, please provide or search for the text of the **Kerala Lokayukta Act, 1999**, especially its sections on jurisdiction, the definition of ""public servant"" (including ministers), and the investigation procedure. With that text, I can explain the Lokayukta's powers in simple terms.",2511.pdf p27; 2512.pdf p22; 2511.pdf p23; 2512.pdf p33; 50 24.pdf p23; 2512.pdf p26; 2513.pdf p27; 50 24.pdf p13; 34 24.pdf p36; 2515.pdf p13,,,,,
+q18,B_hybrid,en,unanswerable,False,What powers does the Kerala Lokayukta have to investigate complaints against ministers?,Not answerable from the corpus: no indexed document concerns the Lokayukta. The system should say the context is insufficient.,,"## Kerala Lokayukta – Powers to Investigate Complaints Against Ministers
+
+### Insufficient Information in the Context
+
+The retrieved text **does not contain any provisions** about the **Kerala Lokayukta**. It also does not mention the Kerala Lokayukta Act or any rules on investigating complaints against ministers. I therefore cannot answer this question from the material provided.
+
+### What the Context Actually Covers
+
+The excerpts come from other Kerala laws and orders:
+
+- **Kerala State Investment Promotion Board / Monitoring Committee** – their powers and functions, such as resolving difficulties in implementing the industrial policy and coordinating departments.
+- **Dwelling Place Protection provisions** – recovery of money from a principal debtor and the headquarters of the State Level Dwelling Place Protection Committee.
+- **Kerala State Elderly Commission** – its constitution by notification, with a Chairperson and not more than four members.
+- **Public Records provisions** – destruction of records and the power to file cases.
+- **Services/Right-to-services provisions** – definitions of ""public authority"", ""first appellate authority"" and ""head of the department"".
+- **Societies Registration provisions** – cancellation of registration and recovery under the **Kerala Revenue Recovery Act, 1968**.
+- **Flood cess arrears** – settlement under the **Kerala Finance Act, 2019**.
+
+### Suggestion
+
+To answer your question, I would need the text of the **Kerala Lokayukta Act, 1999** or a related notification or order. If you can share those sections, I can explain the Lokayukta's investigative powers in simple terms.",2515.pdf p13; 2513.pdf p27; 255.pdf p18; 2515.pdf p11; 2514.pdf p45; 253.pdf p49; 2511.pdf p27; 2512.pdf p22; 253.pdf p52; 2511.pdf p23,,,,,
+q18,C_hybrid_rerank,en,unanswerable,False,What powers does the Kerala Lokayukta have to investigate complaints against ministers?,Not answerable from the corpus: no indexed document concerns the Lokayukta. The system should say the context is insufficient.,,"## Kerala Lokayukta: Powers to Investigate Complaints Against Ministers
+
+### Insufficient Information in the Context
+
+The retrieved context does **not** contain any information about the **Kerala Lokayukta** or its powers over complaints against ministers. I cannot answer this question from the text provided.
+
+### What the Context Does Cover
+
+The extracts come from other Kerala laws and are unrelated to the Lokayukta:
+
+- **Public records law:** the destruction or disposal of public records, including the Kerala Destruction of Records Act, 1961, and the power to file cases for contravention.
+- **Kerala State Right to Service Act:** the constitution of the **Kerala State Right to Service Commission** (a single-member body), the definitions of ""public authority"" and ""first appellate authority"", and the power to make rules. The 2012 Act is repealed.
+- **Tax confidentiality and settlement provisions:** the limited cases in which particulars may be disclosed, such as to an officer of the Government of India or to an officer of another State with which a reciprocal arrangement exists. They also cover protection for action taken in good faith.
+- **Registration of Societies:** the Registrar's power to cancel registration and dissolve societies engaged in unlawful activity.
+- **Kerala State Elderly Commission:** the constitution of the Commission, with a Chairperson and not more than four members.
+
+### Suggestion
+
+To answer your question, I would need the text of the **Kerala Lokayukta Act, 1999**, or a related notification or order. In particular, I would need the sections on jurisdiction, the definition of ""public servant"", the inquiry procedure, and the powers of investigation. If you can share those sections, I can explain them in simple terms.",2511.pdf p27; 50 24.pdf p23; 253.pdf p50; 2512.pdf p26; 2511.pdf p23; 2514.pdf p45; 2512.pdf p22; 2512.pdf p33; 253.pdf p49; 255.pdf p18,,,,,
+q19,A_dense_baseline,ml,unanswerable,False,വാർദ്ധക്യ പെൻഷൻ പ്രതിമാസം എത്ര രൂപയാണ്?,Not answerable from the corpus: 'pension' appears only as budget heads in Appropriation Acts and staff-pension clauses; no document states an old-age pension amount. Near-miss: the Elderly Commission Act is topically related but does not fix pension amounts.,,"## വാർദ്ധക്യ പെൻഷൻ തുക സംബന്ധിച്ച വിവരം
+
+നൽകിയ രേഖകളിൽ **വാർദ്ധക്യ പെൻഷൻ പ്രതിമാസം എത്ര രൂപയാണ്** എന്നതിന് ഉത്തരം നൽകാൻ ആവശ്യമായ വിവരം ഇല്ല.
+
+### രേഖകളിൽ ഉള്ളത്
+
+ഈ ഭാഗങ്ങൾ 2025-ലെ കേരള ഗസറ്റിൽ പ്രസിദ്ധീകരിച്ച **ധനവിനിയോഗ (Appropriation) പട്ടികകളാണ്**. ഇതിൽ വിവിധ ധനാഭ്യർത്ഥനകൾക്ക് (Demands for Grants) അനുവദിച്ച തുകകളാണ് കാണിക്കുന്നത്. അവ:
+
+- **XVI – പെൻഷനും പലവകയും (Pension and Miscellaneous):** റവന്യൂ ഇനത്തിൽ ഒരു പട്ടികയിൽ 42,532,29,74,000 രൂപ വോട്ട് ചെയ്തതായും 9,11,77,000 രൂപ അധികമായി ചാർജ് ചെയ്തതായും കാണുന്നു.
+- **XLVII – സാമൂഹിക സുരക്ഷയും ക്ഷേമവും (Social Security and Welfare):** റവന്യൂ ഇനത്തിൽ 15,641,17,67,000 രൂപ.
+- മറ്റ് വകുപ്പുകൾ: വിദ്യാഭ്യാസം, ആരോഗ്യം, കുടുംബക്ഷേമം, ജലവിതരണം, ഭവനം, നഗരവികസനം തുടങ്ങിയവ.
+
+### എന്തുകൊണ്ട് ഉത്തരം നൽകാനാകില്ല
+
+- ഈ തുകകൾ **സർക്കാർ വകുപ്പുകൾക്കുള്ള മൊത്തം ബജറ്റ് വകയിരുത്തലുകളാണ്**. ഒരു വ്യക്തിക്ക് ലഭിക്കുന്ന പ്രതിമാസ പെൻഷൻ നിരക്കല്ല.
+- വാർദ്ധക്യ പെൻഷൻ എന്ന പദമോ അതിന്റെ പ്രതിമാസ നിരക്കോ ഈ ഭാഗങ്ങളിൽ പരാമർശിച്ചിട്ടില്ല.
+- ഇവിടെ പറയുന്ന ""പെൻഷനും പലവകയും"" എന്ന ധനാഭ്യർത്ഥന പ്രധാനമായും സർക്കാർ ചെലവിന്റെ ഒരു വിഭാഗമാണ്.
+
+### നിഗമനം
+
+ലഭ്യമായ സന്ദർഭത്തിൽ വാർദ്ധക്യ പെൻഷന്റെ പ്രതിമാസ തുക ഇല്ലാത്തതിനാൽ ഒരു കണക്ക് പറയാൻ കഴിയില്ല. കൃത്യമായ തുകയ്ക്ക് സാമൂഹിക സുരക്ഷാ പെൻഷൻ സംബന്ധിച്ച പ്രത്യേക സർക്കാർ ഉത്തരവ് അല്ലെങ്കിൽ വിജ്ഞാപനം പരിശോധിക്കേണ്ടതുണ്ട്.",251.pdf p11; 252.pdf p13; 252.pdf p17; 46 24.pdf p4; 49 24.pdf p5; 251.pdf p4; 252.pdf p5; 253.pdf p7; 49 24.pdf p6; 49 24.pdf p13,,,,,
+q19,B_hybrid,ml,unanswerable,False,വാർദ്ധക്യ പെൻഷൻ പ്രതിമാസം എത്ര രൂപയാണ്?,Not answerable from the corpus: 'pension' appears only as budget heads in Appropriation Acts and staff-pension clauses; no document states an old-age pension amount. Near-miss: the Elderly Commission Act is topically related but does not fix pension amounts.,,"## വാർദ്ധക്യ പെൻഷൻ – പ്രതിമാസ തുക
+
+ലഭ്യമായ സന്ദർഭത്തിൽ **വാർദ്ധക്യ പെൻഷന്റെ പ്രതിമാസ തുകയെക്കുറിച്ച്** ഒരു വിവരവും ഇല്ല. അതിനാൽ ഈ ചോദ്യത്തിന് കൃത്യമായ ഉത്തരം നൽകാൻ കഴിയില്ല.
+
+### സന്ദർഭത്തിൽ ഉള്ള വിവരങ്ങൾ
+
+നൽകിയിരിക്കുന്ന ഭാഗങ്ങൾ താഴെപ്പറയുന്ന വിഷയങ്ങളെക്കുറിച്ചാണ്:
+
+- **ധനാഭ്യർത്ഥനകളുടെ പട്ടിക:** വിവിധ ഗ്രാന്റുകൾക്കുള്ള റവന്യൂ, മൂലധന വിഹിതം. ഇതിൽ ""XVI – പെൻഷനും പലവകയും"", ""XLVI – സാമൂഹ്യ സുരക്ഷയും ക്ഷേമവും"" എന്നീ ശീർഷകങ്ങൾ കാണുന്നു.
+- **നികുതി കുടിശ്ശിക തീർപ്പാക്കൽ സ്കീം:** നികുതി, സർചാർജ്, പലിശ, പിഴ എന്നിവയുടെ കുടിശ്ശിക തീർപ്പാക്കുന്നതിനുള്ള വ്യവസ്ഥകളും ദൃഷ്ടാന്തങ്ങളും.
+- **ഒരു കമ്മിറ്റിയുടെ ചെയർമാനും അംഗങ്ങൾക്കുമുള്ള ഓണറേറിയവും സിറ്റിംഗ് ഫീസും** സംബന്ധിച്ച വകുപ്പ്.
+
+### പ്രധാന കുറിപ്പ്
+
+""പെൻഷനും പലവകയും"" എന്ന ശീർഷകം ബജറ്റ് വിഹിതത്തെ മാത്രമാണ് സൂചിപ്പിക്കുന്നത്. അത് വാർദ്ധക്യ പെൻഷന്റെ പ്രതിമാസ നിരക്കല്ല. സാമൂഹ്യ സുരക്ഷാ ശീർഷകത്തിലും ആകെ വിഹിതം മാത്രമേ ഉള്ളൂ, വ്യക്തിഗത പെൻഷൻ തുക പറയുന്നില്ല.
+
+വാർദ്ധക്യ പെൻഷൻ തുക അറിയാൻ ആ വിഷയത്തിലുള്ള പ്രത്യേക സർക്കാർ ഉത്തരവോ വിജ്ഞാപനമോ പരിശോധിക്കണം.",46 24.pdf p4; 49 24.pdf p5; 252.pdf p5; 251.pdf p11; 50 24.pdf p41; 2517.pdf p4; 252.pdf p13; 252.pdf p17; 50 24.pdf p40; 50 24.pdf p49,,,,,
+q19,C_hybrid_rerank,ml,unanswerable,False,വാർദ്ധക്യ പെൻഷൻ പ്രതിമാസം എത്ര രൂപയാണ്?,Not answerable from the corpus: 'pension' appears only as budget heads in Appropriation Acts and staff-pension clauses; no document states an old-age pension amount. Near-miss: the Elderly Commission Act is topically related but does not fix pension amounts.,,"## വാർദ്ധക്യ പെൻഷൻ തുക – ലഭ്യമായ വിവരം
+
+നൽകിയിട്ടുള്ള സന്ദർഭത്തിൽ **വാർദ്ധക്യ പെൻഷന്റെ പ്രതിമാസ തുക** സംബന്ധിച്ച വിവരം ഇല്ല. അതിനാൽ ഈ ചോദ്യത്തിന് കൃത്യമായ ഉത്തരം നൽകാൻ കഴിയില്ല.
+
+### സന്ദർഭത്തിൽ ഉള്ളത്
+
+ഇത് **ധനവിനിയോഗ (Appropriation) സംബന്ധിച്ച ഗസറ്റ് പട്ടികകളാണ്**. ഇതിൽ വിവിധ ധനാഭ്യർത്ഥനകൾക്ക് (Demands for Grants) അനുവദിച്ച തുകകളാണ് രേഖപ്പെടുത്തിയിരിക്കുന്നത്.
+
+- **ധനാഭ്യർത്ഥന XVI – പെൻഷനും പലവകയും (Pension and Miscellaneous):** റവന്യൂ ഇനത്തിൽ ഒരു വർഷത്തെ പട്ടികയിൽ ₹42,532,29,74,000, മറ്റൊന്നിൽ ₹41,384,69,08,000 എന്നിങ്ങനെ വലിയ തുകകൾ കാണിക്കുന്നു.
+- **ധനാഭ്യർത്ഥന XLVI – സാമൂഹ്യ സുരക്ഷയും ക്ഷേമവും (Social Security and Welfare):** റവന്യൂ ഇനത്തിൽ ₹13,115,91,31,000 എന്ന തുക കാണിക്കുന്നു.
+
+### ഇതിന്റെ നിയമപരമായ അർത്ഥം
+
+ഈ കണക്കുകൾ **ഒരു വകുപ്പിനോ ശീർഷകത്തിനോ ആകെ അനുവദിച്ച തുകയാണ്**. ഇതിൽ ഏതൊക്കെ ക്ഷേമ പെൻഷനുകൾ ഉൾപ്പെടുന്നുവെന്നോ ഒരു ഗുണഭോക്താവിന് പ്രതിമാസം എത്ര രൂപ ലഭിക്കുമെന്നോ വ്യക്തമാക്കുന്നില്ല. അതിനാൽ ഈ തുകകളിൽ നിന്ന് വാർദ്ധക്യ പെൻഷന്റെ പ്രതിമാസ നിരക്ക് കണക്കാക്കാനും കഴിയില്ല.
+
+### നിർദ്ദേശം
+
+വാർദ്ധക്യ പെൻഷന്റെ കൃത്യമായ പ്രതിമാസ തുക അറിയാൻ ബന്ധപ്പെട്ട **സർക്കാർ ഉത്തരവ് അല്ലെങ്കിൽ വിജ്ഞാപനം** (സാമൂഹ്യ സുരക്ഷാ പെൻഷൻ സംബന്ധിച്ചത്) പരിശോധിക്കേണ്ടതുണ്ട്.",49 24.pdf p5; 251.pdf p4; 253.pdf p7; 252.pdf p13; 252.pdf p5; 251.pdf p11; 46 24.pdf p4; 2510.pdf p8; 49 24.pdf p17; 48 24.pdf p3,,,,,
+q20,A_dense_baseline,en,unanswerable,False,What subsidy does the Kerala government give for buying an electric vehicle?,Not answerable from the corpus: no indexed document covers electric-vehicle subsidies.,,"## Subsidy for Electric Vehicles in Kerala
+
+The context does **not** mention any subsidy for buying an electric vehicle. It only contains a tax-related provision on electric vehicles, which is a different matter.
+
+### What the Context Actually Says
+The extracted text lists rates for electric motor cars and electric private service vehicles for personal use. The rates are expressed as a percentage of the vehicle's **purchase value**, and they appear to be a tax or levy. The context does not name the Act or say what the percentage is charged as.
+
+| Category | Rate (% of purchase value) |
+|---|---|
+| Purchase value up to ₹15 lakh | **5%** |
+| Purchase value above ₹15 lakh and up to ₹20 lakh | **8%** |
+| Purchase value above ₹20 lakh | **10%** |
+| Vehicles with a battery renting/leasing facility | **10%** |
+
+### Battery Renting/Leasing Facility
+The **Explanation** defines this as buying the vehicle **without the cost of the battery**. The buyer pays for the battery separately, for example by **pay-per-kilometre usage** or a similar method.
+
+### Legal Implication
+- These provisions set **graded rates** based on the vehicle's price. They do not give any financial benefit or subsidy to the buyer.
+- The context is fragmentary. The name of the Act, the effective date and the exact nature of the levy are not visible.
+- A discount, subsidy or incentive for electric vehicle buyers is **not stated** anywhere in the provided text.
+
+### Conclusion
+The context is insufficient to say what subsidy, if any, Kerala gives for buying an electric vehicle. For accurate information, please check the full Gazette notification or the relevant Kerala Motor Vehicles Taxation Act amendment, or the official orders of the Transport or Power departments.",50 24.pdf p10; 253.pdf p31; 43 24.pdf p6; 45 24.pdf p6; 256.pdf p16; 50 24.pdf p14; 253.pdf p20; 46 24.pdf p6; 47 24.pdf p6; 42 24.pdf p6,,,,,
+q20,B_hybrid,en,unanswerable,False,What subsidy does the Kerala government give for buying an electric vehicle?,Not answerable from the corpus: no indexed document covers electric-vehicle subsidies.,,"## Subsidy for Electric Vehicles in Kerala
+
+**The context does not mention any subsidy** (financial assistance or purchase incentive) for buying an electric vehicle, so I cannot answer that from these documents.
+
+The context does contain **tax rates for electric vehicles**. They appear in Annexure I of the **Kerala Motor Vehicles Taxation Act, 1976**, as substituted by a Kerala Finance Act. These rates show how electric vehicles are taxed, but they are not a subsidy.
+
+### Tax Rates for Electric Vehicles (Personal Use)
+
+| Category | Tax (% of purchase value) |
+|---|---|
+| Electric motor cycles and electric three-wheeled vehicles | **5%** |
+| Electric motor cars and electric private service vehicles, purchase value up to ₹15 lakh | **5%** |
+| Electric motor cars and electric private service vehicles, purchase value above ₹15 lakh and up to ₹20 lakh | **8%** |
+| Electric motor cars and electric private service vehicles, purchase value above ₹20 lakh | **10%** |
+| Electric cars and electric private service vehicles with a Battery Renting/Leasing facility | **10%** |
+
+### Battery Renting/Leasing Facility
+The Explanation in the text says this facility means buying the vehicle **without the cost of the battery**. The battery is then paid for per kilometre of usage, or by a similar method.
+
+### What This Means
+- The tax on electric vehicles is **charged on a sliding scale based on the vehicle's price**.
+- Cheaper vehicles (up to ₹15 lakh) and electric two- and three-wheelers fall in the lowest slab of **5%**.
+- The text does not say how these rates compare with other vehicles, so I cannot say whether they amount to a concession.
+
+### Limitation
+For actual subsidies, cash incentives or tax exemptions for electric vehicles, you would need other Government Orders or scheme notifications that are not in the retrieved context.",253.pdf p31; 50 24.pdf p10; 256.pdf p16; 54 24.pdf p36; 253.pdf p31; 43 24.pdf p6; 50 24.pdf p10; 253.pdf p2; 45 24.pdf p6; 50 24.pdf p2,,,,,
+q20,C_hybrid_rerank,en,unanswerable,False,What subsidy does the Kerala government give for buying an electric vehicle?,Not answerable from the corpus: no indexed document covers electric-vehicle subsidies.,,"## Subsidy for Electric Vehicles: What the Context Shows
+
+**The provided text does not mention any subsidy, grant, or incentive for buying an electric vehicle.** It does contain **tax rates** for electric vehicles, in an amendment made by the **Kerala Finance Act, 2024 (Act 18 of 2024)**.
+
+### Source of the Provision
+- The **Kerala Finance Act, 2024** gives effect to the Government's financial proposals for 2024-25.
+- Its amendment to the **Kerala Motor Vehicles Taxation Act, 1976 (Act 19 of 1976)** replaces serial number 7B in **Annexure I** and adds new entries.
+- The column headings are missing from the extracted text. The percentages below appear to be rates of tax on the vehicle's purchase value, but the text does not say so explicitly.
+
+### Rates Shown for Electric Vehicles
+1. **Electric motor cycles and electric three-wheeled vehicles** for personal use: **5%** of the vehicle's purchase value.
+2. **Electric motor cars and electric private service vehicles** for personal use, purchase value up to ₹15 lakh: **5%**.
+3. **Same category, purchase value above ₹15 lakh and up to ₹20 lakh:** **8%**.
+4. **Same category, purchase value above ₹20 lakh:** **10%**.
+5. **Electric cars and private service vehicles with a battery renting/leasing facility:** **10%** of the purchase value.
+
+### Battery Renting/Leasing
+The **Explanation** says this means buying the vehicle without the cost of the battery, and paying for the battery by a **pay-per-kilometre** arrangement or a similar method.
+
+### Conclusion
+- The context shows only a **graded rate structure** based on vehicle value, with lower rates for cheaper vehicles.
+- It does not say whether these rates are concessional, and it does not describe any direct subsidy or cash incentive.
+- To confirm whether any subsidy exists, you would need other Government Orders or schemes, which are not in the text provided.",50 24.pdf p10; 253.pdf p31; 50 24.pdf p10; 54 24.pdf p36; 253.pdf p31; 50 24.pdf p14; 253.pdf p20; 256.pdf p16; 253.pdf p41; 50 24.pdf p2,,,,,

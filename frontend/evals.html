@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retrieval Evals · Niyamadharshini</title>
+  <style>
+    :root {
+      --bg: #ffffff; --text: #111111; --muted: #5f6368; --card: #f7f7f8; --border: #d9d9de;
+      --accent: #1f5fbf; --good: #1e7a3c; --good-bg: #e3f3e8; --ok: #6b5b00; --ok-bg: #fbf3cf;
+      --bad: #a3261c; --bad-bg: #fbe5e2; --row-hover: #f0f2f5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0b0b0c; --text: #ececee; --muted: #9a9aa3; --card: #151518; --border: #2c2c31;
+        --accent: #7fb0ff; --good: #7fd69b; --good-bg: #13301d; --ok: #e9d27a; --ok-bg: #332c0d;
+        --bad: #ff9c90; --bad-bg: #3a1714; --row-hover: #1b1b1f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0b0b0c; --text: #ececee; --muted: #9a9aa3; --card: #151518; --border: #2c2c31;
+      --accent: #7fb0ff; --good: #7fd69b; --good-bg: #13301d; --ok: #e9d27a; --ok-bg: #332c0d;
+      --bad: #ff9c90; --bad-bg: #3a1714; --row-hover: #1b1b1f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif;
+           font-size: 14px; line-height: 1.5; }
+    a { color: var(--accent); }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 16px 60px; }
+    header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 14px; }
+    header h1 { font-size: 20px; font-weight: 600; margin-right: auto; }
+    select, button { font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--border);
+                     border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+    .note { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+            color: var(--muted); margin-bottom: 16px; }
+    .settings { color: var(--muted); font-size: 12.5px; margin-bottom: 16px; }
+    h2 { font-size: 15px; font-weight: 600; margin: 26px 0 10px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 6px; }
+    .filters span { color: var(--muted); margin-right: 4px; }
+    .chip { border-radius: 999px; padding: 3px 11px; font-size: 13px; }
+    .chip.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+    .card h3 { font-size: 13.5px; font-weight: 600; margin-bottom: 8px; }
+    .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+    .kpi .v { font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .kpi .l { font-size: 12px; color: var(--muted); }
+    .tbl { width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+    table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { font-weight: 600; font-size: 12.5px; color: var(--muted); background: var(--card); white-space: nowrap; }
+    tr:last-child td { border-bottom: none; }
+    td.num { white-space: nowrap; }
+    tr.q { cursor: pointer; }
+    tr.q:hover td { background: var(--row-hover); }
+    .rank { display: inline-block; min-width: 34px; text-align: center; border-radius: 5px; padding: 1px 6px;
+            font-weight: 600; }
+    .r1 { background: var(--good-bg); color: var(--good); }
+    .r5 { background: var(--ok-bg); color: var(--ok); }
+    .rx { background: var(--bad-bg); color: var(--bad); }
+    .muted { color: var(--muted); }
+    .detail td { background: var(--card); }
+    .detail .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+    .detail h4 { font-size: 13px; font-weight: 600; margin: 4px 0 6px; }
+    .detail ol { padding-left: 22px; }
+    .detail li { margin: 1px 0; }
+    .gold { color: var(--good); font-weight: 600; }
+    .answer { white-space: pre-wrap; border-left: 3px solid var(--border); padding: 6px 10px; margin-top: 6px;
+              max-height: 320px; overflow: auto; }
+    .ml { font-family: "Nirmala UI", "Noto Sans Malayalam", "Segoe UI", sans-serif; }
+    .empty { padding: 40px 0; text-align: center; color: var(--muted); }
+    @media (max-width: 640px) { header h1 { width: 100%; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Retrieval evaluation</h1>
+    <label class="muted" for="run">Run</label>
+    <select id="run"></select>
+    <button id="theme" title="Toggle theme">◐</button>
+    <a href="/">← Back to chat</a>
+  </header>
+
+  <div class="note">
+    Initial comparative benchmark: 20 golden questions (17 answerable, 3 unanswerable) with gold chunks derived from
+    verbatim evidence in the indexed corpus. A difference of one or two questions is within noise, and these numbers
+    do not establish production accuracy. Answer correctness, faithfulness and citation support are judged manually
+    (<code>manual_review.csv</code> in the run folder), not here.
+  </div>
+
+  <div id="content"><div class="empty">Loading…</div></div>
+</div>
+
+<script>
+const CONFIG_LABELS = {
+  A_dense_baseline: "A · Dense (original)",
+  B_hybrid: "B · Hybrid (dense + BM25, RRF)",
+  C_hybrid_rerank: "C · Hybrid + rerank",
+};
+const label = c => CONFIG_LABELS[c] || c;
+const esc = s => String(s ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+const pct = (a, n) => n ? `${a}/${n} <span class="muted">(${Math.round(100 * a / n)}%)</span>` : "–";
+const f3 = x => (x ?? 0).toFixed(3);
+const median = xs => { if (!xs.length) return 0; const s = [...xs].sort((a, b) => a - b); const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+const hasMl = s => /[ഀ-ൿ]/.test(s || "");
+
+let state = { data: null, all: {}, category: "all", language: "all", open: new Set() };
+
+// ---------- theme ----------
+document.getElementById("theme").addEventListener("click", () => {
+  const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("evals-theme", root.dataset.theme); } catch (e) {}
+});
+try { const t = localStorage.getItem("evals-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+
+// ---------- data ----------
+async function init() {
+  const res = await fetch("/api/evals");
+  const { runs } = await res.json();
+  const sel = document.getElementById("run");
+  if (!runs.length) {
+    document.getElementById("content").innerHTML =
+      `<div class="empty">No evaluation runs yet. Run <code>python eval\\evaluate_retrieval.py</code> to create one.</div>`;
+    return;
+  }
+  // Load every run once: the comparison table needs all of them
+  const loaded = await Promise.all(runs.map(r => fetch(`/api/evals/${encodeURIComponent(r.name)}`)
+    .then(res => res.ok ? res.json() : null).catch(() => null)));
+  runs.forEach((r, i) => { if (loaded[i]) state.all[r.name] = loaded[i]; });
+
+  // Default to the run matching the app's current default reranker settings, else the newest
+  const current = runs.find(r => isCurrentDefault(state.all[r.name]?.retrieval?.config));
+  const first = (current || runs[0]).name;
+  sel.innerHTML = runs.map(r => `<option value="${esc(r.name)}" ${r.name === first ? "selected" : ""}>${esc(r.name)} · ${new Date(r.modified * 1000).toLocaleString()}${r.has_answers ? " · answers" : ""}</option>`).join("");
+  sel.addEventListener("change", () => load(sel.value));
+  load(first);
+}
+
+// The app's shipped defaults (retrieval/config.py): hybrid, int8 reranker, 30 candidates
+const isCurrentDefault = cfg => !!cfg && cfg.rerank_quantize === "int8" && cfg.rerank_candidates === 30;
+const rerankLabel = cfg => `${cfg?.rerank_quantize || "fp32"} · ${cfg?.rerank_candidates} candidates`;
+
+// An answer belongs to a run only if it was generated from that run's own ranked chunks
+function answerFor(run, cfg, qid) {
+  const a = run?.answers?.[cfg]?.[qid];
+  const ranked = run?.retrieval?.configs?.[cfg]?.[qid]?.ranked_chunk_ids;
+  if (!a || !ranked) return null;
+  return JSON.stringify(a.ranked_chunk_ids) === JSON.stringify(ranked) ? a : null;
+}
+
+function load(name) {
+  if (!state.all[name]) { document.getElementById("content").innerHTML = `<div class="empty">Could not load run.</div>`; return; }
+  state.data = state.all[name];
+  state.open = new Set();
+  render();
+}
+
+function comparisonSection(scopedIds) {
+  const runs = Object.entries(state.all);
+  if (runs.length < 2) return "";
+  const rows = [];
+  const add = (labelHtml, run, cfgName, isDefault) => {
+    const per = run.retrieval.configs[cfgName];
+    if (!per) return;
+    const s = summarize(scopedIds.map(id => per[id]?.metrics).filter(Boolean));
+    const t = median(Object.values(per).map(e => e.timings_ms?.total || 0));
+    const answered = Object.keys(per).filter(id => answerFor(run, cfgName, id)?.answer).length;
+    rows.push(`<tr${isDefault ? ' style="font-weight:600"' : ""}><td>${labelHtml}</td>
+      <td class="num">${pct(s["hit@1"], s.n)}</td><td class="num">${pct(s["hit@5"], s.n)}</td><td class="num">${pct(s["hit@10"], s.n)}</td>
+      <td class="num">${f3(s["recall@10"])}</td><td class="num">${f3(s["mrr@10"])}</td><td class="num">${pct(s.facts_covered, s.facts_total)}</td>
+      <td class="num">${(t / 1000).toFixed(t < 1000 ? 2 : 1)} s</td><td class="num">${answered ? answered + "/20" : "–"}</td></tr>`);
+  };
+  // A and B do not depend on reranker settings: show them once, from the run that has answers if any
+  const base = runs.find(([, r]) => r.answers) || runs[0];
+  add(esc(label("A_dense_baseline")), base[1], "A_dense_baseline", false);
+  add(esc(label("B_hybrid")), base[1], "B_hybrid", false);
+  for (const [name, run] of runs) {
+    const cfg = run.retrieval.config;
+    const isDefault = isCurrentDefault(cfg);
+    add(`C · Hybrid + rerank <span class="muted">(${esc(rerankLabel(cfg))})</span>${isDefault ? ' <span class="rank r1">current default</span>' : ""}`,
+        run, "C_hybrid_rerank", isDefault);
+  }
+  return `<h2>Run comparison <span class="muted" style="font-weight:400">(answerable questions in scope · retrieval time is the median per question, before answer generation)</span></h2>
+    <div class="tbl"><table><thead><tr><th>Configuration</th><th>Hit@1</th><th>Hit@5</th><th>Hit@10</th><th>Recall@10</th><th>MRR@10</th>
+    <th>Facts covered</th><th>Retrieval time</th><th>Answers</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
+}
+
+function summarize(metrics) {
+  const n = metrics.length, s = { n };
+  for (const k of ["hit@1", "hit@5", "hit@10", "page_hit@5"]) s[k] = metrics.reduce((a, m) => a + m[k], 0);
+  for (const k of ["recall@5", "recall@10", "p@5", "p@10", "mrr@10", "ndcg@10"])
+    s[k] = n ? metrics.reduce((a, m) => a + m[k], 0) / n : 0;
+  s.facts_covered = metrics.reduce((a, m) => a + m.facts_covered, 0);
+  s.facts_total = metrics.reduce((a, m) => a + m.facts_total, 0);
+  s.complete = metrics.filter(m => m.facts_covered === m.facts_total).length;
+  return s;
+}
+
+// ---------- render ----------
+function render() {
+  const { retrieval, golden, answers } = state.data;
+  const configs = Object.keys(retrieval.configs);
+  const cfg = retrieval.config || {};
+  const answerable = golden.filter(q => q.answerable);
+  const inScope = q => (state.category === "all" || q.category === state.category) &&
+                       (state.language === "all" || q.language === state.language);
+  const scoped = answerable.filter(inScope);
+  const summaries = Object.fromEntries(configs.map(c => [c,
+    summarize(scoped.map(q => retrieval.configs[c][q.id]?.metrics).filter(Boolean))]));
+
+  const latency = Object.fromEntries(configs.map(c => {
+    const stages = {};
+    for (const e of Object.values(retrieval.configs[c]))
+      for (const [k, v] of Object.entries(e.timings_ms || {})) (stages[k] ||= []).push(v);
+    return [c, stages];
+  }));
+
+  const chips = (key, values) => `<div class="filters"><span>${key === "category" ? "Category" : "Language"}</span>` +
+    ["all", ...values].map(v => `<button class="chip ${state[key] === v ? "active" : ""}" data-filter="${key}" data-value="${esc(v)}">${esc(v)}</button>`).join("") + `</div>`;
+  const categories = [...new Set(answerable.map(q => q.category))].sort();
+  const languages = [...new Set(answerable.map(q => q.language))].sort();
+
+  let html = `<div class="settings">B/C: dense_k=${esc(cfg.dense_k)}, bm25_k=${esc(cfg.bm25_k)}, rrf_k=${esc(cfg.rrf_k)} ·
+    C: ${esc(cfg.reranker_model)}, candidates=${esc(cfg.rerank_candidates)}, max_length=${esc(cfg.rerank_max_length)},
+    quantize=${esc(cfg.rerank_quantize || "none")} · context sent to LLM: top ${esc(cfg.final_top_k)}</div>`;
+
+  html += chips("category", categories) + chips("language", languages);
+  html += `<p class="muted" style="margin:6px 0 10px">${scoped.length} answerable question${scoped.length === 1 ? "" : "s"} in scope</p>`;
+  html += comparisonSection(scoped.map(q => q.id));
+  html += `<h2>Selected run: ${esc(state.data.name)}</h2>`;
+
+  // KPI cards
+  html += `<div class="cards">` + configs.map(c => {
+    const s = summaries[c];
+    const total = median(latency[c].total || []);
+    return `<div class="card"><h3>${esc(label(c))}</h3><div class="kpis">
+      <div class="kpi"><div class="v">${s["hit@5"]}/${s.n}</div><div class="l">gold chunk in top 5</div></div>
+      <div class="kpi"><div class="v">${f3(s["recall@10"])}</div><div class="l">Recall@10</div></div>
+      <div class="kpi"><div class="v">${f3(s["mrr@10"])}</div><div class="l">MRR@10</div></div>
+      <div class="kpi"><div class="v">${(total / 1000).toFixed(total < 1000 ? 2 : 1)} s</div><div class="l">median retrieval time</div></div>
+    </div></div>`;
+  }).join("") + `</div>`;
+
+  // metrics table
+  html += `<h2>Retrieval metrics (answerable questions in scope)</h2><div class="tbl"><table><thead><tr>
+    <th>Config</th><th>Hit@1</th><th>Hit@5</th><th>Hit@10</th><th>Page hit@5</th><th>Recall@5</th><th>Recall@10</th>
+    <th>P@5</th><th>P@10</th><th>MRR@10</th><th>nDCG@10</th><th>Facts covered</th><th>Complete Qs</th></tr></thead><tbody>` +
+    configs.map(c => { const s = summaries[c]; return `<tr><td>${esc(label(c))}</td>
+      <td class="num">${pct(s["hit@1"], s.n)}</td><td class="num">${pct(s["hit@5"], s.n)}</td>
+      <td class="num">${pct(s["hit@10"], s.n)}</td><td class="num">${pct(s["page_hit@5"], s.n)}</td>
+      <td class="num">${f3(s["recall@5"])}</td><td class="num">${f3(s["recall@10"])}</td>
+      <td class="num">${f3(s["p@5"])}</td><td class="num">${f3(s["p@10"])}</td>
+      <td class="num">${f3(s["mrr@10"])}</td><td class="num">${f3(s["ndcg@10"])}</td>
+      <td class="num">${pct(s.facts_covered, s.facts_total)}</td><td class="num">${pct(s.complete, s.n)}</td></tr>`; }).join("") +
+    `</tbody></table></div>
+    <p class="muted" style="margin-top:6px;font-size:12.5px">Hit@k: a gold chunk in the top k. Page hit@5: a chunk from a gold PDF page in the top 5 (citation level).
+    Facts covered: evidence facts with at least one supporting chunk in the top 10 (English and Malayalam versions of a provision count as one fact).</p>`;
+
+  // per-question table
+  const allQs = golden.filter(q => q.answerable ? inScope(q) : (state.category === "all" || state.category === "unanswerable") && (state.language === "all" || q.language === state.language));
+  html += `<h2>Per question <span class="muted" style="font-weight:400">(click a row for ranked results${answers ? " and answers" : ""})</span></h2>
+    <div class="tbl"><table><thead><tr><th>ID</th><th>Lang</th><th>Category</th><th>Query</th>` +
+    configs.map(c => `<th>${esc(label(c))}<br><span style="font-weight:400">first gold rank · Recall@10 · facts</span></th>`).join("") + `</tr></thead><tbody>`;
+  for (const q of allQs) {
+    html += `<tr class="q" data-q="${esc(q.id)}"><td>${esc(q.id)}</td><td>${esc(q.language)}</td><td>${esc(q.category)}</td>
+      <td class="${hasMl(q.query) ? "ml" : ""}">${esc(q.query)}</td>` +
+      configs.map(c => {
+        if (!q.answerable) {
+          const a = answerFor(state.data, c, q.id);
+          return `<td class="muted">no gold${a ? (a.answer ? " · answered" : " · gen failed") : ""}</td>`;
+        }
+        const m = retrieval.configs[c][q.id]?.metrics;
+        const r = m?.first_gold_rank;
+        // green: rank 1, amber: in the top 10 sent to the LLM, red: missed
+        const cls = !r ? "rx" : r === 1 ? "r1" : "r5";
+        return `<td class="num"><span class="rank ${cls}">${r ? "#" + r : "none"}</span>
+          <span class="muted"> R@10 ${f3(m?.["recall@10"])} · facts ${m?.facts_covered}/${m?.facts_total}</span></td>`;
+      }).join("") + `</tr>`;
+    if (state.open.has(q.id)) html += detailRow(q, configs, retrieval, answers);
+  }
+  html += `</tbody></table></div>`;
+
+  // pairwise win/loss matrix on first-gold rank (missed = worse than any rank)
+  const rankOf = (c, q) => retrieval.configs[c][q.id]?.metrics?.first_gold_rank || Infinity;
+  html += `<h2>Pairwise comparison <span class="muted" style="font-weight:400">(row vs column: questions where the row config ranks the first gold chunk higher / lower / tie)</span></h2>
+    <div class="tbl"><table><thead><tr><th></th>` + configs.map(c => `<th>vs ${esc(label(c))}</th>`).join("") + `</tr></thead><tbody>` +
+    configs.map(a => `<tr><td><strong>${esc(label(a))}</strong></td>` + configs.map(b => {
+      if (a === b) return `<td class="muted">–</td>`;
+      let w = 0, l = 0, t = 0;
+      for (const q of scoped) { const ra = rankOf(a, q), rb = rankOf(b, q); ra < rb ? w++ : ra > rb ? l++ : t++; }
+      return `<td class="num"><span class="gold">${w} better</span> · <span style="color:var(--bad)">${l} worse</span> · <span class="muted">${t} tie</span></td>`;
+    }).join("") + `</tr>`).join("") + `</tbody></table></div>`;
+
+  // answer generation status
+  if (answers) {
+    const statusOf = (c, q) => answerFor(state.data, c, q.id);
+    html += `<h2>Generated answers</h2><div class="tbl"><table><thead><tr><th>Config</th><th>Answered</th><th>Failed</th><th>Median generation time</th></tr></thead><tbody>` +
+      configs.map(c => {
+        const rows = golden.map(q => statusOf(c, q)).filter(Boolean);
+        const ok = rows.filter(a => a.answer), times = ok.map(a => a.generation_ms).filter(Boolean);
+        return `<tr><td>${esc(label(c))}</td><td class="num">${ok.length}/${golden.length}</td><td class="num">${rows.length - ok.length}</td>
+          <td class="num">${times.length ? (median(times) / 1000).toFixed(1) + " s" : "–"}</td></tr>`;
+      }).join("") + `</tbody></table></div>
+      <p class="muted" style="margin-top:6px;font-size:12.5px">Answers are shown unscored. Correctness, faithfulness, citation support and abstention
+      are reviewed manually in <code>manual_review.csv</code>; the same production prompt, model and top-10 context budget are used for every config.</p>`;
+  } else {
+    html += `<h2>Generated answers</h2><p class="muted">Not generated for this run yet. Run
+      <code>python eval\\evaluate_retrieval.py --generate-only eval\\results\\${esc(state.data.name)}</code></p>`;
+  }
+
+  // latency table
+  html += `<h2>Latency per question (ms)</h2><div class="tbl"><table><thead><tr><th>Config</th><th>Stage</th><th>Median</th><th>Max</th></tr></thead><tbody>` +
+    configs.flatMap(c => Object.entries(latency[c]).map(([k, v]) =>
+      `<tr><td>${esc(label(c))}</td><td>${esc(k)}</td><td class="num">${Math.round(median(v))}</td><td class="num">${Math.round(Math.max(...v))}</td></tr>`)).join("") +
+    `</tbody></table></div>`;
+
+  document.getElementById("content").innerHTML = html;
+  document.querySelectorAll("[data-filter]").forEach(b => b.addEventListener("click", () => {
+    state[b.dataset.filter] = b.dataset.value; render();
+  }));
+  document.querySelectorAll("tr.q").forEach(tr => tr.addEventListener("click", () => {
+    const id = tr.dataset.q; state.open.has(id) ? state.open.delete(id) : state.open.add(id); render();
+  }));
+}
+
+function detailRow(q, configs, retrieval, answers) {
+  const gold = new Set(q.gold_chunk_ids || []);
+  const facts = [...new Set((q.evidence || []).map(e => e.fact || e.text))];
+  let html = `<tr class="detail"><td colspan="${4 + configs.length}">
+    <p><strong>${q.answerable ? "Expected answer" : "Expected behaviour"}:</strong> ${esc(q.expected_answer)}</p>`;
+  if (q.answerable) html += `<p class="muted" style="margin-top:4px">Gold pages: ${q.gold_pages.map(p => esc(`${p.pdf} p${p.page}`)).join(", ")}
+    · ${gold.size} gold chunk${gold.size === 1 ? "" : "s"} · facts: ${facts.map(esc).join(", ")}</p>`;
+  html += `<div class="grid" style="margin-top:10px">`;
+  for (const c of configs) {
+    const e = retrieval.configs[c][q.id];
+    if (!e) continue;
+    const m = e.metrics;
+    html += `<div><h4>${esc(label(c))}</h4>`;
+    if (m) html += `<p class="muted">Recall@10 ${f3(m["recall@10"])} · facts ${m.facts_covered}/${m.facts_total} · ${Math.round(e.timings_ms?.total || 0)} ms</p>`;
+    else html += `<p class="muted">${Math.round(e.timings_ms?.total || 0)} ms</p>`;
+    html += `<ol>` + (e.hits || []).map(h => {
+      const isGold = gold.has(h.chunk_id);
+      const score = h.rerank_score != null ? ` · rerank ${h.rerank_score.toFixed(3)}` : "";
+      return `<li class="${isGold ? "gold" : ""}">${esc(h.pdf)} p${esc(h.page)} <span class="muted">${esc(h.chunk_id)}${score}</span>${isGold ? " ✓" : ""}</li>`;
+    }).join("") + `</ol>`;
+    const a = answerFor(state.data, c, q.id);
+    if (a) html += `<div class="answer ${hasMl(a.answer) ? "ml" : ""}">${a.answer ? esc(a.answer) : `<span class="muted">Generation failed: ${esc(a.error)}</span>`}</div>`;
+    html += `</div>`;
+  }
+  return html + `</div></td></tr>`;
+}
+
+init().catch(err => { document.getElementById("content").innerHTML = `<div class="empty">Error: ${esc(err.message)}</div>`; });
+</script>
+</body>
+</html>

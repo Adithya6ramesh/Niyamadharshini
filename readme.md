@@ -1,8 +1,17 @@
 # Niyamadarshini
 
-Niyamadarshini is a Malayalam and English legal-document assistant for Kerala Government Gazettes, orders, rules, and notifications. It uses retrieval-augmented generation (RAG) to search official PDF content and answer questions with document and page references.
+**Niyamadarshini** is an AI-powered legislative document intelligence system designed to make Kerala Legislative Assembly laws, rules, and proceedings **searchable, understandable, and accessible** to citizens, students, researchers, and judiciary staff.
+By combining **Retrieval-Augmented Generation (RAG)**, **multilingual embeddings**, and **hybrid retrieval**, the system transforms complex legislative PDFs (Kerala Government Gazettes, orders, rules and notifications) into a conversational knowledge platform.
 
 > This is an information-retrieval assistant, not a substitute for professional legal advice.
+
+## Solution Overview
+
+Niyamadarshini converts legislative documents into structured, searchable knowledge units and enables users to ask questions in **Malayalam and English** to receive **clear, cited answers** with document and page references.
+The system uses AI not as a knowledge source, but as a **reasoning engine grounded in official documents**.
+
+<img width="1918" height="997" alt="Screenshot 2026-01-20 132046" src="https://github.com/user-attachments/assets/2d09f301-b5b5-463a-a7c7-99716f77eb22" />
+<img width="1914" height="813" alt="Screenshot 2026-01-20 132112" src="https://github.com/user-attachments/assets/6b11025c-f26f-4b8d-91ee-b018aa526066" />
 
 ## How It Works
 
@@ -21,6 +30,12 @@ User question (online)
 ```
 
 The prompt instructs Claude to use only the retrieved context, explain the legal meaning in simple language, and answer in the language of the question.
+
+## Architecture
+
+The diagram below shows the original pipeline (dense retrieval and Gemini). Retrieval is now hybrid with reranking and answers come from Claude, as described in [How It Works](#how-it-works) and [Retrieval](#retrieval).
+
+<img width="1596" height="2130" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/08046493-9953-4fef-a466-32c4b129d0f3" />
 
 ## Tech Stack
 
@@ -98,9 +113,9 @@ Place PDFs directly in `data\`. Defaults: chunk size 1000 characters, overlap 20
 python api.py
 ```
 
-- Chat: <http://localhost:5000>
-- Evaluation results: <http://localhost:5000/evals>
-- Health check: <http://localhost:5000/api/health>
+- Chat: <http://localhost:8000>
+- Evaluation results: <http://localhost:8000/evals>
+- Health check: <http://localhost:8000/api/health>
 
 Terminal chat with the same pipeline: `python scripts\chat.py` (type `exit` to quit).
 
@@ -250,7 +265,7 @@ Response:
 ## Troubleshooting
 
 - **`memory allocation ... failed` or the server exits silently while loading:** the models need about 5 GB of RAM. Close memory-heavy applications, or start without the reranker: set `RERANK_ENABLED=false` in `.env` (hybrid search still works).
-- **Connection refused:** check that `python api.py` is still running and open <http://localhost:5000/api/health>.
+- **Connection refused:** check that `python api.py` is still running and open <http://localhost:8000/api/health>.
 - **Collection not found:** run ingestion first; the app expects the ChromaDB collection `malayalam_docs`.
 - **Claude API errors or rate limits:** check `ANTHROPIC_API_KEY`. The SDK retries rate-limit (429), overloaded (529) and server errors automatically. If the model's safety filter declines a question, the API retries on a fallback model, and the app answers "This question could not be answered" if that also declines.
 

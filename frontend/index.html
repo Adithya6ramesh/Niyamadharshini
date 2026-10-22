@@ -996,7 +996,7 @@
         removeLoadingMessage();
         
         if (error.message.includes("Failed to fetch")) {
-          showError("❌ Cannot connect to API server. Make sure the server is running on http://localhost:5000");
+          showError("❌ Cannot connect to API server. Make sure the server (python api.py) is running.");
         } else {
           showError(`❌ ${error.message}`);
         }

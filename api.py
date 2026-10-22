@@ -336,7 +336,7 @@ def serve_data_files(filename):
 if __name__ == '__main__':
     # 127.0.0.1 = this computer only; set FLASK_HOST=0.0.0.0 (with APP_PASSWORD) to share on a network
     host = os.getenv("FLASK_HOST", "127.0.0.1").strip() or "127.0.0.1"
-    port = int(os.getenv("FLASK_PORT", "5000"))
+    port = int(os.getenv("FLASK_PORT", "8000"))
     # Debug mode exposes Werkzeug's interactive debugger; only enable it on a trusted machine.
     debug = os.getenv("FLASK_DEBUG", "false").strip().lower() in ("1", "true", "yes")
     if host not in ("127.0.0.1", "localhost", "::1") and not APP_PASSWORD:

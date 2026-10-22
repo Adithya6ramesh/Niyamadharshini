@@ -33,7 +33,11 @@ The prompt instructs Gemini to use only the retrieved context, explain the legal
 
 ## Architecture
 
-![Uploading mermaid-diagram (1).png…]()
+Three stages: document ingestion (unchanged), hybrid retrieval (semantic search + Malayalam-aware BM25, fused with RRF and reranked), and answer generation with Gemini. Dashed arrows are fallbacks: if BM25 fails, semantic results are used alone; if the reranker fails, it is bypassed. Details in [Retrieval](#retrieval).
+
+<p align="center">
+  <img src="docs/architecture.png" alt="Niyamadarshini architecture: document ingestion into ChromaDB, hybrid retrieval with semantic search, BM25 and RRF fusion, BGE reranking of the top 30 candidates, and Gemini answer generation with cited PDF pages" width="600" />
+</p>
 
 ## Tech Stack
 
@@ -69,6 +73,7 @@ eval/
   verify_collection.py     Fingerprints the ChromaDB collection (integrity check)
   results/                 Saved evaluation runs (shown at /evals)
 tests/                     Unit tests (no models or API keys needed)
+docs/architecture.png      Architecture diagram
 requirements.txt           App, retrieval, evaluation and tests
 requirements-ingest.txt    Extra packages for PDF ingestion
 ```

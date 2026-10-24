@@ -222,14 +222,8 @@ Each run is saved to `eval/results/<run>/` (`retrieval.json`, `answers.json`, `s
 
 ### Evaluation report
 
-The `docs/` folder is a self-contained static site: `index.html` (the report page) and `data.json` (the results, exported by `python eval/build_report_data.py`, which runs automatically after every evaluation). It needs no Python, models or API key. Three ways to view it:
+The `docs/` folder is a self-contained static site: `index.html` (the report page) and `data.json` (the results, exported by `python eval/build_report_data.py`, which runs automatically after every evaluation). It needs no Python, models or API key. Three ways to view it: [Evaluation](https://niyamadharshini-docs.vercel.app/)
 
-- **With the app:** <http://localhost:8000/evals>
-- **Without the app** (instant, no models loaded): `python eval\serve_report.py`, then <http://localhost/evals> (port 80; add `--port 8080` if 80 is taken)
-- **Deployed on its own:** any static host can serve the `docs/` folder.
-  - **Vercel:** import the repository, set **Root Directory** to `docs`, **Framework Preset** to **Other**, leave the build command empty, and deploy.
-  - **Netlify:** drag the `docs` folder onto <https://app.netlify.com/drop>.
-  - **GitHub Pages:** Settings → Pages → Deploy from a branch → `master`, folder `/docs`.
 
 The deployed report is a snapshot: commit and push after new evaluation runs to update it.
 

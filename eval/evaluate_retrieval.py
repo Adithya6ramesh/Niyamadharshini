@@ -310,6 +310,7 @@ def main():
         f.write(report + "\n")
     print(report)
     print(f"\n[eval] wrote {out_dir}")
+    rebuild_static_report()
 
 
 def run_sweeps(cfg, questions, answerable, collection, embed_model, retriever, page_of):
@@ -429,6 +430,17 @@ def generate_for_existing_run(args, run_dir):
         with open(md, "w", encoding="utf-8") as f:
             f.write(existing + "\n" + summary + "\n")
     print(summary)
+    rebuild_static_report()
+
+
+def rebuild_static_report():
+    """Refresh docs/data.json so the report page always matches eval/results."""
+    try:
+        from build_report_data import build  # sibling script in eval/
+        path, n_runs, size = build()
+        print(f"[eval] report data updated: {path} ({n_runs} runs, {size / 1024:.0f} KB)")
+    except Exception as e:  # never fail an evaluation because of the report
+        print(f"[eval] report data not updated ({type(e).__name__}: {e}); run eval/build_report_data.py")
 
 
 def write_review_sheet(out_dir, questions, results):

@@ -5,19 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Retrieval Evals · Niyamadharshini</title>
   <style>
+    /* Dark theme only */
     :root {
-      --bg: #ffffff; --text: #111111; --muted: #5f6368; --card: #f7f7f8; --border: #d9d9de;
-      --accent: #1f5fbf; --good: #1e7a3c; --good-bg: #e3f3e8; --ok: #6b5b00; --ok-bg: #fbf3cf;
-      --bad: #a3261c; --bad-bg: #fbe5e2; --row-hover: #f0f2f5;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #0b0b0c; --text: #ececee; --muted: #9a9aa3; --card: #151518; --border: #2c2c31;
-        --accent: #7fb0ff; --good: #7fd69b; --good-bg: #13301d; --ok: #e9d27a; --ok-bg: #332c0d;
-        --bad: #ff9c90; --bad-bg: #3a1714; --row-hover: #1b1b1f;
-      }
-    }
-    :root[data-theme="dark"] {
+      color-scheme: dark;
       --bg: #0b0b0c; --text: #ececee; --muted: #9a9aa3; --card: #151518; --border: #2c2c31;
       --accent: #7fb0ff; --good: #7fd69b; --good-bg: #13301d; --ok: #e9d27a; --ok-bg: #332c0d;
       --bad: #ff9c90; --bad-bg: #3a1714; --row-hover: #1b1b1f;
@@ -78,8 +68,7 @@
     <h1>Retrieval evaluation</h1>
     <label class="muted" for="run">Run</label>
     <select id="run"></select>
-    <button id="theme" title="Toggle theme">◐</button>
-    <a href="/">← Back to chat</a>
+    <a href="/" id="back-to-chat" hidden>← Back to chat</a>
   </header>
 
   <div class="note">
@@ -108,34 +97,38 @@ const hasMl = s => /[ഀ-ൿ]/.test(s || "");
 
 let state = { data: null, all: {}, category: "all", language: "all", open: new Set() };
 
-// ---------- theme ----------
-document.getElementById("theme").addEventListener("click", () => {
-  const root = document.documentElement;
-  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
-  try { localStorage.setItem("evals-theme", root.dataset.theme); } catch (e) {}
-});
-try { const t = localStorage.getItem("evals-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-
 // ---------- data ----------
+// docs/data.json is written by eval/build_report_data.py after every evaluation run.
+async function loadData() {
+  const res = await fetch("data.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error(`data.json not found (HTTP ${res.status}). Build it with: python eval/build_report_data.py`);
+  return res.json();
+}
+
 async function init() {
-  const res = await fetch("/api/evals");
-  const { runs } = await res.json();
+  // "Back to chat" only makes sense when the page is served by the chat app itself
+  fetch("/api/health").then(r => { if (r.ok) document.getElementById("back-to-chat").hidden = false; }).catch(() => {});
+
+  const data = await loadData();
+  if (data.generated_at) {
+    document.querySelector(".note").insertAdjacentHTML("beforeend",
+      ` <br>Results snapshot generated ${esc(new Date(data.generated_at).toLocaleString())}.`);
+  }
+  const runs = data.runs || [];
   const sel = document.getElementById("run");
   if (!runs.length) {
     document.getElementById("content").innerHTML =
-      `<div class="empty">No evaluation runs yet. Run <code>python eval\\evaluate_retrieval.py</code> to create one.</div>`;
+      `<div class="empty">No evaluation runs yet. Run <code>python eval/evaluate_retrieval.py</code> to create one.</div>`;
     return;
   }
-  // Load every run once: the comparison table needs all of them
-  const loaded = await Promise.all(runs.map(r => fetch(`/api/evals/${encodeURIComponent(r.name)}`)
-    .then(res => res.ok ? res.json() : null).catch(() => null)));
-  runs.forEach((r, i) => { if (loaded[i]) state.all[r.name] = loaded[i]; });
+  for (const r of runs) {
+    state.all[r.name] = { name: r.name, retrieval: r.retrieval, answers: r.answers, golden: data.golden };
+  }
 
   // Default to the run matching the app's current default reranker settings, else the newest
-  const current = runs.find(r => isCurrentDefault(state.all[r.name]?.retrieval?.config));
+  const current = runs.find(r => isCurrentDefault(r.retrieval?.config));
   const first = (current || runs[0]).name;
-  sel.innerHTML = runs.map(r => `<option value="${esc(r.name)}" ${r.name === first ? "selected" : ""}>${esc(r.name)} · ${new Date(r.modified * 1000).toLocaleString()}${r.has_answers ? " · answers" : ""}</option>`).join("");
+  sel.innerHTML = runs.map(r => `<option value="${esc(r.name)}" ${r.name === first ? "selected" : ""}>${esc(r.name)} · ${new Date(r.modified * 1000).toLocaleString()}${r.answers ? " · answers" : ""}</option>`).join("");
   sel.addEventListener("change", () => load(sel.value));
   load(first);
 }
@@ -309,7 +302,7 @@ function render() {
       are reviewed manually in <code>manual_review.csv</code>; the same production prompt, model and top-10 context budget are used for every config.</p>`;
   } else {
     html += `<h2>Generated answers</h2><p class="muted">Not generated for this run yet. Run
-      <code>python eval\\evaluate_retrieval.py --generate-only eval\\results\\${esc(state.data.name)}</code></p>`;
+      <code>python eval/evaluate_retrieval.py --generate-only eval/results/${esc(state.data.name)}</code></p>`;
   }
 
   // latency table

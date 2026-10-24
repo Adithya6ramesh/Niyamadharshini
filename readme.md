@@ -60,7 +60,6 @@ retrieval/                 Hybrid retrieval layer
   hybrid.py                Dense + BM25 -> RRF -> rerank orchestration
 frontend/
   index.html               Chat interface
-  evals.html               Evaluation results viewer (/evals)
 scripts/
   ingest_pdfs.py           PDF ingestion pipeline (extract -> clean -> chunk -> embed -> store)
   ocr_extract.py, clean_text.py, chunk_text.py, embed_store.py
@@ -71,9 +70,14 @@ eval/
   build_golden_set.py      Resolves evidence passages to gold chunk IDs
   evaluate_retrieval.py    A/B/C retrieval evaluation + answer generation
   verify_collection.py     Fingerprints the ChromaDB collection (integrity check)
+  build_report_data.py     Exports results to docs/data.json for the report page
+  serve_report.py          Serves the report at http://localhost/evals
   results/                 Saved evaluation runs (shown at /evals)
 tests/                     Unit tests (no models or API keys needed)
-docs/architecture.png      Architecture diagram
+docs/                      Evaluation report: a static site, deployable on its own
+  index.html               Report page (also served by the app at /evals)
+  data.json                Results data (generated)
+  architecture.png         Architecture diagram
 requirements.txt           App, retrieval, evaluation and tests
 requirements-ingest.txt    Extra packages for PDF ingestion
 ```
@@ -211,7 +215,20 @@ python eval\build_golden_set.py                       # verify gold labels still
 python eval\verify_collection.py --save baseline.json # fingerprint ChromaDB; --compare baseline.json later
 ```
 
-Each run is saved to `eval/results/<run>/` (`retrieval.json`, `answers.json`, `summary.md`, and `manual_review.csv` for scoring answers by hand) and appears at `/evals` with a cross-run comparison, per-question results, and the generated answers.
+Each run is saved to `eval/results/<run>/` (`retrieval.json`, `answers.json`, `summary.md`, and `manual_review.csv` for scoring answers by hand). The report page shows every run with a cross-run comparison, per-question results, and the generated answers.
+
+### Evaluation report
+
+The `docs/` folder is a self-contained static site: `index.html` (the report page) and `data.json` (the results, exported by `python eval/build_report_data.py`, which runs automatically after every evaluation). It needs no Python, models or API key. Three ways to view it:
+
+- **With the app:** <http://localhost:8000/evals>
+- **Without the app** (instant, no models loaded): `python eval\serve_report.py`, then <http://localhost/evals> (port 80; add `--port 8080` if 80 is taken)
+- **Deployed on its own:** any static host can serve the `docs/` folder.
+  - **Vercel:** import the repository, set **Root Directory** to `docs`, **Framework Preset** to **Other**, leave the build command empty, and deploy.
+  - **Netlify:** drag the `docs` folder onto <https://app.netlify.com/drop>.
+  - **GitHub Pages:** Settings → Pages → Deploy from a branch → `master`, folder `/docs`.
+
+The deployed report is a snapshot: commit and push after new evaluation runs to update it.
 
 ## Tests
 

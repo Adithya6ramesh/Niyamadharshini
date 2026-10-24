@@ -4,6 +4,8 @@
 By combining **Retrieval-Augmented Generation (RAG)**, **multilingual embeddings**, and **hybrid retrieval**, the system transforms complex legislative PDFs (Kerala Government Gazettes, orders, rules and notifications) into a conversational knowledge platform.
 
 > This is an information-retrieval assistant, not a substitute for professional legal advice.
+Loom Demo: [Demo](https://www.loom.com/share/e55a2011a8014b719871107eb803938d)
+Evals: [niyamadharshini-evals](https://niyamadharshini-docs.vercel.app/)
 
 ## Solution Overview
 
